@@ -28,8 +28,8 @@
 .hero-legend{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:26px;font-size:11.5px;font-weight:600;color:var(--ink-inv-faint)}
 .hero-legend span{width:8px;height:8px;border-radius:50%;flex:none}
 .hero-legend span:not(:first-child){margin-left:9px}
-.hl-hub{background:#00d6a4;box-shadow:0 0 8px #00d6a4}
-.hl-pt{background:#a3e635}
+.hl-hub{background:#00d6a4}
+.hl-pt{background:#ffd23f}
 .hl-s{background:#1b3352;border:1px solid rgba(0,214,164,.5);box-shadow:none}
 @media(prefers-reduced-motion:reduce){.h-comet,.h-hub .h-ring{animation:none}.h-comet{opacity:.5;stroke-dasharray:none!important}}
 
@@ -87,6 +87,7 @@
 .eco2-base{fill:none;stroke:rgba(246,243,255,.3);stroke-width:1.4}
 .eco2-orbit{fill:none;stroke:rgba(246,243,255,.17);stroke-width:1.1;stroke-dasharray:2 8}
 .eco2-flow{fill:none;stroke-width:2.6;stroke-linecap:round;opacity:.9}
+.eco2-flow.ring{stroke-width:1.8;opacity:.6}
 @keyframes ecoflow{from{stroke-dashoffset:var(--eL)}to{stroke-dashoffset:0}}
 .eco2-flow.lit{stroke-width:3.4}
 .eco2-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(210px,.92fr) minmax(0,1fr);column-gap:clamp(34px,4.8vw,84px);row-gap:clamp(60px,8vw,116px);align-items:center;justify-items:center}
@@ -99,7 +100,7 @@
 .eco2-card.ek{--ec:#00d6a4}.eco2-card.et{--ec:#19a7ff}.eco2-card.ee{--ec:#ffd23f}.eco2-card.ep{--ec:#a3e635}
 .eco2-core{position:relative;width:clamp(140px,15vw,178px);aspect-ratio:1;border-radius:50%;display:grid;place-content:center;text-align:center;background:radial-gradient(circle at 50% 38%,rgba(0,214,164,.24),rgba(7,6,15,.9) 68%);border:1px solid rgba(0,214,164,.42);box-shadow:0 0 60px -12px rgba(0,214,164,.5),inset 0 0 40px -14px rgba(0,214,164,.6)}
 .eco2-core b{display:block;font-family:var(--font-display);font-size:clamp(26px,2.7vw,34px);font-weight:800;letter-spacing:.01em;color:#fff;line-height:1}
-.eco2-core em{display:block;font-style:normal;font-family:var(--font-ui);font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--c2);margin-top:7px}
+.eco2-core em{display:block;font-style:normal;font-family:var(--font-ui);font-size:8.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--c2);margin:7px auto 0;max-width:13ch;line-height:1.5}
 .eco2-ring{position:absolute;inset:-13px;border-radius:50%;border:1px dashed rgba(0,214,164,.4);animation:ecospin 26s linear infinite}
 .eco2-ring.r2{inset:-26px;border-style:solid;border-color:rgba(25,167,255,.16);animation-duration:40s;animation-direction:reverse}
 @keyframes ecospin{to{transform:rotate(360deg)}}
@@ -294,4 +295,34 @@
 
 .hero-home h1 em{font-style:normal;font-weight:300;opacity:.45;padding:0 .06em;-webkit-text-fill-color:#3ae0c0;color:#3ae0c0}
 .hero-h1{text-wrap:balance}
-.hero-home.hero-cinema.has-figure .hero-h1{max-width:13ch;font-size:clamp(32px,3.6vw,54px);line-height:1.05}
+.hero-home.hero-cinema.has-figure .hero-h1{max-width:20ch;font-size:clamp(30px,3.3vw,50px);line-height:1.07}
+
+.eco-lede{color:var(--ink-inv-soft);font-size:clamp(15px,1.35vw,17.5px);line-height:1.62;text-wrap:pretty}
+.night .eco-lede,.eco-lede{color:var(--ink-inv-soft)}
+
+/* status chip on editorial cards */
+.ed-status{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-ui);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(246,243,255,.9);background:rgba(7,6,15,.6);border:1px solid rgba(246,243,255,.22);padding:4px 10px;border-radius:100px;margin-left:9px;vertical-align:middle}
+.ed-status i{width:7px;height:7px;border-radius:50%;flex:none}
+.ed-status i.act{background:#00d6a4;box-shadow:0 0 7px #00d6a4}
+.ed-status i.dev{background:#19a7ff}
+.ed-status i.plan{background:#ffd23f}
+.hl-hq{background:#a3e635;box-shadow:0 0 8px #a3e635}
+
+/* Get Involved — prioritised pathway chooser */
+.path-lead{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,1.8vw,22px)}
+.path-more{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.5vw,18px);margin-top:clamp(12px,1.5vw,18px)}
+@media(max-width:860px){.path-lead,.path-more{grid-template-columns:1fr}}
+.path-card{display:flex;flex-direction:column;gap:7px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;transition:transform .25s var(--ease),box-shadow .25s,border-color .25s}
+.path-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#cfcaba}
+.path-card h3{font-family:var(--font-display);font-weight:700;font-size:18px;letter-spacing:-.015em;color:var(--ink)}
+.path-card p{font-size:13.5px;color:var(--ink-faint);text-wrap:pretty}
+.path-card .link-arrow{margin-top:auto;padding-top:10px;color:var(--teal-ink)}
+.path-card.primary{padding:clamp(24px,2.8vw,34px);border-color:var(--c1);box-shadow:0 0 0 3px rgba(0,214,164,.1)}
+.path-card.primary h3{font-size:clamp(21px,2.1vw,27px)}
+.path-card.primary p{font-size:14.5px;color:var(--ink-soft)}
+.path-card.primary:hover{border-color:var(--teal-ink);box-shadow:0 0 0 3px rgba(0,214,164,.16),var(--shadow)}
+.pc-kick{font-family:var(--font-ui);font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--teal-ink)}
+
+/* Membership: sub-block inside Join GPS, deliberately lighter than a pathway heading */
+.join-sub{grid-column:1/-1;margin-top:clamp(30px,4vw,46px);padding-top:clamp(24px,3vw,34px);border-top:1px solid var(--line)}
+.join-sub .sub-h{font-family:var(--font-display);font-weight:700;font-size:clamp(19px,1.8vw,23px);letter-spacing:-.015em;color:var(--ink);margin-bottom:8px}
