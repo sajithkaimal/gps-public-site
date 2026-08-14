@@ -10,9 +10,9 @@ window.GPS_HUBS=[
  {id:'accra',name:'Accra',country:'Ghana',region:'West Africa (Anglophone)',role:'Regional Hub',status:'hub',lon:-0.187,lat:5.6037,blurb:'Anglophone West Africa — enterprise, innovation, and diaspora engagement.'},
  {id:'saopaulo',name:'São Paulo',country:'Brazil',region:'Latin America',role:'Regional Hub',status:'hub',lon:-46.6333,lat:-23.5505,blurb:'Latin America — university cooperation with GCUB and the 2028 convening.'},
  {id:'martinique',name:'Martinique',country:'France (Caribbean)',region:'The Caribbean',role:'Regional Hub',status:'hub',lon:-61.0742,lat:14.6104,blurb:'Caribbean node — linking island universities, culture, and climate resilience.'},
- {id:'caribbean',name:'Caribbean',country:'Location in consultation',region:'The Wider Caribbean',role:'Planned Hub',status:'plan',lon:-77.5,lat:20.6,blurb:'Planned — extending Caribbean presence beyond the Martinique hub, in consultation with island universities and regional bodies.'},
- {id:'mena',name:'Middle East',country:'Location in consultation',region:'MENA',role:'Planned Hub',status:'plan',lon:35.93,lat:31.95,blurb:'Planned — consultations underway with regional partners.'},
- {id:'asia',name:'South & SE Asia',country:'Location in consultation',region:'Asia-Pacific',role:'Planned Hub',status:'plan',lon:101.69,lat:3.14,blurb:'Planned — exploratory partnerships across South and Southeast Asia.'}
+ {id:'caribbean',name:'Caribbean',country:'Location in consultation',region:'The Wider Caribbean',role:'Under Consultation',status:'plan',lon:-77.5,lat:20.6,blurb:'Planned — extending Caribbean presence beyond the Martinique hub, in consultation with island universities and regional bodies.'},
+ {id:'mena',name:'Middle East',country:'Location in consultation',region:'MENA',role:'Under Consultation',status:'plan',lon:35.93,lat:31.95,blurb:'Planned — consultations underway with regional partners.'},
+ {id:'asia',name:'South & SE Asia',country:'Location in consultation',region:'Asia-Pacific',role:'Under Consultation',status:'plan',lon:101.69,lat:3.14,blurb:'Planned — exploratory partnerships across South and Southeast Asia.'}
 ];
 function ready(fn){if(document.readyState!=='loading')fn();else document.addEventListener('DOMContentLoaded',fn);}
 ready(function(){
@@ -83,8 +83,8 @@ function drawHero(stage,world){
     hubs.forEach(function(h){
       var xy=proj([h.lon,h.lat]);if(!xy)return;
       var g=hg.append('g').attr('class','h-hub'+(h.status==='plan'?' plan':'')).attr('transform','translate('+xy[0]+','+xy[1]+')');
-      g.append('circle').attr('class','h-ring').attr('r',6).style('animation-delay',(Math.random()*3).toFixed(2)+'s');
-      g.append('circle').attr('class','h-node').attr('r',h.status==='hq'?5.5:4);
+      g.append('circle').attr('class','h-ring').attr('r',6).attr('stroke',h.status==='hq'?'#a3e635':null).style('animation-delay',(Math.random()*3).toFixed(2)+'s');
+      g.append('circle').attr('class','h-node').attr('r',h.status==='hq'?5.5:4).attr('fill',h.status==='hq'?'#a3e635':null);
     });
     var placed=[];
     labs.forEach(function(l){
@@ -242,10 +242,10 @@ function draw(stage,world){
     pin.append('circle').attr('class','pulse').attr('r',5);
     pin.append('circle').attr('class','c').attr('r',h.status==='hq'?6:4.5).attr('stroke-dasharray',h.status==='plan'?'2 2':null);
     var anchor=(xy[0]>W-120)?'end':'start';
-    pin.append('text').attr('x',anchor==='end'?-10:10).attr('y',4).attr('text-anchor',anchor).text(h.name+(h.status==='hq'?' · HQ':h.status==='plan'?' · planned':''));
+    pin.append('text').attr('x',anchor==='end'?-10:10).attr('y',4).attr('text-anchor',anchor).text(h.name+(h.status==='hq'?' · HQ':h.status==='plan'?' · under consultation':''));
     pin.on('mouseenter',function(){if(panel){fillPanel(h);panel.classList.add('live');}else showTip(h,xy[0],xy[1]);})
        .on('mouseleave',function(){if(panel)panel.classList.remove('live');else tip.classList.remove('show');})
-       .on('click',function(){var card=document.getElementById('hub-'+h.id);if(card){window.scrollTo({top:card.getBoundingClientRect().top+window.scrollY-110,behavior:'auto'});card.style.boxShadow='0 0 0 3px rgba(0,214,164,.45)';setTimeout(function(){card.style.boxShadow='';},1600);}});
+       .on('click',function(){var card=document.getElementById('hub-'+h.id);if(card){window.scrollTo({top:card.getBoundingClientRect().top+window.scrollY-110,behavior:'smooth'});card.style.boxShadow='0 0 0 3px rgba(0,214,164,.45)';setTimeout(function(){card.style.boxShadow='';},1600);}});
   });
   if(panel)fillPanel(hq);
   stage.classList.add('ready');

@@ -80,7 +80,7 @@ d.querySelectorAll('[data-filter-scope]').forEach(function(scope){
   function fromHash(){
     var h=location.hash.slice(1);if(!h)return;
     var c=scope.querySelector('.fchip[data-hash="'+h+'"]');
-    if(c){c.click();var t=scope.closest('section')||scope;setTimeout(function(){var r=t.getBoundingClientRect();window.scrollTo({top:r.top+window.scrollY-120,behavior:'auto'});},60);}
+    if(c){c.click();var t=scope.closest('section')||scope;setTimeout(function(){var r=t.getBoundingClientRect();window.scrollTo({top:r.top+window.scrollY-120,behavior:'smooth'});},60);}
   }
   window.addEventListener('hashchange',fromHash);fromHash();
   apply();
@@ -122,7 +122,7 @@ if(calEl){
 /* ---------- ecosystem diagram: connectors measured from live layout ---------- */
 d.querySelectorAll('[data-eco2]').forEach(function(root){
   var svg=root.querySelector('.eco2-net');if(!svg)return;
-  var PAIRS=[['core','k'],['core','t'],['core','p'],['core','e'],['e','impact']];
+  var PAIRS=[['core','k'],['core','t'],['core','p'],['core','e'],['k','t'],['t','e'],['e','p'],['p','k'],['e','impact']];
   function box(id){var el=root.querySelector('[data-eco-node="'+id+'"]');if(!el)return null;
     var b=el.getBoundingClientRect(),r=root.getBoundingClientRect();
     return{x:b.left-r.left+b.width/2,y:b.top-r.top+b.height/2,w:b.width,h:b.height,round:id==='core'};}
@@ -144,13 +144,13 @@ d.querySelectorAll('[data-eco2]').forEach(function(root){
       var A=box(pr[0]),B=box(pr[1]);if(!A||!B)return;
       var p1=edge(A,B),p2=edge(B,A);
       var mx=(p1.x+p2.x)/2,my=(p1.y+p2.y)/2;
-      var bow=0;
+      var bow=(pr[0]==='core'||pr[1]==='core'||pr[1]==='impact')?0:.17;
       var q=(mx-(p2.y-p1.y)*bow)+','+(my+(p2.x-p1.x)*bow);
       var dd='M'+p1.x.toFixed(1)+','+p1.y.toFixed(1)+' Q'+q+' '+p2.x.toFixed(1)+','+p2.y.toFixed(1);
       ds.push({d:dd,k:pr[0]+'-'+pr[1]});
       out+='<path class="eco2-base" d="'+dd+'"></path>';
     });
-    ds.forEach(function(o){out+='<path class="eco2-flow" data-f="'+o.k+'" d="'+o.d+'" stroke="url(#ecoG)"></path>';});
+    ds.forEach(function(o){var isRing=o.k.indexOf('core')<0&&o.k.indexOf('impact')<0;out+='<path class="eco2-flow'+(isRing?' ring':'')+'" data-f="'+o.k+'" d="'+o.d+'" stroke="url(#ecoG)"></path>';});
     svg.innerHTML=out;
     svg.querySelectorAll('.eco2-flow').forEach(function(p,i){
       var L=p.getTotalLength();

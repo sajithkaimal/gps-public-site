@@ -12,8 +12,9 @@
 --shadow-lg:0 2px 6px rgba(18,16,28,.06),0 24px 60px -20px rgba(18,16,28,.22);
 --ease:cubic-bezier(.2,.8,.2,1)}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+html,body{scroll-behavior:smooth}
+html{scroll-padding-top:96px}
+@media(prefers-reduced-motion:reduce){html,body{scroll-behavior:auto}}
 body{background:var(--paper);color:var(--ink);font-family:var(--font-ui);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 ::selection{background:var(--c1);color:#07231c}
 a{color:var(--teal-ink);text-decoration:none}

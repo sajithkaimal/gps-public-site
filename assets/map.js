@@ -245,7 +245,7 @@ function draw(stage,world){
     pin.append('text').attr('x',anchor==='end'?-10:10).attr('y',4).attr('text-anchor',anchor).text(h.name+(h.status==='hq'?' · HQ':h.status==='plan'?' · under consultation':''));
     pin.on('mouseenter',function(){if(panel){fillPanel(h);panel.classList.add('live');}else showTip(h,xy[0],xy[1]);})
        .on('mouseleave',function(){if(panel)panel.classList.remove('live');else tip.classList.remove('show');})
-       .on('click',function(){var card=document.getElementById('hub-'+h.id);if(card){window.scrollTo({top:card.getBoundingClientRect().top+window.scrollY-110,behavior:'auto'});card.style.boxShadow='0 0 0 3px rgba(0,214,164,.45)';setTimeout(function(){card.style.boxShadow='';},1600);}});
+       .on('click',function(){var card=document.getElementById('hub-'+h.id);if(card){window.scrollTo({top:card.getBoundingClientRect().top+window.scrollY-110,behavior:'smooth'});card.style.boxShadow='0 0 0 3px rgba(0,214,164,.45)';setTimeout(function(){card.style.boxShadow='';},1600);}});
   });
   if(panel)fillPanel(hq);
   stage.classList.add('ready');

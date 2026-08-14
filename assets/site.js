@@ -80,7 +80,7 @@ d.querySelectorAll('[data-filter-scope]').forEach(function(scope){
   function fromHash(){
     var h=location.hash.slice(1);if(!h)return;
     var c=scope.querySelector('.fchip[data-hash="'+h+'"]');
-    if(c){c.click();var t=scope.closest('section')||scope;setTimeout(function(){var r=t.getBoundingClientRect();window.scrollTo({top:r.top+window.scrollY-120,behavior:'auto'});},60);}
+    if(c){c.click();var t=scope.closest('section')||scope;setTimeout(function(){var r=t.getBoundingClientRect();window.scrollTo({top:r.top+window.scrollY-120,behavior:'smooth'});},60);}
   }
   window.addEventListener('hashchange',fromHash);fromHash();
   apply();
