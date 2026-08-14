@@ -1,0 +1,91 @@
+GPS - Initial CTO Thoughts
+Initial assessment memo | Prepared from source documents ingested on 2026-06-04
+Context
+This memo captures initial CTO observations from the four source documents ingested on 2026-06-04:
+1.  GPS Foundations (GPS_PROJECT_MAI_28)
+2.  Five-Year Strategic Roadmap (2026-2031)
+3.  Kigali Knowledge Crossroads Week Concept Note (Oct 2027)
+4.  Founders' intro email to Sajith (June 1, 2026)
+Assessment
+What's Clear and Strong
+Vision is well-articulated. GPS has a clear operating philosophy (KPI: Knowledge -> Policy -> Impact) and a detailed five-year roadmap with yearly milestones. The thematic depth is impressive - epistemic pluralism, indigenous knowledge, and South-South cooperation are not buzzwords here; they are woven into the program architecture.
+Governance structure is designed thoughtfully. A small Board + International Advisory Board + Regional Hubs + Division Chiefs model is appropriate for a transnational platform at this stage.
+Kigali 2027 is the critical milestone. Everything in 2026 feeds into this event. It is the organization's proof-of-concept moment - 400-500 participants from five continents, tied to GCUB. If this lands well, credibility compounds. If it does not, the platform struggles to gain traction.
+Adu O.B. brings complementary expertise. His focus on data analytics, impact measurement, and policy engagement pairs well with the CTO's digital/product mandate. The Sajith-Adu duo could be a powerful operating core.
+What Needs Attention Now
+1.  Legal entity and fiscal structure do not exist yet. The roadmap says legal structures are a Year 1 activity, but this is a blocker for hiring, bank accounts, contracts, and grant applications. No tech work matters if GPS cannot legally receive funds or employ people.
+2.  The tech vision is aspirational, not operational. GPS Digital Launch, GPS Digital Knowledge Ecosystem, Global South Data & Foresight Platform, and GPS Academy are mentioned, but no architecture, stack, or budget is defined. The CTO needs to move from 'we will build digital tools' to 'here is what we are building first, how, and what it costs.'
+3.  The Advisory Board is not yet committed. Many IAB members are under discussion, TBC, or contact under discussion via a named person. This is normal for a pre-launch organization, but it means GPS's credibility anchor is still forming. The CTO should not depend on IAB input for initial tech decisions.
+4.  Resource mobilization has no numbers. The roadmap mentions fundraising strategy, donor engagement framework, and endowment vision, but no targets, timelines, or pipelines. Without revenue assumptions, tech hiring and infrastructure planning is guesswork.
+5.  The missing-middle problem is real, and GPS is solving it - but the solution is expensive. Bridging research and policy requires sustained engagement, not one-off events. The Innovation Labs, Policy Advisory Programs, and Community-Based Implementation initiatives all need ongoing staffing and funding, not just conference budgets.
+Critical Risks
+Risk
+Impact
+Probability
+Notes
+Kigali 2027 underdelivers
+High
+Medium
+Everything depends on this. Needs a dedicated event ops plan by Q3 2026.
+No legal entity by Q4 2026
+High
+Medium
+Blocks hiring, banking, contracts. Must resolve in 2026.
+Tech build outruns budget
+High
+High
+Digital platforms and AI tools are expensive. Need a phased, funded plan.
+IAB members remain uncommitted
+Medium
+Medium
+Reduces credibility with university partners and donors.
+Over-scoping across 6 domains
+Medium
+High
+Divides focus and resources. CTO should push for a narrow first wave of initiatives.
+Recommendations
+1.  Scope tech work to 2026 priorities only. Year 1 activities are: digital launch (website + identity + social media), GPS Dialogues Series (virtual conversations), and Kigali 2027 prep. Everything else - GPS Academy, Accelerator, Data Platform, Impact Observatory - is Year 2+. Push those back.
+2.  Build a minimal viable platform for GPS Digital Launch. A clean website, social media presence, and a simple knowledge-sharing portal are enough for the first step. Do not build a complex ecosystem before there is content and funding.
+3.  Propose a phased tech plan to the Board. Use Phase 1 for the website, social media, Kigali 2027 event landing page, newsletter, and blog. Use Phase 2 for GPS Academy, GPS Outlook, and GPS Journal. Use Phase 3 for the Accelerator portal, Data & Foresight Platform, and Impact Observatory.
+4.  Clarify the CTO scope. The intro email suggests a technology leadership role with product strategy, digital platforms, and market development. But the org documents list Technology & Innovation as one of six domains. Confirm whether the CTO leads only that domain or has organization-wide authority over technology, product, data, and platform decisions.
+5.  Push for a governance and budget document. Before committing to any tech roadmap, GPS needs legal entity details, 2026 budget, confirmed team headcount, and Board approval authority for tech spending.
+Suggested Tech Phasing
+Phase
+Timing
+Focus
+Phase 1
+2026
+Website, social media, event landing page for Kigali 2027, simple newsletter/blog.
+Phase 2
+2027
+GPS Academy platform, GPS Outlook digital publication, GPS Journal submission system.
+Phase 3
+2028+
+Accelerator portal, Data & Foresight Platform, Impact Observatory.
+Open Questions
+Who is the primary decision-maker for tech investments? Jean-Pierre? Sajith? Or the Board?
+What is the 2026 operating budget?
+Is Sajith confirmed as CTO, or is this an exploratory engagement?
+What is the expected time commitment for the CTO role?
+Does GPS have any existing digital infrastructure, even basic?
+What is the preferred tech stack, or are there any existing vendor relationships?
+How will indigenous knowledge be protected within any digital platform? Data sovereignty is a real concern.
+Decision
+Pending. No decisions made yet. This is an initial assessment. A follow-up memo with a formal 2026 tech plan and budget proposal should follow after CTO scope clarification and budget disclosure.
+Approval or Escalation
+If scope or budget questions cannot be answered within 2 weeks, escalate to the Board.
+If CTO engagement is not confirmed by Sajith within 2 weeks, pause tech planning work.
+Follow-Ups
+Status
+Follow-up
+Owner / Notes
+Open
+Request governance and budget documents from Jean-Pierre / Sajith
+Open
+Clarify CTO scope: single domain vs. organization-wide
+Open
+Confirm Sajith's engagement status
+Open
+Build Phase 1 tech plan for 2026
+Open
+Identify Kigali 2027 event tech requirements

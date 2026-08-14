@@ -1,0 +1,21 @@
+/* Crescendo webfonts
+ * Unbounded — variable display family used for hero / display headlines (heavy, uppercase).
+ * Sora — variable text family used for section headings, body copy, labels.
+ * Both are variable fonts (weight axis); declare the full axis range so any weight resolves.
+ */
+
+@font-face {
+  font-family: "Unbounded";
+  src: url("../assets/fonts/Unbounded-Variable.ttf") format("truetype");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sora";
+  src: url("../assets/fonts/Sora-Variable.ttf") format("truetype");
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}

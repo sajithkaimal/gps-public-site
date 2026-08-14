@@ -1,0 +1,47 @@
+/* Crescendo — Typography tokens
+ * Display/Hero: Unbounded, heavy weight, UPPERCASE, tight tracking, high impact.
+ * Headings & body: Sora.
+ * Labels/captions: Sora, all caps, 0.08em tracking, medium gray.
+ */
+
+:root {
+  /* ----- Families ----- */
+  --font-display: "Unbounded", "Arial Black", system-ui, sans-serif; /* hero / display headlines */
+  --font-sans: "Sora", system-ui, -apple-system, "Segoe UI", sans-serif; /* headings, body, labels */
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace; /* code, data, technical */
+
+  /* ----- Weights ----- */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-display: 800;   /* Unbounded hero weight — maximum impact */
+
+  /* ----- Type scale (px) ----- */
+  --text-display-2xl: 88px; /* full-bleed hero on slides */
+  --text-display-xl: 64px;  /* one-pager hero headline */
+  --text-display-lg: 48px;  /* large display */
+  --text-display-md: 36px;  /* small display / large section header */
+
+  --text-heading-lg: 28px;  /* section heading */
+  --text-heading-md: 22px;  /* sub-section heading */
+  --text-heading-sm: 18px;  /* card heading */
+
+  --text-body-lg: 18px;     /* lead paragraph */
+  --text-body-md: 16px;     /* default body */
+  --text-body-sm: 14px;     /* dense body, table cells */
+  --text-caption: 13px;     /* captions */
+  --text-label: 12px;       /* all-caps labels / vertical tags */
+
+  /* ----- Line heights ----- */
+  --leading-display: 0.98;  /* tight, stacked display lines */
+  --leading-heading: 1.12;
+  --leading-body: 1.55;     /* body copy 1.5–1.6 */
+  --leading-snug: 1.3;
+
+  /* ----- Letter spacing ----- */
+  --tracking-display: -0.02em; /* tight on large uppercase display */
+  --tracking-heading: -0.005em;
+  --tracking-body: 0;
+  --tracking-label: 0.08em;    /* all-caps labels / tags */
+}

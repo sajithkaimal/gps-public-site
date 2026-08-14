@@ -1,0 +1,30 @@
+# GPS — gpsouth.org
+Options -Indexes
+DirectoryIndex index.html
+AddType video/webm .webm
+
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml
+</IfModule>
+
+# HTML must never be cached: it carries the ?v= stamps that point at the
+# current CSS/JS. A cached page + fresh assets (or the reverse) breaks layout.
+<IfModule mod_headers.c>
+<FilesMatch "\.html$">
+Header set Cache-Control "no-cache, must-revalidate, max-age=0"
+Header unset Expires
+</FilesMatch>
+</IfModule>
+
+<IfModule mod_expires.c>
+ExpiresActive On
+# Safe to cache hard: every reference is version-stamped, so a change to a
+# file changes its URL and bypasses the cache entirely.
+ExpiresByType text/css "access plus 1 year"
+ExpiresByType application/javascript "access plus 1 year"
+ExpiresByType video/webm "access plus 1 year"
+ExpiresByType image/png "access plus 1 year"
+ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+ErrorDocument 404 /index.html
