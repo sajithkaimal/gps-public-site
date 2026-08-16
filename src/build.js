@@ -61,9 +61,20 @@ const FOOTER = '<footer class="site"><div class="ft-in"><div class="ft-grid">'+
 '<div><h5>Network</h5><ul><li><a href="about-regional-hubs.html">Regional Coordination</a></li><li><a href="network-partners.html">Partners</a></li><li><a href="network-diaspora.html">Diaspora Network</a></li><li><a href="network-institutions.html">Partner Institutions</a></li></ul></div>'+
 '<div><h5>Get Involved</h5><ul><li><a href="get-involved.html#partner">Partner with GPS</a></li><li><a href="get-involved.html#join">Join GPS</a></li><li><a href="get-involved.html#collaborate">Collaborate</a></li><li><a href="get-involved.html#contribute">Contribute Knowledge</a></li><li><a href="get-involved-opportunities.html">Opportunities</a></li><li><a href="donate.html">Donate</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="search.html">Search the site</a></li><li><a href="mailto:info@gpsouth.org">info@gpsouth.org</a></li></ul></div>'+
 '</div><div class="ft-legal"><span>© <span data-year>2026</span> Global Platform for the South · Headquartered in Kigali, Rwanda</span><span>Knowledge · Policy · Impact</span></div></div></footer>';
+const SITE = 'https://gpsouth.org';
+function canonUrl(f){
+  return f==='index.html' ? SITE+'/' : SITE+'/'+f;
+}
+function seoTags(f, title, desc){
+  const url = canonUrl(f);
+  const d = desc.replace(/"/g,'&quot;');
+  const t = title.replace(/"/g,'&quot;');
+  return '<link rel="canonical" href="'+url+'">\n<meta name="robots" content="index,follow">\n<meta property="og:type" content="website">\n<meta property="og:site_name" content="Global Platform for the South">\n<meta property="og:locale" content="en_US">\n<meta property="og:title" content="'+t+'">\n<meta property="og:description" content="'+d+'">\n<meta property="og:url" content="'+url+'">\n<meta property="og:image" content="'+SITE+'/assets/hero-poster.png">\n<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:title" content="'+t+'">\n<meta name="twitter:description" content="'+d+'">';
+}
 const SEARCH_D = '<form class="hd-search" role="search" action="search.html" method="get"><label for="q-d" class="vh">Search this site</label><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><input id="q-d" type="search" name="q" placeholder="Search" autocomplete="off"></form>';
 const SEARCH_M = '<li class="m-search"><form class="hd-search" role="search" action="search.html" method="get"><label for="q-m" class="vh">Search this site</label><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><input id="q-m" type="search" name="q" placeholder="Search the site" autocomplete="off"></form></li>';
 const THUMB = '<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#07060f"/><circle cx="50" cy="50" r="20" fill="none" stroke="#00d6a4" stroke-width="4"/><circle cx="50" cy="50" r="6" fill="#a3e635"/></svg></template>';
+const ICONS = '<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">\n<link rel="icon" href="assets/favicon.png" sizes="32x32" type="image/png">\n<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">\n<meta name="theme-color" content="#07060f">';
 const FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@1,6..72,300;1,6..72,400;1,6..72,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">';
 const D3 = '<script src="https://unpkg.com/d3@7.9.0/dist/d3.min.js" integrity="sha384-CjloA8y00+1SDAUkjs099PVfnY2KmDC2BZnws9kh8D/lX1s46w6EPhpXdqMfjK6i" crossorigin="anonymous"><\/script><script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js" integrity="sha384-Ukv1p/xTma6P4/2bY5KzWBw+ydSpXmhCMtyciIQVDJ1RmOxtCYNMF1uXT9T63H67" crossorigin="anonymous"><\/script>';
 const GATE = '<script>document.documentElement.classList.add("js")<\/script>';
@@ -83,7 +94,7 @@ async function run(V, io){
     const body = raw.slice(m[0].length).split('<!--@eco-->').join(eco).split('<!--@searchindex-->').join(SEARCH_IDX);
     const title = meta.home ? 'GPS — The Global South, Connected' : 'GPS — '+meta.title;
     const q = '?v='+V;
-    const head = '<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">\n'+GATE+'\n'+CRIT+'\n<title>'+title+'</title>\n<meta name="description" content="'+meta.desc.replace(/"/g,'&quot;')+'">\n'+FONTS+
+    const head = '<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">\n'+ICONS+'\n'+GATE+'\n'+CRIT+'\n<title>'+title+'</title>\n<meta name="description" content="'+meta.desc.replace(/"/g,'&quot;')+'">\n'+seoTags(f, title, meta.desc)+'\n'+FONTS+
       '\n<link rel="stylesheet" href="assets/site.css'+q+'"><link rel="stylesheet" href="assets/ui.css'+q+'"><link rel="stylesheet" href="assets/theme.css'+q+'">\n'+(meta.map?D3+'\n':'')+'</head>\n<body>\n<a class="skip-link" href="#main">Skip to content</a>\n';
     let hero = '';
     if(!meta.noHero){
@@ -98,6 +109,14 @@ async function run(V, io){
       '\n</main>\n' + FOOTER + '\n<script src="assets/site.js'+q+'" defer><\/script>\n' + (meta.map?'<script src="assets/map.js'+q+'" defer><\/script>\n':'') + THUMB + '\n</body>\n</html>');
     n++;
   }
+  const urls = files.filter(f=>f.endsWith('.html')).map(f=>{
+    const loc = canonUrl(f);
+    const pri = f==='index.html'?'1.0':(/^(about|what-we-do|network|knowledge-hub|get-involved)\.html$/.test(f)?'0.9':'0.7');
+    return '  <url>\n    <loc>'+loc+'</loc>\n    <changefreq>weekly</changefreq>\n    <priority>'+pri+'</priority>\n  </url>';
+  }).join('\n');
+  const sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+urls+'\n</urlset>\n';
+  await saveFile('sitemap.xml', sm);
+  await saveFile('robots.txt', 'User-agent: *\nAllow: /\n\nDisallow: /uploads/\nDisallow: /hero-a.html\nDisallow: /hero-b.html\nDisallow: /hero-c.html\n\nSitemap: '+SITE+'/sitemap.xml\n');
   log('built '+n+' pages at '+V);
   return n;
 }

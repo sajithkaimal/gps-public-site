@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Disallow: /uploads/
+Disallow: /hero-a.html
+Disallow: /hero-b.html
+Disallow: /hero-c.html
+
+Sitemap: https://gpsouth.org/sitemap.xml

@@ -203,3 +203,17 @@ fieldset{border:none}
 .dtable th{text-align:left;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);padding:10px 14px;border-bottom:2px solid var(--line)}
 .dtable td{padding:14px;border-bottom:1px solid var(--line-soft);vertical-align:top}
 .dtable tr:hover td{background:var(--surface)}
+@media(max-width:640px){
+.mediarow{grid-template-columns:72px 1fr;gap:12px;padding:14px}
+.mediarow .art{width:72px}
+.dl-row{flex-wrap:wrap;align-items:flex-start}
+.dl-row .st{margin-left:0}
+.org-box{min-width:0;width:100%;max-width:none}
+.acc summary,.acc .acc-bd{padding-left:16px;padding-right:16px}
+.event,.pub{padding:14px;gap:12px}
+.pull{padding-left:16px}
+.filterbar .search{flex:1 1 100%}
+.fcount{margin-left:0;width:100%}
+.shelf{grid-template-columns:repeat(auto-fill,minmax(min(100%,140px),1fr))}
+.cal-dow{padding:8px 2px;font-size:9px;letter-spacing:.06em}
+}
