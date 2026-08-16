@@ -15,7 +15,7 @@
 html,body{scroll-behavior:smooth}
 html{scroll-padding-top:96px;overflow-x:clip}
 @media(prefers-reduced-motion:reduce){html,body{scroll-behavior:auto}}
-body{background:var(--paper);color:var(--ink);font-family:var(--font-ui);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;padding-top:70px}
+body{background:var(--paper);color:var(--ink);font-family:var(--font-ui);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;padding-top:104px}
 ::selection{background:var(--c1);color:#07231c}
 a{color:var(--teal-ink);text-decoration:none}
 a:hover{color:#005a47}
@@ -28,12 +28,12 @@ strong{font-weight:700}
 /* ---------- header ---------- */
 #header{position:fixed;top:0;left:0;right:0;width:100%;z-index:90;background:rgba(250,249,245,.88);border-bottom:1px solid var(--line-soft)}
 #header::before{content:"";position:absolute;inset:0;backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);z-index:-1}
-.hd-in{max-width:1460px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:0 clamp(12px,1.4vw,22px);height:70px}
-.brand{display:flex;align-items:center;gap:9px;font-family:var(--font-display);font-weight:700;letter-spacing:-.02em;font-size:21px;color:var(--ink);white-space:nowrap}
+.hd-in{max-width:1460px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:0 clamp(12px,1.4vw,22px);height:104px}
+.brand{display:flex;align-items:center;gap:9px;font-family:var(--font-display);font-weight:700;letter-spacing:-.02em;font-size:21px;color:var(--ink);white-space:nowrap;flex:none}
 .brand:hover{color:var(--ink)}
-.brand .dot{width:14px;height:14px;border-radius:50%;background:conic-gradient(from 0deg,var(--c1),var(--c2),var(--c3),var(--c4),var(--c5),var(--c6),var(--c1));box-shadow:0 0 10px rgba(0,214,164,.5);flex:none}
-.brand small{font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);display:block;line-height:1.25;white-space:normal;max-width:118px}
-.brand .bwrap{display:flex;flex-direction:column;line-height:1}
+.brand-logo{height:88px;width:auto;max-width:min(280px,58vw);object-fit:contain;display:block}
+.brand .dot{display:none}
+.brand .bwrap{display:none}
 nav.main{display:flex;align-items:center;margin-left:auto;flex:0 0 auto}
 nav.main>ul{display:flex;list-style:none;gap:2px}
 nav.main>ul>li{position:relative;display:flex;align-items:center}
@@ -68,10 +68,10 @@ body.nav-open #navToggle span::after{transform:translateY(-7px) rotate(-45deg)}
 @media(max-width:899px){
 #header::before{backdrop-filter:none;-webkit-backdrop-filter:none}
 #header{background:var(--paper)}
-:root{--header-stack:122px}
+:root{--header-stack:156px}
 body{padding-top:var(--header-stack)}
 .hd-in{height:auto;flex-wrap:wrap;padding-bottom:10px}
-.brand{min-height:70px}
+.brand{min-height:104px}
 nav.main{position:fixed;inset:var(--header-stack) 0 0 0;background:var(--paper);overflow-y:auto;display:none;padding:14px var(--pad) 60px;margin:0}
 body.nav-open nav.main{display:block}
 body.nav-open{overflow:hidden}
@@ -176,7 +176,7 @@ h2.sec-h{font-weight:700;font-size:clamp(28px,3.8vw,52px);line-height:1.04;max-w
 .manifesto .hl{color:transparent;background:linear-gradient(100deg,var(--teal-ink),var(--blue-ink));-webkit-background-clip:text;background-clip:text}
 .night .manifesto .hl{background:linear-gradient(100deg,var(--c3),var(--c4),var(--c5));-webkit-background-clip:text;background-clip:text}
 /* in-page subnav */
-.subnav{position:sticky;top:70px;z-index:40;background:rgba(250,249,245,.92);border-bottom:1px solid var(--line-soft);padding:0 var(--pad)}
+.subnav{position:sticky;top:104px;z-index:40;background:rgba(250,249,245,.92);border-bottom:1px solid var(--line-soft);padding:0 var(--pad)}
 @media(max-width:899px){.subnav{top:var(--header-stack)}section,[id]{scroll-margin-top:134px}}
 .subnav::before{content:"";position:absolute;inset:0;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);z-index:-1}
 .subnav ul{max-width:var(--maxw);margin:0 auto;display:flex;gap:4px;list-style:none;overflow-x:auto;scrollbar-width:none}
