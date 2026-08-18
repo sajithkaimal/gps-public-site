@@ -1,9 +1,5 @@
 User-agent: *
 Allow: /
-Allow: /favicon.ico
-Allow: /assets/favicon-48.png
-Allow: /assets/favicon-96.png
-Allow: /assets/favicon-192.png
 
 Disallow: /uploads/
 Disallow: /hero-a.html

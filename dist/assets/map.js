@@ -55,15 +55,6 @@ function drawHero(stage,world){
     var path=d3.geoPath(proj);
     svg.attr('viewBox','0 0 '+bw+' '+bh);
     svg.selectAll('*').remove();
-    var defs=svg.append('defs');
-    var sg=defs.append('linearGradient').attr('id','hSouth').attr('gradientUnits','userSpaceOnUse').attr('x1',0).attr('y1',0).attr('x2',bw).attr('y2',bh);
-    sg.append('stop').attr('offset','0%').attr('stop-color','#12414a');
-    sg.append('stop').attr('offset','45%').attr('stop-color','#14384e');
-    sg.append('stop').attr('offset','100%').attr('stop-color','#1b3352');
-    var ag=defs.append('linearGradient').attr('id','hArc').attr('gradientUnits','userSpaceOnUse').attr('x1',0).attr('y1',0).attr('x2',bw).attr('y2',0);
-    ag.append('stop').attr('offset','0%').attr('stop-color','#00d6a4');
-    ag.append('stop').attr('offset','50%').attr('stop-color','#3ae0c0');
-    ag.append('stop').attr('offset','100%').attr('stop-color','#19a7ff');
     svg.append('path').attr('class','h-grat').attr('d',path(d3.geoGraticule10()));
     svg.append('g').selectAll('path').data(northF).join('path').attr('class','h-north').attr('d',path);
     svg.append('g').selectAll('path').data(southF).join('path').attr('class','h-south').attr('d',path);
@@ -73,7 +64,7 @@ function drawHero(stage,world){
       var dd=path({type:'LineString',coordinates:[[a.lon,a.lat],[b.lon,b.lat]]});
       if(!dd)return;
       arcs.append('path').attr('class','h-arc').attr('d',dd);
-      var c=arcs.append('path').attr('class','h-comet').attr('d',dd).attr('stroke','url(#hArc)');
+      var c=arcs.append('path').attr('class','h-comet').attr('d',dd).attr('stroke','#EEB232');
       var L=c.node().getTotalLength();
       c.style('stroke-dasharray','22 '+L).style('stroke-dashoffset',L+22)
        .style('--hL',(L+22)+'px')
@@ -83,8 +74,8 @@ function drawHero(stage,world){
     hubs.forEach(function(h){
       var xy=proj([h.lon,h.lat]);if(!xy)return;
       var g=hg.append('g').attr('class','h-hub'+(h.status==='plan'?' plan':'')).attr('transform','translate('+xy[0]+','+xy[1]+')');
-      g.append('circle').attr('class','h-ring').attr('r',6).attr('stroke',h.status==='hq'?'#a3e635':null).style('animation-delay',(Math.random()*3).toFixed(2)+'s');
-      g.append('circle').attr('class','h-node').attr('r',h.status==='hq'?5.5:4).attr('fill',h.status==='hq'?'#a3e635':null);
+      g.append('circle').attr('class','h-ring').attr('r',6).attr('stroke',h.status==='hq'?'#FFCA10':null).style('animation-delay',(Math.random()*3).toFixed(2)+'s');
+      g.append('circle').attr('class','h-node').attr('r',h.status==='hq'?5.5:4).attr('fill',h.status==='hq'?'#FFCA10':null);
     });
     var placed=[];
     labs.forEach(function(l){
@@ -121,10 +112,10 @@ function drawGlobe(stage,world){
   var hubs=(window.GPS_HUBS||[]).slice();
   var hq=hubs.filter(function(h){return h.status==='hq';})[0]||hubs[0];
   var panel=stage.querySelector('[data-hub-panel]');
-  var pinCol={hq:'#a3e635',hub:'#00d6a4',plan:'#ffd23f'};
+  var pinCol={hq:'#FFCA10',hub:'#EEB232',plan:'#EBCD7F'};
   function fillPanel(h){
     if(!panel)return;
-    panel.style.setProperty('--hc',pinCol[h.status]||'#a3e635');
+    panel.style.setProperty('--hc',pinCol[h.status]||'#FFCA10');
     panel.querySelector('.hp-kick').textContent=h.role;
     panel.querySelector('.hp-name').textContent=h.name;
     panel.querySelector('.hp-rg').textContent=(h.country&&h.country!==h.region?h.country+' · ':'')+h.region;
@@ -145,22 +136,13 @@ function drawGlobe(stage,world){
     var path=d3.geoPath(proj);
     svg.attr('viewBox','0 0 '+bw+' '+bh);
     svg.selectAll('*').remove();
-    var defs=svg.append('defs');
-    var lg=defs.append('radialGradient').attr('id','gS').attr('cx','32%').attr('cy','26%');
-    lg.append('stop').attr('offset','0%').attr('stop-color','#1f6b52');
-    lg.append('stop').attr('offset','60%').attr('stop-color','#14524a');
-    lg.append('stop').attr('offset','100%').attr('stop-color','#0d3b3c');
-    var og=defs.append('radialGradient').attr('id','gO').attr('cx','34%').attr('cy','26%');
-    og.append('stop').attr('offset','0%').attr('stop-color','#0a2b2a');
-    og.append('stop').attr('offset','70%').attr('stop-color','#071c20');
-    og.append('stop').attr('offset','100%').attr('stop-color','#040f14');
-    svg.append('path').attr('class','g-ocean').attr('d',path({type:'Sphere'})).attr('fill','url(#gO)');
+    svg.append('path').attr('class','g-ocean').attr('d',path({type:'Sphere'})).attr('fill','#09190B');
     svg.append('path').attr('class','g-grat').attr('d',path(d3.geoGraticule10()));
     var isSouth=function(f){return !NSET[(f.properties&&f.properties.name)||''];};
     svg.append('g').selectAll('path').data(world.features.filter(function(f){return !isSouth(f);}))
       .join('path').attr('class','g-north').attr('d',path);
     svg.append('g').selectAll('path').data(world.features.filter(isSouth))
-      .join('path').attr('class','g-south').attr('d',path).attr('fill','url(#gS)');
+      .join('path').attr('class','g-south').attr('d',path).attr('fill','#11341A');
     svg.append('path').attr('class','g-rim').attr('d',path({type:'Sphere'}));
     var arcs=svg.append('g');
     hubs.forEach(function(h){
@@ -203,11 +185,6 @@ function draw(stage,world){
   var path=d3.geoPath(proj);
   svg.append('path').attr('class','graticule').attr('d',path(d3.geoGraticule10()));
   svg.append('g').selectAll('path').data(world.features).join('path').attr('class','land').attr('d',path);
-  var defs=svg.append('defs');
-  var g=defs.append('linearGradient').attr('id','arcGrad').attr('gradientUnits','userSpaceOnUse').attr('x1',0).attr('y1',0).attr('x2',W).attr('y2',0);
-  g.append('stop').attr('offset','0%').attr('stop-color','#00d6a4');
-  g.append('stop').attr('offset','55%').attr('stop-color','#19a7ff');
-  g.append('stop').attr('offset','100%').attr('stop-color','#a3e635');
   var hubs=window.GPS_HUBS.slice();
   var extraEl=stage.parentNode.querySelector('[data-map-extra]');
   if(extraEl){try{hubs=hubs.concat(JSON.parse(extraEl.textContent));}catch(e){}}
@@ -222,7 +199,7 @@ function draw(stage,world){
   var panel=stage.querySelector('[data-hub-panel]');
   function fillPanel(h){
     if(!panel)return;
-    panel.style.setProperty('--hc',pinCol[h.status]||'#00d6a4');
+    panel.style.setProperty('--hc',pinCol[h.status]||'#EEB232');
     panel.querySelector('.hp-kick').textContent=h.role;
     panel.querySelector('.hp-name').textContent=h.name;
     panel.querySelector('.hp-rg').textContent=(h.country&&h.country!==h.region?h.country+' · ':'')+h.region;
@@ -235,17 +212,17 @@ function draw(stage,world){
     tip.style.left=Math.min(Math.max(px+14,8),bw-230)+'px';tip.style.top=(py+10)+'px';tip.classList.add('show');
   }
   /* pins */
-  var pinCol={hq:'#00d6a4',hub:'#19a7ff',plan:'#ffd23f'};
+  var pinCol={hq:'#FFCA10',hub:'#EEB232',plan:'#EBCD7F'};
   hubs.forEach(function(h){
     var xy=proj([h.lon,h.lat]);if(!xy)return;
-    var pin=svg.append('g').attr('class','pin'+(h.status==='plan'?' dim2':'')).attr('transform','translate('+xy[0]+','+xy[1]+')').style('--pinc',pinCol[h.status]||'#00d6a4');
+    var pin=svg.append('g').attr('class','pin'+(h.status==='plan'?' dim2':'')).attr('transform','translate('+xy[0]+','+xy[1]+')').style('--pinc',pinCol[h.status]||'#EEB232');
     pin.append('circle').attr('class','pulse').attr('r',5);
     pin.append('circle').attr('class','c').attr('r',h.status==='hq'?6:4.5).attr('stroke-dasharray',h.status==='plan'?'2 2':null);
     var anchor=(xy[0]>W-120)?'end':'start';
     pin.append('text').attr('x',anchor==='end'?-10:10).attr('y',4).attr('text-anchor',anchor).text(h.name+(h.status==='hq'?' · HQ':h.status==='plan'?' · under consultation':''));
     pin.on('mouseenter',function(){if(panel){fillPanel(h);panel.classList.add('live');}else showTip(h,xy[0],xy[1]);})
        .on('mouseleave',function(){if(panel)panel.classList.remove('live');else tip.classList.remove('show');})
-       .on('click',function(){var card=document.getElementById('hub-'+h.id);if(card){window.scrollTo({top:card.getBoundingClientRect().top+window.scrollY-110,behavior:'smooth'});card.style.boxShadow='0 0 0 3px rgba(0,214,164,.45)';setTimeout(function(){card.style.boxShadow='';},1600);}});
+       .on('click',function(){var card=document.getElementById('hub-'+h.id);if(card){window.scrollTo({top:card.getBoundingClientRect().top+window.scrollY-110,behavior:'smooth'});card.style.boxShadow='0 0 0 3px rgba(238,178,50,.45)';setTimeout(function(){card.style.boxShadow='';},1600);}});
   });
   if(panel)fillPanel(hq);
   stage.classList.add('ready');

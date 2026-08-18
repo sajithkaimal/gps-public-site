@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://gpsouth.org/</loc>
-    <lastmod>2026-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
     <loc>https://gpsouth.org/about-global-positioning.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -85,6 +79,11 @@
     <loc>https://gpsouth.org/impact.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gpsouth.org/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://gpsouth.org/initiative-ai-global-south.html</loc>
