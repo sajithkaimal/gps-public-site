@@ -109,7 +109,7 @@ if(calEl){
       else{dayNum=i-startDow+1;dateStr=y+'-'+pad(m+1)+'-'+pad(dayNum);
         if(y===today.getFullYear()&&m===today.getMonth()&&dayNum===today.getDate())cls+=' today';}
       html+='<div class="'+cls+'"><span class="dn">'+dayNum+'</span>';
-      if(dateStr){evs.forEach(function(ev){if(ev.date===dateStr||(ev.end&&dateStr>=ev.date&&dateStr<=ev.end)){html+='<a class="cal-ev '+(ev.cls||'')+'" href="'+(ev.href||'events.html')+'" title="'+ev.title+'">'+ev.title+'</a>';}});}
+      if(dateStr){evs.forEach(function(ev){if(ev.date===dateStr||(ev.end&&dateStr>=ev.date&&dateStr<=ev.end)){html+='<a class="cal-ev '+(ev.cls||'')+'" href="'+(ev.href||'/events')+'" title="'+ev.title+'">'+ev.title+'</a>';}});}
       html+='</div>';
     }
     calEl.innerHTML=html;
@@ -433,6 +433,170 @@ d.querySelectorAll('.amount-row').forEach(function(row){
 });
 /* ---------- year ---------- */
 d.querySelectorAll('[data-year]').forEach(function(el){el.textContent=new Date().getFullYear();});
+/* ---------- people flip + profile modal ---------- */
+(function(){
+  var modal=null,lastFocus=null;
+  function ensureModal(){
+    if(modal)return modal;
+    modal=d.createElement('div');
+    modal.id='personModal';
+    modal.className='person-modal';
+    modal.setAttribute('hidden','');
+    modal.innerHTML='<button type="button" class="person-modal-backdrop" aria-label="Close profile"></button>'+
+      '<div class="person-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="personModalTitle">'+
+      '<div class="person-modal-media" data-pm-media><span class="init" data-pm-init></span></div>'+
+      '<div class="person-modal-body">'+
+      '<button type="button" class="person-modal-close" aria-label="Close">&times;</button>'+
+      '<span class="person-modal-role" data-pm-role></span>'+
+      '<h2 id="personModalTitle" data-pm-name></h2>'+
+      '<p class="person-modal-geo" data-pm-geo></p>'+
+      '<p class="person-modal-bio" data-pm-bio></p>'+
+      '</div></div>';
+    d.body.appendChild(modal);
+    modal.querySelector('.person-modal-backdrop').addEventListener('click',closeModal);
+    modal.querySelector('.person-modal-close').addEventListener('click',closeModal);
+    return modal;
+  }
+  function openModal(card){
+    if(!card)return;
+    var m=ensureModal();
+    var photo=card.querySelector('.person-photo');
+    var img=photo&&photo.querySelector('img');
+    var media=m.querySelector('[data-pm-media]');
+    var initEl=m.querySelector('[data-pm-init]');
+    var old=media.querySelector('img');
+    if(old)old.remove();
+    if(img){
+      var clone=img.cloneNode(true);
+      clone.removeAttribute('loading');
+      media.insertBefore(clone,initEl);
+    }
+    initEl.textContent=(card.querySelector('.init')||{}).textContent||'';
+    if(photo){
+      media.style.setProperty('--cv1',photo.style.getPropertyValue('--cv1')||'#1A5C3A');
+      media.style.setProperty('--cv2',photo.style.getPropertyValue('--cv2')||'#09190B');
+    }
+    m.querySelector('[data-pm-name]').textContent=(card.querySelector('.person-caption h3')||card.querySelector('.person-back h3')||{}).textContent||'';
+    m.querySelector('[data-pm-role]').textContent=(card.querySelector('.person-caption .role')||card.querySelector('.person-back .role')||{}).textContent||'';
+    var geo=(card.querySelector('.person-back .geo')||{}).textContent||'';
+    var geoEl=m.querySelector('[data-pm-geo]');
+    geoEl.textContent=geo;
+    geoEl.hidden=!geo;
+    m.querySelector('[data-pm-bio]').textContent=(card.querySelector('.person-back .bio')||{}).textContent||'';
+    lastFocus=d.activeElement;
+    m.removeAttribute('hidden');
+    requestAnimationFrame(function(){m.classList.add('is-open');});
+    body.classList.add('person-modal-open');
+    m.querySelector('.person-modal-close').focus();
+  }
+  function closeModal(){
+    if(!modal)return;
+    modal.classList.remove('is-open');
+    body.classList.remove('person-modal-open');
+    setTimeout(function(){if(modal&&!modal.classList.contains('is-open'))modal.setAttribute('hidden','');},280);
+    if(lastFocus&&lastFocus.focus)lastFocus.focus();
+  }
+  d.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&modal&&modal.classList.contains('is-open'))closeModal();
+  });
+  d.querySelectorAll('.person').forEach(function(card){
+    if(!card.querySelector('.person-inner'))return;
+    card.setAttribute('tabindex','0');
+    card.addEventListener('click',function(e){
+      if(e.target.closest('[data-person-open]'))return;
+      if(window.matchMedia('(hover: hover) and (pointer: fine)').matches)return;
+      card.classList.toggle('is-flipped');
+    });
+    card.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){
+        if(e.target.closest('[data-person-open]'))return;
+        e.preventDefault();
+        if(window.matchMedia('(hover: hover) and (pointer: fine)').matches){
+          var btn=card.querySelector('[data-person-open]');
+          if(btn)btn.click();
+        }else card.classList.toggle('is-flipped');
+      }
+    });
+    var openBtn=card.querySelector('[data-person-open]');
+    if(openBtn){
+      openBtn.addEventListener('click',function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        openModal(card);
+      });
+    }
+  });
+})();
+/* ---------- cookie consent ---------- */
+(function(){
+  var KEY='gps_consent';
+  var MAX_AGE=365*24*60*60;
+  function readCookie(n){
+    var m=d.cookie.match(new RegExp('(?:^|; )'+n.replace(/([.$?*|{}()[\]\\/+^])/g,'\\$1')+'=([^;]*)'));
+    return m?decodeURIComponent(m[1]):null;
+  }
+  function writeCookie(v){
+    var secure=location.protocol==='https:'?'; Secure':'';
+    d.cookie=KEY+'='+encodeURIComponent(v)+'; Path=/; Max-Age='+MAX_AGE+'; SameSite=Lax'+secure;
+    try{localStorage.setItem(KEY,v);}catch(e){}
+  }
+  function getChoice(){
+    var c=readCookie(KEY);
+    if(c==='all'||c==='essential')return c;
+    try{c=localStorage.getItem(KEY);}catch(e){c=null;}
+    return (c==='all'||c==='essential')?c:null;
+  }
+  function emit(choice){
+    try{d.dispatchEvent(new CustomEvent('gps-consent',{detail:{choice:choice}}));}catch(e){}
+  }
+  function hide(banner){
+    if(!banner)return;
+    banner.classList.remove('is-in');
+    body.classList.remove('cookie-open');
+    setTimeout(function(){if(banner.parentNode)banner.parentNode.removeChild(banner);},280);
+  }
+  function apply(choice,banner){
+    writeCookie(choice);
+    emit(choice);
+    hide(banner);
+  }
+  function show(){
+    if(d.getElementById('gpsCookie'))return;
+    var el=d.createElement('div');
+    el.id='gpsCookie';
+    el.className='cookie-banner';
+    el.setAttribute('role','dialog');
+    el.setAttribute('aria-modal','false');
+    el.setAttribute('aria-labelledby','cookie-title');
+    el.setAttribute('aria-describedby','cookie-desc');
+    el.innerHTML='<div class="cookie-in">'+
+      '<div class="cookie-copy"><h2 id="cookie-title">Cookies on this site</h2>'+
+      '<p id="cookie-desc">We use an essential preference to remember your choice. Optional cookies (for example analytics) are only used if you accept. '+
+      '<a href="/privacy">Privacy &amp; cookies</a></p></div>'+
+      '<div class="cookie-actions">'+
+      '<button type="button" class="btn btn-ghost cookie-btn" data-choice="essential">Essential only</button>'+
+      '<button type="button" class="btn btn-ink cookie-btn" data-choice="all">Accept all</button>'+
+      '</div></div>';
+    d.body.appendChild(el);
+    body.classList.add('cookie-open');
+    requestAnimationFrame(function(){el.classList.add('is-in');});
+    el.querySelectorAll('[data-choice]').forEach(function(btn){
+      btn.addEventListener('click',function(){apply(btn.getAttribute('data-choice'),el);});
+    });
+    var focusBtn=el.querySelector('[data-choice="all"]')||el.querySelector('button');
+    if(focusBtn)focusBtn.focus();
+  }
+  window.GPSConsent={
+    get:getChoice,
+    acceptedOptional:function(){return getChoice()==='all';},
+    open:show
+  };
+  d.querySelectorAll('[data-cookie-open]').forEach(function(btn){
+    btn.addEventListener('click',function(e){e.preventDefault();show();});
+  });
+  if(!getChoice())show();
+  else emit(getChoice());
+})();
 /* ---------- scroll to top ---------- */
 (function(){
   var btn=d.createElement('button');
@@ -463,5 +627,403 @@ d.querySelectorAll('[data-year]').forEach(function(el){el.textContent=new Date()
     window.scrollTo({top:0,behavior:'smooth'});
     setTimeout(function(){btn.classList.remove('is-going');},700);
   });
+})();
+/* ---------- global site search (overlay + shared engine) ---------- */
+(function(){
+  var KIND_LABEL={page:'Page',publication:'Publication',news:'News',partner:'Partner',opportunity:'Opportunity',event:'Event',person:'People',hub:'Hub'};
+  var KIND_ORDER=['page','publication','news','event','opportunity','partner','person','hub'];
+  var SUGGEST=['Fellowships','Policy','Kigali 2027','Partnership','Publications','Regional hubs','Opportunities','GPS Journal'];
+  var idx=null,idxPromise=null,cacheV='';
+  var scr=d.querySelector('script[src*="site.js"]');
+  if(scr&&scr.src){var vm=scr.src.match(/[?&]v=([^&]+)/);if(vm)cacheV=vm[1];}
+
+  function norm(s){
+    return String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9\s]/g,' ').replace(/\s+/g,' ').trim();
+  }
+  function esc(s){return String(s||'').replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function markAll(text,terms){
+    if(!terms||!terms.length)return esc(text);
+    var raw=String(text||'');
+    var lower=raw.toLowerCase();
+    var parts=[],i=0;
+    while(i<raw.length){
+      var best=-1,blen=0,t;
+      for(var ti=0;ti<terms.length;ti++){
+        t=terms[ti];
+        if(!t)continue;
+        var at=lower.indexOf(t,i);
+        if(at===i&&t.length>blen){best=at;blen=t.length;}
+      }
+      if(best===i&&blen){
+        var end=i+blen;
+        while(end<raw.length&&/[A-Za-z0-9]/.test(raw.charAt(end)))end++;
+        parts.push('<mark>'+esc(raw.slice(i,end))+'</mark>');
+        i=end;
+      }else{
+        var next=raw.length;
+        for(ti=0;ti<terms.length;ti++){
+          t=terms[ti];if(!t)continue;
+          at=lower.indexOf(t,i);
+          if(at>=0&&at<next)next=at;
+        }
+        if(next===i){parts.push(esc(raw.charAt(i)));i++;}
+        else{parts.push(esc(raw.slice(i,next)));i=next;}
+      }
+    }
+    return parts.join('');
+  }
+  function editDist(a,b){
+    if(a===b)return 0;
+    var al=a.length,bl=b.length;
+    if(Math.abs(al-bl)>1)return 2;
+    if(al>bl){var tmp=a;a=b;b=tmp;al=a.length;bl=b.length;}
+    if(al===0)return bl;
+    var prev=0;
+    for(var i=0,j=0;i<bl;i++){
+      if(j<al&&a.charAt(j)===b.charAt(i))j++;
+      else prev++;
+      if(prev>1)return prev;
+    }
+    return prev+(al-j);
+  }
+  function fuzzyHit(term,hayWords){
+    if(term.length<5)return false;
+    for(var i=0;i<hayWords.length;i++){
+      var w=hayWords[i];
+      if(w.length<4)continue;
+      if(editDist(term,w)<=1)return true;
+    }
+    return false;
+  }
+
+  function loadIndex(){
+    if(idx)return Promise.resolve(idx);
+    if(idxPromise)return idxPromise;
+    var url='/assets/search-index.json'+(cacheV?'?v='+cacheV:'');
+    idxPromise=fetch(url,{credentials:'same-origin'}).then(function(r){
+      if(!r.ok)throw new Error('search index');
+      return r.json();
+    }).then(function(data){
+      idx=Array.isArray(data)?data:[];
+      idx.forEach(function(p){
+        p._n=norm(p.t+' '+p.s+' '+p.d+' '+(p.kw||'')+' '+(p.k||''));
+        p._tw=norm(p.t).split(' ').filter(Boolean);
+      });
+      return idx;
+    }).catch(function(){
+      var el=d.getElementById('gps-search-index');
+      if(el){
+        try{idx=JSON.parse(el.textContent);}catch(e){idx=[];}
+      }else idx=[];
+      idx.forEach(function(p){
+        p._n=norm(p.t+' '+p.s+' '+p.d+' '+(p.kw||'')+' '+(p.k||''));
+        p._tw=norm(p.t).split(' ').filter(Boolean);
+      });
+      return idx;
+    });
+    return idxPromise;
+  }
+
+  function search(q,opts){
+    opts=opts||{};
+    var kind=opts.kind||'';
+    var limit=opts.limit||40;
+    q=norm(q);
+    if(!q)return {hits:[],terms:[],suggestions:SUGGEST.slice()};
+    var terms=q.split(' ').filter(Boolean);
+    var list=idx||[];
+    var hits=[];
+    for(var i=0;i<list.length;i++){
+      var p=list[i];
+      if(kind&&p.k!==kind)continue;
+      var score=0,all=true;
+      for(var ti=0;ti<terms.length;ti++){
+        var t=terms[ti];
+        var tn=norm(p.t),sn=norm(p.s),dn=norm(p.d+' '+(p.kw||''));
+        if(tn.indexOf(t)>=0){
+          score+=10;
+          if(tn.indexOf(t)===0||(' '+tn+' ').indexOf(' '+t)===0)score+=4;
+          if(p._tw.some(function(w){return w.indexOf(t)===0;}))score+=2;
+        }else if(sn.indexOf(t)>=0)score+=4;
+        else if(dn.indexOf(t)>=0||p._n.indexOf(t)>=0)score+=2;
+        else if(fuzzyHit(t,p._tw))score+=3;
+        else{all=false;break;}
+      }
+      if(all)hits.push({p:p,score:score});
+    }
+    hits.sort(function(a,b){return b.score-a.score||a.p.t.localeCompare(b.p.t);});
+    var suggestions=[];
+    if(hits.length){
+      hits.slice(0,6).forEach(function(h){if(suggestions.indexOf(h.p.t)<0)suggestions.push(h.p.t);});
+    }else{
+      SUGGEST.forEach(function(s){if(norm(s).indexOf(terms[0])>=0||terms[0].length<2)suggestions.push(s);});
+      if(!suggestions.length)suggestions=SUGGEST.slice(0,4);
+    }
+    return {hits:hits.slice(0,limit),terms:terms,suggestions:suggestions,total:hits.length};
+  }
+
+  function kindLabel(k){return KIND_LABEL[k]||k||'Result';}
+
+  function renderHit(h,terms,cls){
+    var p=h.p;
+    return '<a class="'+(cls||'sr-item')+'" href="'+esc(p.u)+'" data-sr-href="'+esc(p.u)+'">'+
+      '<div class="sr-meta"><span class="sr-kind">'+esc(kindLabel(p.k))+'</span>'+
+      (p.s?'<span class="sr-sec">'+esc(p.s)+'</span>':'')+'</div>'+
+      '<h3>'+markAll(p.t,terms)+'</h3>'+
+      (p.d?'<p>'+markAll(p.d,terms)+'</p>':'')+
+      '</a>';
+  }
+
+  window.GPSSearch={
+    load:loadIndex,
+    search:search,
+    kindLabel:kindLabel,
+    kindOrder:KIND_ORDER,
+    mark:markAll,
+    esc:esc,
+    suggestions:SUGGEST,
+    renderHit:renderHit
+  };
+
+  /* overlay */
+  var overlay=null,ovInput=null,ovList=null,ovEmpty=null,ovStart=null,ovCount=null,ovActive=-1,ovHits=[],debounce=null,lastFocus=null,suppressOpen=false;
+
+  function ensureOverlay(){
+    if(overlay)return overlay;
+    overlay=d.createElement('div');
+    overlay.id='gpsSearchOverlay';
+    overlay.className='gps-search';
+    overlay.setAttribute('hidden','');
+    overlay.innerHTML=
+      '<button type="button" class="gps-search-backdrop" aria-label="Close search"></button>'+
+      '<div class="gps-search-panel" role="dialog" aria-modal="true" aria-label="Search the site">'+
+      '<div class="gps-search-bar">'+
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>'+
+      '<input type="search" id="gpsSearchInput" placeholder="Search pages, publications, events…" autocomplete="off" aria-autocomplete="list" aria-controls="gpsSearchList" enterkeyhint="search">'+
+      '<kbd class="gps-search-esc">Esc</kbd>'+
+      '<button type="button" class="gps-search-close" aria-label="Close">&times;</button>'+
+      '</div>'+
+      '<div class="gps-search-body">'+
+      '<div id="gpsSearchStart" class="gps-search-start">'+
+      '<p class="gps-search-hint">Search across the whole platform</p>'+
+      '<div class="gps-search-sugs" data-sugs></div>'+
+      '</div>'+
+      '<div id="gpsSearchCount" class="gps-search-count" hidden></div>'+
+      '<div id="gpsSearchList" class="gps-search-list" role="listbox" aria-label="Search results"></div>'+
+      '<div id="gpsSearchEmpty" class="gps-search-empty" hidden>'+
+      '<p><b>No matches.</b> Try a broader term, or browse <a href="/what-we-do">Our Work</a>, <a href="/knowledge-hub">Knowledge &amp; News</a>, or the <a href="/roadmap">Roadmap</a>.</p>'+
+      '</div>'+
+      '<div class="gps-search-foot" data-foot hidden><a class="btn btn-ink btn-sm" data-view-all href="/search">View all results</a></div>'+
+      '</div></div>';
+    d.body.appendChild(overlay);
+    ovInput=overlay.querySelector('#gpsSearchInput');
+    ovList=overlay.querySelector('#gpsSearchList');
+    ovEmpty=overlay.querySelector('#gpsSearchEmpty');
+    ovStart=overlay.querySelector('#gpsSearchStart');
+    ovCount=overlay.querySelector('#gpsSearchCount');
+    var sugs=overlay.querySelector('[data-sugs]');
+    sugs.innerHTML=SUGGEST.map(function(s){return '<button type="button" class="tag" data-sug="'+esc(s)+'">'+esc(s)+'</button>';}).join('');
+    overlay.querySelector('.gps-search-backdrop').addEventListener('click',closeOverlay);
+    overlay.querySelector('.gps-search-close').addEventListener('click',closeOverlay);
+    sugs.addEventListener('click',function(e){
+      var b=e.target.closest('[data-sug]');
+      if(!b)return;
+      ovInput.value=b.getAttribute('data-sug');
+      runOverlay(ovInput.value);
+      ovInput.focus();
+    });
+    ovInput.addEventListener('input',function(){
+      clearTimeout(debounce);
+      debounce=setTimeout(function(){runOverlay(ovInput.value);},120);
+    });
+    ovInput.addEventListener('keydown',function(e){
+      if(e.key==='ArrowDown'){e.preventDefault();moveActive(1);}
+      else if(e.key==='ArrowUp'){e.preventDefault();moveActive(-1);}
+      else if(e.key==='Enter'){
+        if(ovActive>=0&&ovHits[ovActive]){
+          e.preventDefault();
+          location.href=ovHits[ovActive].p.u;
+        }else if(ovInput.value.trim()){
+          e.preventDefault();
+          location.href='/search?q='+encodeURIComponent(ovInput.value.trim());
+        }
+      }else if(e.key==='Escape'){e.preventDefault();closeOverlay();}
+    });
+    ovList.addEventListener('mousemove',function(e){
+      var a=e.target.closest('[data-sr-href]');
+      if(!a)return;
+      var items=[].slice.call(ovList.querySelectorAll('[data-sr-href]'));
+      var i=items.indexOf(a);
+      if(i>=0)setActive(i);
+    });
+    return overlay;
+  }
+
+  function setActive(i){
+    var items=ovList.querySelectorAll('[data-sr-href]');
+    ovActive=i;
+    items.forEach(function(el,n){el.classList.toggle('is-active',n===i);});
+    if(items[i])items[i].scrollIntoView({block:'nearest'});
+  }
+  function moveActive(dir){
+    if(!ovHits.length)return;
+    var n=ovActive+dir;
+    if(n<0)n=ovHits.length-1;
+    if(n>=ovHits.length)n=0;
+    setActive(n);
+  }
+
+  function runOverlay(q){
+    var foot=overlay.querySelector('[data-foot]');
+    var viewAll=overlay.querySelector('[data-view-all]');
+    q=(q||'').trim();
+    if(!q){
+      ovList.innerHTML='';
+      ovCount.hidden=true;
+      ovEmpty.hidden=true;
+      ovStart.hidden=false;
+      foot.hidden=true;
+      ovHits=[];
+      ovActive=-1;
+      return;
+    }
+    ovStart.hidden=true;
+    var res=search(q,{limit:12});
+    ovHits=res.hits;
+    ovActive=ovHits.length?0:-1;
+    ovCount.hidden=false;
+    ovCount.textContent=res.total+(res.total===1?' result':' results');
+    ovEmpty.hidden=!!res.hits.length;
+    ovList.innerHTML=res.hits.map(function(h){return renderHit(h,res.terms,'gps-sr');}).join('');
+    foot.hidden=!res.hits.length&&!q;
+    if(viewAll){
+      viewAll.href='/search?q='+encodeURIComponent(q);
+      viewAll.hidden=!q;
+      foot.hidden=!q;
+    }
+    if(ovActive>=0)setActive(ovActive);
+  }
+
+  function openOverlay(prefill){
+    ensureOverlay();
+    lastFocus=d.activeElement;
+    loadIndex().then(function(){
+      overlay.removeAttribute('hidden');
+      requestAnimationFrame(function(){
+        overlay.classList.add('is-open');
+        body.classList.add('gps-search-open');
+        ovInput.value=prefill||'';
+        runOverlay(ovInput.value);
+        ovInput.focus();
+        ovInput.select&&ovInput.value&&ovInput.select();
+      });
+    });
+  }
+  function closeOverlay(){
+    if(!overlay)return;
+    suppressOpen=true;
+    overlay.classList.remove('is-open');
+    body.classList.remove('gps-search-open');
+    setTimeout(function(){
+      if(overlay&&!overlay.classList.contains('is-open'))overlay.setAttribute('hidden','');
+      suppressOpen=false;
+    },280);
+    if(lastFocus&&lastFocus.blur)try{lastFocus.blur();}catch(e){}
+  }
+
+  d.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&overlay&&overlay.classList.contains('is-open'))closeOverlay();
+    if((e.key==='k'||e.key==='K')&&(e.metaKey||e.ctrlKey)){
+      e.preventDefault();
+      openOverlay('');
+    }
+  });
+
+  function wireTriggers(){
+    d.querySelectorAll('form.hd-search').forEach(function(form){
+      var inp=form.querySelector('input[type="search"],input[data-gps-search-trigger]');
+      if(!inp||inp._gpsSearch)return;
+      inp._gpsSearch=true;
+      function open(e){
+        if(suppressOpen){if(inp.blur)inp.blur();return;}
+        if(overlay&&overlay.classList.contains('is-open'))return;
+        if(e)e.preventDefault();
+        openOverlay(inp.value||'');
+      }
+      inp.addEventListener('focus',open);
+      inp.addEventListener('click',open);
+      form.addEventListener('submit',function(e){
+        e.preventDefault();
+        var q=(inp.value||'').trim();
+        if(q)location.href='/search?q='+encodeURIComponent(q);
+        else openOverlay('');
+      });
+    });
+  }
+  wireTriggers();
+
+  /* full search page */
+  var pageInp=d.getElementById('sq');
+  if(pageInp){
+    var out=d.getElementById('srResults');
+    var cnt=d.getElementById('srCount');
+    var empty=d.getElementById('srEmpty');
+    var start=d.getElementById('srStart');
+    var chips=d.getElementById('srKinds');
+    var kindFilter='';
+    function runPage(q){
+      q=(q||'').trim();
+      if(!q){
+        if(out)out.innerHTML='';
+        if(cnt)cnt.textContent='';
+        if(empty)empty.style.display='none';
+        if(start)start.style.display='';
+        return;
+      }
+      if(start)start.style.display='none';
+      var res=search(q,{kind:kindFilter,limit:80});
+      if(cnt)cnt.textContent=res.total+(res.total===1?' result':' results');
+      if(empty)empty.style.display=res.hits.length?'none':'flex';
+      if(out)out.innerHTML=res.hits.map(function(h){return renderHit(h,res.terms,'sr-item');}).join('');
+      if(chips){
+        var counts={};
+        (idx||[]).forEach(function(){});
+        var allRes=search(q,{limit:500});
+        allRes.hits.forEach(function(h){counts[h.p.k]=(counts[h.p.k]||0)+1;});
+        chips.querySelectorAll('[data-kind]').forEach(function(btn){
+          var k=btn.getAttribute('data-kind');
+          var n=k?counts[k]||0:allRes.total;
+          btn.hidden=k?!counts[k]:false;
+          var label=btn.getAttribute('data-label')||btn.textContent.replace(/\s*\d+$/,'').trim();
+          btn.textContent=label+(n?' '+n:'');
+          btn.classList.toggle('on',(k||'')===kindFilter);
+        });
+      }
+    }
+    loadIndex().then(function(){
+      var q=new URLSearchParams(location.search).get('q')||'';
+      if(q)pageInp.value=q;
+      runPage(q);
+      var t=null;
+      pageInp.addEventListener('input',function(){
+        clearTimeout(t);
+        t=setTimeout(function(){
+          var v=pageInp.value;
+          var url=new URL(location.href);
+          if(v.trim())url.searchParams.set('q',v.trim());else url.searchParams.delete('q');
+          history.replaceState(null,'',url.pathname+url.search);
+          runPage(v);
+        },130);
+      });
+      if(chips){
+        chips.addEventListener('click',function(e){
+          var b=e.target.closest('[data-kind]');
+          if(!b)return;
+          kindFilter=b.getAttribute('data-kind')||'';
+          runPage(pageInp.value);
+        });
+      }
+    });
+  }
 })();
 })();

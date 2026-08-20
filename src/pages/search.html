@@ -1,54 +1,28 @@
-<!--meta {"title":"Search","desc":"Search the Global Platform for the South website.","nav":"","crumb":[["Home","index.html"],["Search"]],"eyebrow":"Search","h1":"Search <span class='grad-ink'>GPS</span>","lede":"Every page on this site, searchable by title, topic and description."}-->
+<!--meta {"title":"Search","desc":"Search the Global Platform for the South website — pages, publications, news, events, partners, opportunities, and people.","nav":"","crumb":[["Home","/"],["Search"]],"eyebrow":"Search","h1":"Search <span class='grad-ink'>GPS</span>","lede":"Find pages, publications, news, events, partners, opportunities, people, and hubs across the platform."}-->
 <section style="padding-top:26px">
 <div class="inner">
-<form class="filterbar reveal" role="search" method="get" action="search.html" style="margin-bottom:22px">
-<label class="search" style="flex:1 1 320px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><input type="search" name="q" id="sq" placeholder="Search pages, topics, publications…" autocomplete="off" aria-label="Search this site"></label>
+<form class="filterbar reveal" role="search" method="get" action="/search" style="margin-bottom:16px">
+<label class="search" style="flex:1 1 320px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><input type="search" name="q" id="sq" placeholder="Search pages, publications, events…" autocomplete="off" aria-label="Search this site"></label>
 <button class="btn btn-ink btn-sm" type="submit">Search</button>
 <span class="fcount" id="srCount"></span>
 </form>
-<div id="srResults" style="display:flex;flex-direction:column;gap:12px"></div>
-<div id="srEmpty" class="note" style="display:none"><span>⟡</span><p>No pages match that search. Try a broader term — or browse <a href="what-we-do.html">Our Work</a>, <a href="knowledge-hub.html">Knowledge &amp; News</a>, or the <a href="roadmap.html">Roadmap</a>.</p></div>
+<div id="srKinds" class="gps-sr-kinds reveal d1" role="group" aria-label="Filter by type">
+<button type="button" class="fchip on" data-kind="" data-label="All">All</button>
+<button type="button" class="fchip" data-kind="page" data-label="Pages">Pages</button>
+<button type="button" class="fchip" data-kind="publication" data-label="Publications">Publications</button>
+<button type="button" class="fchip" data-kind="news" data-label="News">News</button>
+<button type="button" class="fchip" data-kind="event" data-label="Events">Events</button>
+<button type="button" class="fchip" data-kind="opportunity" data-label="Opportunities">Opportunities</button>
+<button type="button" class="fchip" data-kind="partner" data-label="Partners">Partners</button>
+<button type="button" class="fchip" data-kind="person" data-label="People">People</button>
+<button type="button" class="fchip" data-kind="hub" data-label="Hubs">Hubs</button>
+</div>
+<div id="srResults" style="display:flex;flex-direction:column;gap:12px;margin-top:18px"></div>
+<div id="srEmpty" class="note" style="display:none"><span>⟡</span><p>No results match that search. Try a broader term — or browse <a href="/what-we-do">Our Work</a>, <a href="/knowledge-hub">Knowledge &amp; News</a>, or the <a href="/roadmap">Roadmap</a>.</p></div>
 <div id="srStart">
 <p class="lead reveal" style="margin-bottom:20px">Popular starting points:</p>
-<div class="tags reveal d1"><a class="tag" href="search.html?q=fellowship">Fellowships</a><a class="tag" href="search.html?q=policy">Policy</a><a class="tag" href="search.html?q=kigali">Kigali 2027</a><a class="tag" href="search.html?q=partner">Partnership</a><a class="tag" href="search.html?q=publications">Publications</a><a class="tag" href="search.html?q=hubs">Regional hubs</a><a class="tag" href="search.html?q=opportunities">Opportunities</a><a class="tag" href="search.html?q=journal">Journal &amp; calls for papers</a></div>
+<div class="tags reveal d1"><a class="tag" href="/search?q=fellowship">Fellowships</a><a class="tag" href="/search?q=policy">Policy</a><a class="tag" href="/search?q=kigali">Kigali 2027</a><a class="tag" href="/search?q=partner">Partnership</a><a class="tag" href="/search?q=publications">Publications</a><a class="tag" href="/search?q=hubs">Regional hubs</a><a class="tag" href="/search?q=opportunities">Opportunities</a><a class="tag" href="/search?q=journal">Journal &amp; calls for papers</a></div>
 </div>
 </div>
 </section>
 <script id="gps-search-index" type="application/json"><!--@searchindex--></script>
-<script>
-(function(){
-var idx=[];try{idx=JSON.parse(document.getElementById('gps-search-index').textContent);}catch(e){}
-var inp=document.getElementById('sq'),out=document.getElementById('srResults'),
-    cnt=document.getElementById('srCount'),empty=document.getElementById('srEmpty'),start=document.getElementById('srStart');
-function esc(s){return s.replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
-function mark(s,q){if(!q)return esc(s);var i=s.toLowerCase().indexOf(q);if(i<0)return esc(s);
-  return esc(s.slice(0,i))+'<mark>'+esc(s.slice(i,i+q.length))+'</mark>'+esc(s.slice(i+q.length));}
-function run(q){
-  q=(q||'').trim().toLowerCase();
-  if(!q){out.innerHTML='';cnt.textContent='';empty.style.display='none';start.style.display='';return;}
-  start.style.display='none';
-  var terms=q.split(/\s+/).filter(Boolean);
-  var hits=idx.map(function(p){
-    var hay=(p.t+' '+p.s+' '+p.d).toLowerCase();
-    var score=0,all=true;
-    terms.forEach(function(t){
-      if(p.t.toLowerCase().indexOf(t)>=0)score+=10;
-      else if(p.s.toLowerCase().indexOf(t)>=0)score+=4;
-      else if(hay.indexOf(t)>=0)score+=2;
-      else all=false;
-    });
-    return all?{p:p,score:score}:null;
-  }).filter(Boolean).sort(function(a,b){return b.score-a.score;});
-  cnt.textContent=hits.length+(hits.length===1?' page':' pages');
-  empty.style.display=hits.length?'none':'flex';
-  out.innerHTML=hits.map(function(h){
-    return '<a class="sr-item" href="'+h.p.u+'"><div class="sr-sec">'+esc(h.p.s)+'</div><h3>'+mark(h.p.t,terms[0])+'</h3><p>'+mark(h.p.d,terms[0])+'</p></a>';
-  }).join('');
-}
-var q=new URLSearchParams(location.search).get('q')||'';
-if(q){inp.value=q;}
-run(q);
-var t=null;
-inp.addEventListener('input',function(){clearTimeout(t);t=setTimeout(function(){run(inp.value);},130);});
-})();
-</script>

@@ -1,9 +1,16 @@
-User-agent: *
+User-agent: Googlebot-Image
 Allow: /
 
+User-agent: *
+Allow: /
+Allow: /favicon.ico
+Allow: /favicon.png
+Allow: /assets/
+
 Disallow: /uploads/
-Disallow: /hero-a.html
-Disallow: /hero-b.html
-Disallow: /hero-c.html
+Disallow: /hero-a
+Disallow: /hero-b
+Disallow: /hero-c
+Disallow: /404
 
 Sitemap: https://gpsouth.org/sitemap.xml
