@@ -49,7 +49,7 @@ require('./gen-search-index').main();
 
 eval(fs.readFileSync(path.join(root, 'src/build.js'), 'utf8'));
 
-const version = '20260820x';
+const version = '20260904a';
 GPSBUILD.run(version, io).then(async (n) => {
   const assets = ['assets/site.js', 'assets/site.css', 'assets/ui.css', 'assets/search-index.json', '.htaccess'];
   for (const a of assets) {
@@ -59,6 +59,14 @@ GPSBUILD.run(version, io).then(async (n) => {
     const dest = path.join(dist, a);
     await fs.promises.mkdir(path.dirname(dest), { recursive: true });
     await fs.promises.writeFile(dest, data);
+  }
+  const peopleSrc = path.join(root, 'assets', 'images', 'people');
+  if (fs.existsSync(peopleSrc)) {
+    const peopleDest = path.join(dist, 'assets', 'images', 'people');
+    await fs.promises.mkdir(peopleDest, { recursive: true });
+    for (const name of await fs.promises.readdir(peopleSrc)) {
+      await fs.promises.copyFile(path.join(peopleSrc, name), path.join(peopleDest, name));
+    }
   }
   const r1 = await cleanStaleFlatHtml(root);
   const r2 = await cleanStaleFlatHtml(dist);

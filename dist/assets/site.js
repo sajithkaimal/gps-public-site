@@ -450,7 +450,7 @@ d.querySelectorAll('[data-year]').forEach(function(el){el.textContent=new Date()
       '<span class="person-modal-role" data-pm-role></span>'+
       '<h2 id="personModalTitle" data-pm-name></h2>'+
       '<p class="person-modal-geo" data-pm-geo></p>'+
-      '<p class="person-modal-bio" data-pm-bio></p>'+
+      '<div class="person-modal-bio" data-pm-bio></div>'+
       '</div></div>';
     d.body.appendChild(modal);
     modal.querySelector('.person-modal-backdrop').addEventListener('click',closeModal);
@@ -482,7 +482,13 @@ d.querySelectorAll('[data-year]').forEach(function(el){el.textContent=new Date()
     var geoEl=m.querySelector('[data-pm-geo]');
     geoEl.textContent=geo;
     geoEl.hidden=!geo;
-    m.querySelector('[data-pm-bio]').textContent=(card.querySelector('.person-back .bio')||{}).textContent||'';
+    var bioEl=m.querySelector('[data-pm-bio]');
+    var full=card.querySelector('.person-full-bio');
+    if(full){
+      bioEl.innerHTML=full.innerHTML;
+    }else{
+      bioEl.textContent=(card.querySelector('.person-back .bio')||{}).textContent||'';
+    }
     lastFocus=d.activeElement;
     m.removeAttribute('hidden');
     requestAnimationFrame(function(){m.classList.add('is-open');});
