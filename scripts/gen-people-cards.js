@@ -196,8 +196,15 @@ const advisory = withPalette([
     bio: 'Vice Chancellor of the University of Rwanda.',
   },
   {
-    init: 'SS', name: 'Prof. Samir Shaheen', role: 'International Advisory Board Member; Head of Integral Health', geo: 'Rwanda',
-    bio: 'Vice Chancellor of the University of Medical Science and Technology – UMST (Cross Border), Rwanda. Head of Integral Health at GPS.',
+    init: 'SS', name: 'Prof. Samir Shaheen', role: 'International Advisory Board Member; Head of Integral Health', geo: 'Rwanda · Sudan',
+    img: IMG + 'samir-shaheen.jpg',
+    bio: 'Vice Chancellor of the University of Medical Sciences and Technology (UMST) in Kigali, and Professor of Paediatric Orthopaedics at the University of Khartoum. Head of Integral Health at GPS.',
+    full: [
+      'Prof. Samir Shaheen is Vice Chancellor of the University of Medical Sciences and Technology (UMST) in Kigali, Rwanda, and Head of Integral Health at the Global Platform for the South (GPS). He is Professor of Paediatric Orthopaedics at the Faculty of Medicine, University of Khartoum, and Head of Paediatric Orthopaedics at Soba University Hospital in Khartoum, Sudan. He works in Arabic, English, and German.',
+      'He holds an MBBS and an MD from the University of Khartoum, a Diploma in Sport Medicine from the Heidelberg Orthopaedics University Clinic in Germany, and is a medical educationist (JMHPE). His specialist training includes orthopaedics at the University Clinic, Heidelberg; an AO Fellowship at Ulm University Clinic for Trauma, Hand, Plastic and Reconstruction Surgery; orthopaedics and rehabilitation, prosthetics and orthotics technology at Münster University; and trauma and paediatric orthopaedics at the University of Khartoum and Ulm Orthopaedic University Clinic.',
+      'Prof. Shaheen has published widely in orthopaedics, paediatric orthopaedics, rehabilitation technology, and medical education, and serves as a reviewer and editorial board member for journals in Sudan and internationally. He is a member of the Assessors for Accreditation of Medical Schools at the Sudan Medical Council and President of the DAAD Alumni Association Sudan (DAAS).',
+      'His former leadership roles at the University of Khartoum include Head of the Orthopaedic Department, Director of the Educational Development Centre (Medical Education Unit), Secretary of Academic Affairs, and Acting Deputy Vice Chancellor. He has also served as Head of the Orthopaedic Board at the Sudan Medical Specialization Board and as Deputy Head of Orthopaedic Speciality of the Arab Board.',
+    ],
   },
   {
     init: 'AM', name: 'Prof. Abetu Melaku', role: 'International Advisory Board Member', geo: 'Ethiopia',
