@@ -444,9 +444,9 @@ d.querySelectorAll('[data-year]').forEach(function(el){el.textContent=new Date()
     modal.setAttribute('hidden','');
     modal.innerHTML='<button type="button" class="person-modal-backdrop" aria-label="Close profile"></button>'+
       '<div class="person-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="personModalTitle">'+
+      '<button type="button" class="person-modal-close" aria-label="Close">&times;</button>'+
       '<div class="person-modal-media" data-pm-media><span class="init" data-pm-init></span></div>'+
       '<div class="person-modal-body">'+
-      '<button type="button" class="person-modal-close" aria-label="Close">&times;</button>'+
       '<span class="person-modal-role" data-pm-role></span>'+
       '<h2 id="personModalTitle" data-pm-name></h2>'+
       '<p class="person-modal-geo" data-pm-geo></p>'+
@@ -491,6 +491,7 @@ d.querySelectorAll('[data-year]').forEach(function(el){el.textContent=new Date()
     }
     lastFocus=d.activeElement;
     m.removeAttribute('hidden');
+    m.querySelector('.person-modal-body').scrollTop=0;
     requestAnimationFrame(function(){m.classList.add('is-open');});
     body.classList.add('person-modal-open');
     m.querySelector('.person-modal-close').focus();
