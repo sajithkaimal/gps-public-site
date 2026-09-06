@@ -43,6 +43,9 @@ function withPalette(list, palette) {
     return { delay: delays[i % delays.length], cv1, cv2, ...p };
   });
 }
+function visible(list) {
+  return list.filter((p) => !p.hidden);
+}
 
 const GREEN = [
   ['#0B3D2E', '#09190B'],
@@ -216,6 +219,7 @@ const advisory = withPalette([
   },
   {
     init: 'JB', name: 'Dr. Jean Bosco Baribeshya', role: 'International Advisory Board Member', geo: 'Rwanda',
+    hidden: true,
     bio: 'Vice Chancellor of INES Ruhengeri, Rwanda.',
   },
   {
@@ -272,6 +276,7 @@ const advisory = withPalette([
   },
   {
     init: 'PG', name: 'Hon. Professor Pierre Gomez', role: 'International Advisory Board Member', geo: 'The Gambia',
+    hidden: true,
     bio: 'Minister of Higher Education, Research, Science and Technology of The Gambia.',
   },
 ], MIX);
@@ -310,6 +315,7 @@ const regional = [
 const researchers = withPalette([
   {
     init: 'AH', name: 'Dr. Ann Heylen', role: 'Professor, Taiwan Studies', geo: 'Taiwan',
+    hidden: true,
     img: IMG + 'ann-heylen.jpg',
     bio: 'Professor at National Taiwan Normal University and Executive Director of the International Taiwan Studies Center.',
     attrs: 'data-item data-pillar="knowledge" data-region="asia"',
@@ -342,7 +348,7 @@ const people = `<!--meta {"title":"People","desc":"The people of GPS — Board o
 <div class="inner">
 <div class="sec-head"><div><div class="eyebrow reveal"><span class="bar"></span> Governance</div><h2 class="sec-h reveal">Board of Directors</h2><p class="sub reveal d1">Institutional oversight, fiduciary responsibility, and long-term strategic direction.</p></div><div class="more reveal"><a class="btn btn-ink" href="/about-governance">How governance works <span class="arrow">→</span></a></div></div>
 <div class="people-grid">
-${board.map(card).join('\n')}
+${visible(board).map(card).join('\n')}
 </div>
 <p class="reveal" style="margin-top:18px;font-size:13px;color:var(--ink-faint)">Division Chiefs for the six core domains are appointed as domains activate — see <a href="/about-governance">Governance</a>.</p>
 </div>
@@ -351,7 +357,7 @@ ${board.map(card).join('\n')}
 <div class="inner">
 <div class="sec-head"><div><div class="eyebrow reveal"><span class="bar"></span> Operations</div><h2 class="sec-h reveal">Departments</h2><p class="sub reveal d1">Heads of GPS departments — programmes, partnerships, communications, and institutional sustainability.</p></div></div>
 <div class="people-grid">
-${departments.map(card).join('\n')}
+${visible(departments).map(card).join('\n')}
 </div>
 </div>
 </section>
@@ -364,7 +370,7 @@ ${departments.map(card).join('\n')}
 <div class="card reveal d2"><span class="kick">Composition</span><h3>Entrepreneurs, philanthropists &amp; cultural figures</h3><p>Prominent builders and public voices who extend the platform's reach across business, philanthropy, sport, and culture.</p></div>
 </div>
 <div class="people-grid" style="margin-top:28px">
-${advisory.map(card).join('\n')}
+${visible(advisory).map(card).join('\n')}
 </div>
 <div class="note reveal" style="margin-top:22px"><span>⟡</span><p><b>Announced progressively.</b> Further IAB members will appear here as each appointment is public. Profiles without a photograph still have a reserved portrait space for when images arrive.</p></div>
 </div>
@@ -373,7 +379,7 @@ ${advisory.map(card).join('\n')}
 <div class="inner">
 <div class="sec-head"><div><div class="eyebrow reveal"><span class="bar"></span> The hubs</div><h2 class="sec-h reveal">Regional Coordination</h2><p class="sub reveal d1">Each hub is led by a Regional Coordinator — strategy, partnerships, programming, and institutional development in their region.</p></div><div class="more reveal"><a class="btn btn-ink" href="/about-regional-hubs">Hubs on the map <span class="arrow">→</span></a></div></div>
 <div class="people-grid">
-${regional.map(card).join('\n')}
+${visible(regional).map(card).join('\n')}
 </div>
 </div>
 </section>
@@ -381,7 +387,7 @@ ${regional.map(card).join('\n')}
 <div class="inner">
 <div class="sec-head"><div><div class="eyebrow reveal"><span class="bar"></span> The bench</div><h2 class="sec-h reveal">Researchers &amp; specialists</h2><p class="sub reveal d1">Scholars, practitioners, and specialists contributing to GPS research, programmes, and regional work.</p></div></div>
 <div class="people-grid">
-${researchers.map(card).join('\n')}
+${visible(researchers).map(card).join('\n')}
 </div>
 </div>
 </section>
@@ -424,7 +430,7 @@ const expertsPage = `<!--meta {"title":"Experts & Fellows","desc":"Searchable di
 <span class="fcount" data-f-count></span>
 </div>
 <div class="people-grid" data-filter-list>
-${researchers.map(card).join('\n')}
+${visible(researchers).map(card).join('\n')}
 <div class="empty-msg">No profiles match those filters yet — the bench is still being built. Try widening your search.</div>
 </div>
 <div class="note reveal" style="margin-top:26px"><span>⟡</span><p><b>A growing directory.</b> Further profiles (photo, biography, publications) appear as colleagues are confirmed. Want in? <a href="/get-involved-opportunities#fellowships">Fellowship opportunities</a>.</p></div>
