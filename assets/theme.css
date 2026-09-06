@@ -199,7 +199,7 @@
 .threeq p{font-size:15px;line-height:1.5;color:var(--ink-inv-soft);margin-top:10px;text-wrap:pretty}
 @media(max-width:860px){.threeq .inner{grid-template-columns:1fr}.threeq .q{border-right:none;border-bottom:1px solid var(--line-inv);padding:24px 0}.threeq .q+.q{padding-left:0}.threeq .q:last-child{border-bottom:none}}
 /* ---------- ecosystem diagram (premium) ---------- */
-.eco2{position:relative;border-radius:24px;padding:clamp(22px,3vw,44px);background:radial-gradient(ellipse 75% 60% at 50% 40%,rgba(238,178,50,.1),transparent 55%),linear-gradient(165deg,#E8F0E4 0%,#F3F7F0 42%,#E4EDE0 100%);border:1px solid rgba(17,52,26,.12);overflow:hidden;box-shadow:0 18px 48px -28px rgba(9,25,11,.18)}
+.eco2{position:relative;border-radius:24px;padding:clamp(22px,3vw,44px);background:var(--surface,#fff);border:1px solid rgba(17,52,26,.1);overflow:hidden;box-shadow:0 18px 48px -28px rgba(9,25,11,.12)}
 .eco2::before{display:none}
 .eco2-net{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
 .eco2-base{fill:none;stroke:rgba(17,52,26,.18);stroke-width:1.4}
@@ -209,7 +209,7 @@
 @keyframes ecoflow{from{stroke-dashoffset:var(--eL)}to{stroke-dashoffset:0}}
 .eco2-flow.lit{stroke-width:3.4}
 .eco2-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(210px,.92fr) minmax(0,1fr);column-gap:clamp(34px,4.8vw,84px);row-gap:clamp(60px,8vw,116px);align-items:center;justify-items:center}
-.eco2-card{position:relative;display:flex;flex-direction:column;justify-content:center;min-height:150px;width:100%;max-width:305px;padding:18px 20px;border-radius:18px;background:rgba(255,255,255,.72);border:1px solid rgba(17,52,26,.1);box-shadow:0 14px 36px -24px rgba(9,25,11,.28);transition:transform .3s var(--ease),border-color .3s,box-shadow .3s}
+.eco2-card{position:relative;display:flex;flex-direction:column;justify-content:center;min-height:150px;width:100%;max-width:305px;padding:18px 20px;border-radius:18px;background:#fff;border:1px solid rgba(17,52,26,.12);box-shadow:0 14px 36px -24px rgba(9,25,11,.22);transition:transform .3s var(--ease),border-color .3s,box-shadow .3s}
 .eco2-card::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:3px;border-radius:3px;background:var(--ec,var(--brand-gold));opacity:.9}
 .eco2-card:hover{transform:translateY(-4px);border-color:var(--ec,var(--brand-gold));box-shadow:0 22px 48px -22px rgba(9,25,11,.28),0 0 0 1px color-mix(in oklab,var(--ec,var(--brand-gold)) 30%,transparent)}
 .eco2-num{display:inline-block;font-family:var(--font-ui);font-size:10px;font-weight:800;letter-spacing:.18em;color:var(--ec,var(--brand-gold));margin-bottom:7px}
