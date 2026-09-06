@@ -342,7 +342,7 @@ const researchers = withPalette([
   },
 ], MIX);
 
-const people = `<!--meta {"title":"People","desc":"The people of GPS — Board of Directors, International Advisory Board, Regional Coordination, Distinguished Contributors, and Young Leaders.","nav":"people","crumb":[["Home","/"],["About","/about"],["People & Governance"]],"eyebrow":"About · People & Governance","h1":"The people behind <span class='grad-ink'>the platform.</span>","lede":"GPS is powered by people, institutions, and ideas in motion. Founding appointments are announced progressively through 2026 — every seat below is structured, and filling.","subnav":[["#board","Board"],["#departments","Departments"],["#advisory","Advisory Board"],["#regional","Coordination"],["#researchers","Researchers"],["#experts-link","Experts & Fellows"],["#contributors","Contributors"],["#young-leaders","Young Leaders"]]}-->
+const people = `<!--meta {"title":"People","desc":"The people of GPS — Board of Directors, International Advisory Board, Regional Coordination, Distinguished Contributors, and Young Leaders.","nav":"people","crumb":[["Home","/"],["About","/about"],["People & Governance"]],"eyebrow":"About · People & Governance","h1":"The people behind <span class='grad-ink'>the platform.</span>","lede":"GPS is powered by people, institutions, and ideas in motion — connecting knowledge, innovation, enterprise, and policy across the Global South.","subnav":[["#board","Board"],["#departments","Departments"],["#advisory","Advisory Board"],["#regional","Coordination"],["#researchers","Researchers"],["#experts-link","Experts & Fellows"],["#contributors","Contributors"],["#young-leaders","Young Leaders"]]}-->
 <section id="board" style="padding-top:30px">
 <span id="executive"></span>
 <div class="inner">
@@ -350,7 +350,6 @@ const people = `<!--meta {"title":"People","desc":"The people of GPS — Board o
 <div class="people-grid">
 ${visible(board).map(card).join('\n')}
 </div>
-<p class="reveal" style="margin-top:18px;font-size:13px;color:var(--ink-faint)">Division Chiefs for the six core domains are appointed as domains activate — see <a href="/about-governance">Governance</a>.</p>
 </div>
 </section>
 <section id="departments" class="wash">
@@ -363,7 +362,7 @@ ${visible(departments).map(card).join('\n')}
 </section>
 <section id="advisory">
 <div class="inner">
-<div class="sec-head"><div><div class="eyebrow reveal"><span class="bar"></span> Counsel</div><h2 class="sec-h reveal">International Advisory Board</h2><p class="sub reveal d1">A distinguished body being convened across the Global South and beyond — invitations are underway; members are announced as they accept.</p></div></div>
+<div class="sec-head"><div><div class="eyebrow reveal"><span class="bar"></span> Counsel</div><h2 class="sec-h reveal">International Advisory Board</h2><p class="sub reveal d1">A distinguished body of university leaders, policymakers, diplomats, and partners across the Global South and beyond.</p></div></div>
 <div class="grid-3">
 <div class="card reveal"><span class="kick">Composition</span><h3>University &amp; academic leadership</h3><p>Presidents and secretaries-general of regional university associations across Africa, Latin America &amp; the Caribbean, Asia-Pacific, and the Arab world — and leading rectors and scholars.</p></div>
 <div class="card reveal d1"><span class="kick">Composition</span><h3>Former ministers, diplomats &amp; public leaders</h3><p>Senior figures from foreign affairs, economy, and education portfolios — with deep South–South cooperation experience.</p></div>
@@ -372,7 +371,6 @@ ${visible(departments).map(card).join('\n')}
 <div class="people-grid" style="margin-top:28px">
 ${visible(advisory).map(card).join('\n')}
 </div>
-<div class="note reveal" style="margin-top:22px"><span>⟡</span><p><b>Announced progressively.</b> Further IAB members will appear here as each appointment is public. Profiles without a photograph still have a reserved portrait space for when images arrive.</p></div>
 </div>
 </section>
 <section id="regional" class="wash">
@@ -420,7 +418,7 @@ ${visible(researchers).map(card).join('\n')}
 </section>
 `;
 
-const expertsPage = `<!--meta {"title":"Experts & Fellows","desc":"Searchable directory of GPS researchers, specialists, and fellows — filter by pillar and region.","nav":"people","crumb":[["Home","/"],["About","/about"],["People & Governance","/people"],["Experts & Fellows"]],"eyebrow":"About · Experts & Fellows","h1":"Experts &amp; <span class='grad-ink'>Fellows</span>","lede":"Researchers, specialists, and fellows across the four pillars and every region. Profiles populate as colleagues join the network."}-->
+const expertsPage = `<!--meta {"title":"Experts & Fellows","desc":"Searchable directory of GPS researchers, specialists, and fellows — filter by pillar and region.","nav":"people","crumb":[["Home","/"],["About","/about"],["People & Governance","/people"],["Experts & Fellows"]],"eyebrow":"About · Experts & Fellows","h1":"Experts &amp; <span class='grad-ink'>Fellows</span>","lede":"Researchers, specialists, and fellows across the four pillars and every region."}-->
 <section style="padding-top:26px">
 <div class="inner" data-filter-scope>
 <div class="filterbar reveal">
@@ -431,9 +429,8 @@ const expertsPage = `<!--meta {"title":"Experts & Fellows","desc":"Searchable di
 </div>
 <div class="people-grid" data-filter-list>
 ${visible(researchers).map(card).join('\n')}
-<div class="empty-msg">No profiles match those filters yet — the bench is still being built. Try widening your search.</div>
+<div class="empty-msg">No profiles match those filters. Try widening your search.</div>
 </div>
-<div class="note reveal" style="margin-top:26px"><span>⟡</span><p><b>A growing directory.</b> Further profiles (photo, biography, publications) appear as colleagues are confirmed. Want in? <a href="/get-involved-opportunities#fellowships">Fellowship opportunities</a>.</p></div>
 </div>
 </section>
 `;
