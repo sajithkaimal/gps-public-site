@@ -286,7 +286,7 @@ d.querySelectorAll('[data-rail]').forEach(function(rail){
     dots.appendChild(b);
   });
   rail.appendChild(dots);
-  var i=0,timer=null,delay=5000,locked=false;
+  var i=0,timer=null,delay=parseInt(rail.getAttribute('data-delay'))||5000,locked=false;
   function vis(){
     var v=parseFloat(getComputedStyle(rail).getPropertyValue('--wr-vis'));
     return v>0?v:3;
