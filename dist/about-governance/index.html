@@ -28,6 +28,70 @@
 <meta name="twitter:description" content="The governance structure of GPS — Board of Directors, International Advisory Board, Operational Team, Division Chiefs, and Regional Hubs.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@1,6..72,300;1,6..72,400;1,6..72,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css?v=20260906c"><link rel="stylesheet" href="/assets/ui.css?v=20260906c"><link rel="stylesheet" href="/assets/theme.css?v=20260906c">
+<style>
+.btn-unmute-float {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    z-index: 20;
+    background: rgba(0,0,0,0.65);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    animation: popPulse 2s infinite;
+    pointer-events: auto;
+    transition: all 0.2s ease;
+    padding: 0;
+}
+.btn-unmute-float:hover {
+    background: rgba(0,0,0,0.85);
+    border-color: rgba(255,255,255,0.9);
+    transform: translateY(-2px);
+}
+.btn-unmute-float.unmuted {
+    animation: none;
+    background: rgba(0,0,0,0.4);
+    border-color: rgba(255,255,255,0.2);
+}
+.btn-unmute-float svg {
+    width: 20px;
+    height: 20px;
+}
+.btn-unmute-float .icon-unmute {
+    display: none;
+}
+.btn-unmute-float.unmuted .icon-mute {
+    display: none;
+}
+.btn-unmute-float.unmuted .icon-unmute {
+    display: block;
+}
+@keyframes popPulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0.5); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255,255,255,0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+}
+@media(max-width: 1099px) {
+    .btn-unmute-float {
+        bottom: 16px;
+        right: 16px;
+        width: 40px;
+        height: 40px;
+    }
+    .btn-unmute-float svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>

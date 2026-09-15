@@ -28,11 +28,75 @@
 <meta name="twitter:description" content="The GCUB General Assembly in Kigali, October 2027 — academic cooperation between Brazilian and Global South universities, hosted within Kigali Knowledge Crossroads Week.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@1,6..72,300;1,6..72,400;1,6..72,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css?v=20260906c"><link rel="stylesheet" href="/assets/ui.css?v=20260906c"><link rel="stylesheet" href="/assets/theme.css?v=20260906c">
+<style>
+.btn-unmute-float {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    z-index: 20;
+    background: rgba(0,0,0,0.65);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    animation: popPulse 2s infinite;
+    pointer-events: auto;
+    transition: all 0.2s ease;
+    padding: 0;
+}
+.btn-unmute-float:hover {
+    background: rgba(0,0,0,0.85);
+    border-color: rgba(255,255,255,0.9);
+    transform: translateY(-2px);
+}
+.btn-unmute-float.unmuted {
+    animation: none;
+    background: rgba(0,0,0,0.4);
+    border-color: rgba(255,255,255,0.2);
+}
+.btn-unmute-float svg {
+    width: 20px;
+    height: 20px;
+}
+.btn-unmute-float .icon-unmute {
+    display: none;
+}
+.btn-unmute-float.unmuted .icon-mute {
+    display: none;
+}
+.btn-unmute-float.unmuted .icon-unmute {
+    display: block;
+}
+@keyframes popPulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0.5); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255,255,255,0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+}
+@media(max-width: 1099px) {
+    .btn-unmute-float {
+        bottom: 16px;
+        right: 16px;
+        width: 40px;
+        height: 40px;
+    }
+    .btn-unmute-float svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header id="header"><div class="hd-in"><a class="brand" href="/"><img class="brand-logo" src="/assets/images/logo.png" alt="GPS — Global Platform for the South" width="180" height="180"></a><button id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span></button><nav class="main" aria-label="Primary"><ul><li><a href="/about">About</a><button class="sub-toggle" aria-expanded="false" aria-label="Open About menu"><span class="car" aria-hidden="true"></span></button><div class="sub"><a class="head" href="/about">About</a><hr><a href="/about-why-gps">Why GPS?</a><a href="/about-mission-vision">Mission &amp; Vision</a><a href="/about-our-approach">Our Approach</a><a href="/people">People &amp; Governance</a><a href="/impact">Impact</a><a href="/roadmap">Roadmap</a></div></li><li><a href="/what-we-do">Our Work</a><button class="sub-toggle" aria-expanded="false" aria-label="Open Our Work menu"><span class="car" aria-hidden="true"></span></button><div class="sub"><a class="head" href="/what-we-do">Our Work</a><hr><a href="/work-knowledge">Knowledge Co-Creation, Sharing &amp; Dissemination</a><a href="/work-innovation">Technology &amp; Innovation</a><a href="/work-policy">Policy, Governance &amp; Public Leadership</a><a href="/work-enterprise">Enterprise &amp; Sustainable Development</a><a href="/initiatives">Activities</a></div></li><li><a href="/network">Network</a><button class="sub-toggle" aria-expanded="false" aria-label="Open Network menu"><span class="car" aria-hidden="true"></span></button><div class="sub"><a class="head" href="/network">Network</a><hr><a href="/about-regional-hubs">Regional Coordination</a><a href="/network-partners">Partners</a><a href="/network-diaspora">Diaspora Network</a></div></li><li><a href="/knowledge-hub">Knowledge &amp; News</a><button class="sub-toggle" aria-expanded="false" aria-label="Open Knowledge and News menu"><span class="car" aria-hidden="true"></span></button><div class="sub cols2"><a class="head" href="/knowledge-hub">Knowledge &amp; News</a><hr><a href="/kh-journal">GPS Journal</a><a href="/kh-outlook">GPS Outlook</a><a href="/kh-library">Publications</a><a href="/news">Updates</a><a href="/events">Events</a><a href="/events-calendar">Calendar</a></div></li><li><a href="/get-involved">Get Involved</a><button class="sub-toggle" aria-expanded="false" aria-label="Open Get Involved menu"><span class="car" aria-hidden="true"></span></button><div class="sub"><a class="head" href="/get-involved">Get Involved</a><hr><a href="/get-involved#partner">Partner with GPS</a><a href="/get-involved#join">Join GPS</a><a href="/get-involved#collaborate">Collaborate</a><a href="/get-involved#contribute">Contribute Knowledge</a><a href="/get-involved#support">Support an Initiative</a><a href="/get-involved-opportunities">Opportunities</a><a href="/contact">Contact Us</a></div></li><li class="m-search"><form class="hd-search" role="search" action="/search" method="get"><label for="q-m" class="vh">Search this site</label><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><input id="q-m" type="search" name="q" data-gps-search-trigger placeholder="Search pages, publications, events…" autocomplete="off"></form></li><li><a class="donate-btn m-donate" href="/donate">Donate</a></li></ul></nav><form class="hd-search" role="search" action="/search" method="get"><label for="q-d" class="vh">Search this site</label><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><input id="q-d" type="search" name="q" data-gps-search-trigger placeholder="Search pages, publications, events…" autocomplete="off"></form><a class="donate-btn hd-donate" href="/donate">Donate</a></div></header><main id="main" data-screen-label="GCUB General Assembly">
-<header class="page-hero"><div class="inner"><div class="crumbs"><a href="/">Home</a><span class="sep">/</span><a href="/initiatives">Initiatives</a><span class="sep">/</span><span>GCUB General Assembly</span></div><div class="eyebrow reveal"><span class="bar"></span> Initiatives · Academic cooperation</div><h1 class="reveal d1">GCUB General <span class='grad-ink'>Assembly</span></h1><p class="lede reveal d2">University presidents, rectors, and institutional leaders from GCUB's member network — convening in Kigali, October 2027, inside the Knowledge Crossroads Week.</p></div></header>
+<header class="page-hero"><div class="inner"><div class="crumbs"><a href="/">Home</a><span class="sep">/</span><a href="/initiatives">Initiatives</a><span class="sep">/</span><span>GCUB General Assembly</span></div><div class="eyebrow reveal"><span class="bar"></span> Initiatives · Academic cooperation</div><h1 class="reveal d1">GCUB General <span class='grad-ink'>Assembly</span></h1><p class="lede reveal d2">104 universities from Brasil, convening in Kigali, October 2027, inside the Knowledge Crossroads Week.</p></div></header>
 <section style="padding-top:26px">
 <div class="inner split">
 <div class="prose reveal">

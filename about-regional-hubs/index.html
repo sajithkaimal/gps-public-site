@@ -29,6 +29,70 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@1,6..72,300;1,6..72,400;1,6..72,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css?v=20260906c"><link rel="stylesheet" href="/assets/ui.css?v=20260906c"><link rel="stylesheet" href="/assets/theme.css?v=20260906c">
 
+<style>
+.btn-unmute-float {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    z-index: 20;
+    background: rgba(0,0,0,0.65);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    animation: popPulse 2s infinite;
+    pointer-events: auto;
+    transition: all 0.2s ease;
+    padding: 0;
+}
+.btn-unmute-float:hover {
+    background: rgba(0,0,0,0.85);
+    border-color: rgba(255,255,255,0.9);
+    transform: translateY(-2px);
+}
+.btn-unmute-float.unmuted {
+    animation: none;
+    background: rgba(0,0,0,0.4);
+    border-color: rgba(255,255,255,0.2);
+}
+.btn-unmute-float svg {
+    width: 20px;
+    height: 20px;
+}
+.btn-unmute-float .icon-unmute {
+    display: none;
+}
+.btn-unmute-float.unmuted .icon-mute {
+    display: none;
+}
+.btn-unmute-float.unmuted .icon-unmute {
+    display: block;
+}
+@keyframes popPulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0.5); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255,255,255,0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+}
+@media(max-width: 1099px) {
+    .btn-unmute-float {
+        bottom: 16px;
+        right: 16px;
+        width: 40px;
+        height: 40px;
+    }
+    .btn-unmute-float svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -43,16 +107,13 @@
 <section style="padding-top:20px">
 <div class="inner">
 <div class="hub-cards">
-<div class="hub-card reveal" id="hub-kigali" style="--hc:var(--c1)"><h3><i></i>Kigali</h3><div class="rg">Rwanda · Headquarters · East Africa</div><p>Global headquarters — institutional home, strategy and coordination, and host of the Kigali Knowledge Crossroads Week in October 2027.</p></div>
-<div class="hub-card reveal d1" id="hub-addis" style="--hc:var(--c5)"><h3><i></i>Addis Ababa</h3><div class="rg">Ethiopia · Regional hub · East &amp; Horn of Africa</div><p>Gateway to continental institutions and the African Union ecosystem; policy and diplomacy engagement.</p></div>
-<div class="hub-card reveal d2" id="hub-dakar" style="--hc:var(--c5)"><h3><i></i>Dakar</h3><div class="rg">Senegal · Regional hub · Francophone West Africa</div><p>Research, culture, and Atlantic partnerships across Francophone Africa and its diasporas.</p></div>
-<div class="hub-card reveal" id="hub-accra" style="--hc:var(--c5)"><h3><i></i>Accra</h3><div class="rg">Ghana · Regional hub · Anglophone West Africa</div><p>Enterprise, innovation ecosystems, and diaspora engagement across Anglophone West Africa.</p></div>
-<div class="hub-card reveal d1" id="hub-saopaulo" style="--hc:var(--c5)"><h3><i></i>São Paulo</h3><div class="rg">Brazil · Regional hub · Latin America</div><p>University cooperation with GCUB and Latin American networks; host of the 2028 GPS Convening.</p></div>
-<div class="hub-card reveal d2" id="hub-martinique" style="--hc:var(--c5)"><h3><i></i>Martinique</h3><div class="rg">The Caribbean · Regional hub</div><p>Caribbean node — island universities, cultural production, and climate resilience.</p></div>
-<div class="hub-card reveal" id="hub-caribbean" style="--hc:var(--c4)"><h3><i></i>Wider Caribbean</h3><div class="rg">The Caribbean · Under consultation</div><p>Extending Caribbean presence beyond the Martinique hub — in consultation with island universities and regional bodies.</p></div>
-<div class="hub-card reveal d1" id="hub-mena" style="--hc:var(--c4)"><h3><i></i>Middle East</h3><div class="rg">MENA · Under consultation</div><p>Consultations underway with regional universities and institutions.</p></div>
-<div class="hub-card reveal d1" id="hub-asia" style="--hc:var(--c4)"><h3><i></i>South &amp; Southeast Asia</h3><div class="rg">Asia-Pacific · Under consultation</div><p>Exploratory partnerships across South and Southeast Asia.</p></div>
-<div class="hub-card reveal d2" style="--hc:var(--ink-faint);border-style:dashed"><h3><i style="box-shadow:none;background:var(--line)"></i>Your region next</h3><div class="rg">Extensible by design</div><p>The hub architecture — governance, coordination, and this map — is built to add new hubs without redesign. <a href="/get-involved#partner" class="link-arrow" style="font-size:12.5px">Propose a hub</a></p></div>
+<div class="hub-card reveal" id="hub-kigali" style="--hc:var(--c1)"><h3><i></i>Kigali</h3><div class="rg">HQ</div></div>
+<div class="hub-card reveal d1" id="hub-africa" style="--hc:var(--c5)"><h3><i></i>Africa</h3><div class="rg">Ethiopia, Ghana and Senegal</div></div>
+<div class="hub-card reveal d2" id="hub-mena" style="--hc:var(--c4)"><h3><i></i>Middle East</h3><div class="rg">Lebanon — Beirut</div></div>
+<div class="hub-card reveal" id="hub-saopaulo" style="--hc:var(--c5)"><h3><i></i>Latin America</h3><div class="rg">São Paulo</div></div>
+<div class="hub-card reveal d1" id="hub-caribbean" style="--hc:var(--c5)"><h3><i></i>The Caribbean</h3><div class="rg">Martinique</div></div>
+<div class="hub-card reveal d2" id="hub-asia" style="--hc:var(--c4)"><h3><i></i>South &amp; Southeast Asia</h3></div>
+<div class="hub-card reveal" style="--hc:var(--ink-faint);border-style:dashed"><h3><i style="box-shadow:none;background:var(--line)"></i>Your region next</h3><div class="rg">Extensible by design</div><p>The hub architecture — governance, coordination, and this map — is built to add new hubs without redesign. <a href="/get-involved#partner" class="link-arrow" style="font-size:12.5px">Propose a hub</a></p></div>
 </div>
 </div>
 </section>

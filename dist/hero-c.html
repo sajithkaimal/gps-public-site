@@ -22,6 +22,70 @@
 .hero-home.hero-cinema.has-figure .v-h1{max-width:15ch;font-size:clamp(31px,3.5vw,50px);line-height:1.06}
 .demo-note{background:var(--wash);border-bottom:1px solid var(--line);padding:12px var(--pad);font-size:13px;font-weight:600;color:var(--ink-soft)}
 </style>
+<style>
+.btn-unmute-float {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    z-index: 20;
+    background: rgba(0,0,0,0.65);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    animation: popPulse 2s infinite;
+    pointer-events: auto;
+    transition: all 0.2s ease;
+    padding: 0;
+}
+.btn-unmute-float:hover {
+    background: rgba(0,0,0,0.85);
+    border-color: rgba(255,255,255,0.9);
+    transform: translateY(-2px);
+}
+.btn-unmute-float.unmuted {
+    animation: none;
+    background: rgba(0,0,0,0.4);
+    border-color: rgba(255,255,255,0.2);
+}
+.btn-unmute-float svg {
+    width: 20px;
+    height: 20px;
+}
+.btn-unmute-float .icon-unmute {
+    display: none;
+}
+.btn-unmute-float.unmuted .icon-mute {
+    display: none;
+}
+.btn-unmute-float.unmuted .icon-unmute {
+    display: block;
+}
+@keyframes popPulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0.5); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255,255,255,0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+}
+@media(max-width: 1099px) {
+    .btn-unmute-float {
+        bottom: 16px;
+        right: 16px;
+        width: 40px;
+        height: 40px;
+    }
+    .btn-unmute-float svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -38,7 +102,12 @@
 <div class="cta-row reveal d3"><a class="btn btn-grad" href="get-involved.html#partner">Partner with GPS <span class="arrow">→</span></a><a class="btn btn-ghost" href="what-we-do.html">Explore Our Work</a></div>
 </div></div></div>
 <figure class="hero-figure reveal d2">
-<div class="hf-frame"><video class="hf-video" src="assets/hero.webm?v=20260727a" poster="assets/hero-poster.png" loop muted playsinline preload="metadata" disablepictureinpicture aria-label="Humans, knowledge, innovation, enterprise, policy and impact across the Global South"></video></div>
+<div class="hf-frame"><video class="hf-video" src="assets/hero.webm?v=20260727a" poster="assets/hero-poster.png" loop muted playsinline preload="metadata" disablepictureinpicture aria-label="Humans, knowledge, innovation, enterprise, policy and impact across the Global South"></video>
+<button class="btn-unmute-float" type="button" aria-label="Toggle Audio" onclick="const v = this.previousElementSibling; v.muted = !v.muted; if(v.paused) v.play(); this.classList.toggle('unmuted', !v.muted); event.stopPropagation();">
+<svg class="icon-mute" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+<svg class="icon-unmute" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+</button>
+</div>
 <figcaption class="hf-chain" aria-label="Humans to knowledge to innovation to policy to enterprise to impact"><span>Humans</span><i>↔</i><span>Knowledge</span><i>↔</i><span>Innovation</span><i>↔</i><span>Policy</span><i>↔</i><span>Enterprise</span><i>→</i><span class="hf-end">Impact</span></figcaption>
 </figure>
 </header>
