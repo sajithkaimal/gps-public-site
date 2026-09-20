@@ -97,8 +97,14 @@ const board = withPalette([
     bio: 'Writer, scholar, and public intellectual. Associate Director for Creative Production at GPS.',
   },
   {
-    init: 'SK', name: 'Sajith Kaimal', role: 'Associate Director for Emerging Technologies &amp; Innovation', geo: 'Enterprise network',
-    bio: 'Founder and CEO of Astra Landing Enterprise and Kanaka Agro Farms. Associate Director for Emerging Technologies &amp; Innovation at GPS.',
+    init: 'SK', name: 'Sajith Kaimal', role: 'Associate Director for Emerging Technologies &amp; Innovation', geo: 'Massachusetts, United States · Enterprise network',
+    img: IMG + 'sajith-kaimal.jpg',
+    bio: 'Technologist and entrepreneur applying AI to hard problems at global scale. Former Chief Product and Technology Officer at Amazon, Cisco, and multiple startups; inventor with multiple patents.',
+    full: [
+      'Sajith Kaimal is Founder and Chief Executive of multiple startups. A technologist and entrepreneur, he has spent his career building products at the point where new technology meets everyday life — as an engineer, as an inventor with multiple patents to his name, and as Chief Product and Technology Officer in roles spanning product strategy, platform architecture, and applied AI. He formerly headed technology products at Amazon, Cisco, and multiple startups, from first line of code to market; today his work centres on applying cutting-edge agentic AI to hard problems at global scale — systems that reason, decide, and act for hundreds of millions of people.',
+      'His ventures include Astra Landing Enterprise and Kanaka Agro Farms, Massachusetts-based companies that connect intelligent platforms, sustainable agriculture, and global markets. Both are GPS private-sector partners.',
+      'Sajith believes the next decade will be remembered as the moment AI stopped being a tool of the few and became infrastructure for the many. The Global South will not be a market for that intelligence — it will be its author.',
+    ],
   },
   {
     init: 'AO', name: 'Adu Opoku-Boahin', role: 'Associate Director', geo: 'Ghana',
@@ -170,6 +176,34 @@ const departments = withPalette([
 ], GREEN);
 
 const advisory = withPalette([
+  {
+    init: 'IG', name: 'Amb. Irene Vida Gala', role: 'International Advisory Board Member', geo: 'Brazil · Rwanda',
+    img: IMG + 'irene-vida-gala.jpg',
+    bio: 'Ambassador of Brazil to Rwanda and a career diplomat with 42 years of service in Brazil’s foreign service.',
+    full: [
+      'Ambassador Irene Vida Gala is a Brazilian career diplomat with 42 years of service in the Brazilian Foreign Service (Itamaraty). She currently serves as Ambassador of Brazil to the Republic of Rwanda, where she led the establishment of Brazil\'s first resident Embassy in the country, reinforcing Brazil\'s diplomatic engagement with East Africa. Prior to her current appointment, she served as Ambassador of Brazil to the Republic of Ghana.',
+      'Throughout her career, Ambassador Gala has developed extensive expertise in Brazil\'s relations with Africa and in multilateral diplomacy. She participated in the establishment and early development of the Community of Portuguese Language Countries (CPLP) and later served at Brazil\'s Permanent Mission to the United Nations in New York, where she followed the work of the United Nations Security Council, with particular responsibility for issues concerning the Great Lakes region of Africa.',
+      'Her previous overseas assignments include the Brazilian Embassies in Lisbon, Luanda, and Pretoria, and the Consulate General of Brazil in Rome. In Brazil, she also served as Deputy Head of the Ministry of Foreign Affairs\' Regional Office in São Paulo.',
+      'Ambassador Gala has been committed to advancing gender equality and women\'s leadership throughout her career. As the founding President of the Brazilian Women Diplomats Association (AMDB), she contributed to broadening the national debate on women\'s participation in leadership positions and on gender equality within Brazil\'s public service, while also supporting initiatives to increase the representation of women in the Brazilian Foreign Service.',
+      'She holds a Bachelor of Laws (LL.B.), a Master\'s degree in International Relations, and is a graduate of the Rio Branco Institute, Brazil\'s diplomatic academy.',
+    ],
+  },
+  {
+    init: 'NC', name: 'Amb. Natalie Campbell-Rodrigues', role: 'International Advisory Board Member', geo: 'Jamaica · Trinidad and Tobago',
+    bio: 'Jamaican diplomat, policymaker, and entrepreneur, currently serving as Jamaica’s High Commissioner to Trinidad and Tobago.',
+    full: [
+      'A Jamaican diplomat, policymaker, entrepreneur, and organizational management professional, currently serving as Jamaica’s High Commissioner to Trinidad and Tobago and Permanent Representative to the Association of Caribbean States (ACS).',
+      'Her experience spans diplomacy, public policy, international development, entrepreneurship, and South–South cooperation. She previously served as a Senator in Jamaica, as an Advisor to the Ministry of Foreign Affairs and Foreign Trade, and as the founder and Managing Director of a company operating in Rwanda.',
+    ],
+  },
+  {
+    init: 'BR', name: 'Amb. José Brito', role: 'International Advisory Board Member', geo: 'Cabo Verde',
+    bio: 'Former Minister of Foreign Affairs and Minister of Economy of Cabo Verde; co-founder of IHABA.',
+    full: [
+      'Former Minister of Foreign Affairs and former Minister of Economy of Cabo Verde; former Ambassador to the United States, Canada, and Mexico; and currently co-founder and managing partner of IHABA, a business development and advisory firm.',
+      'He also contributed to the Africa Innovation Summit and played an important role in advancing Cabo Verde’s renewable energy strategy.',
+    ],
+  },
   {
     init: 'RS', name: 'Prof. Rossana Valéria de Souza e Silva', role: 'International Advisory Board Member', geo: 'Brazil · GCUB',
     img: IMG + 'rossana-valeria-de-souza-e-silva.jpg',
@@ -244,34 +278,6 @@ const advisory = withPalette([
       'Syed Muhammad Mohsin is dynamic and result oriented with more than 35 years of experience and a successful track record of performance in mega and multibillion projects. He has superior interpersonal skills, capable of resolving multiple and complex problems with innovative solutions. He has extensive interaction experience with government institutes and is well versed in government policies, regulations, and laws. He has immense experience in leading private-public organizations with best technical and management practices from the private sector, introducing systems for operations management and setting up visionary projects from scratch with a change management approach for the benefit of the country.',
       'As a government employee, he has served as Chairman of 12 industrial zones in all provinces of Pakistan, was President of the Technical Educational and Vocational Training Authority (TEVTA) Punjab, and a member of the Pakistan Air Force Board Kamra, a manufacturing unit.',
       'Syed Muhammad Mohsin completed an MS in Electronics Engineering from California State University, Los Angeles (USA) in 1980, and a B.Sc. in Electronics Engineering from the University of Engineering, Lahore (Pakistan) in 1976. He is a commercial Pilot License holder, and he owns Hybrid Technics Private Limited and Hybrid Aviation Private Limited, Lahore (Pakistan). His businesses also run research and development sections and have been manufacturing electronic parts and circuit boards for the industrial sector and international investors such as Honda and Sulzer Ruti in Pakistan.',
-    ],
-  },
-  {
-    init: 'NC', name: 'Natalie Campbell-Rodrigues', role: 'International Advisory Board Member', geo: 'Jamaica · Trinidad and Tobago',
-    bio: 'Jamaican diplomat, policymaker, and entrepreneur, currently serving as Jamaica’s High Commissioner to Trinidad and Tobago.',
-    full: [
-      'A Jamaican diplomat, policymaker, entrepreneur, and organizational management professional, currently serving as Jamaica’s High Commissioner to Trinidad and Tobago and Permanent Representative to the Association of Caribbean States (ACS).',
-      'Her experience spans diplomacy, public policy, international development, entrepreneurship, and South–South cooperation. She previously served as a Senator in Jamaica, as an Advisor to the Ministry of Foreign Affairs and Foreign Trade, and as the founder and Managing Director of a company operating in Rwanda.',
-    ],
-  },
-  {
-    init: 'IG', name: 'Irene Vida Gala', role: 'International Advisory Board Member', geo: 'Brazil · Rwanda',
-    img: IMG + 'irene-vida-gala.jpg',
-    bio: 'Ambassador of Brazil to Rwanda and a career diplomat with 42 years of service in Brazil’s foreign service.',
-    full: [
-      'Ambassador Irene Vida Gala is a Brazilian career diplomat with 42 years of service in the Brazilian Foreign Service (Itamaraty). She currently serves as Ambassador of Brazil to the Republic of Rwanda, where she led the establishment of Brazil\'s first resident Embassy in the country, reinforcing Brazil\'s diplomatic engagement with East Africa. Prior to her current appointment, she served as Ambassador of Brazil to the Republic of Ghana.',
-      'Throughout her career, Ambassador Gala has developed extensive expertise in Brazil\'s relations with Africa and in multilateral diplomacy. She participated in the establishment and early development of the Community of Portuguese Language Countries (CPLP) and later served at Brazil\'s Permanent Mission to the United Nations in New York, where she followed the work of the United Nations Security Council, with particular responsibility for issues concerning the Great Lakes region of Africa.',
-      'Her previous overseas assignments include the Brazilian Embassies in Lisbon, Luanda, and Pretoria, and the Consulate General of Brazil in Rome. In Brazil, she also served as Deputy Head of the Ministry of Foreign Affairs\' Regional Office in São Paulo.',
-      'Ambassador Gala has been committed to advancing gender equality and women\'s leadership throughout her career. As the founding President of the Brazilian Women Diplomats Association (AMDB), she contributed to broadening the national debate on women\'s participation in leadership positions and on gender equality within Brazil\'s public service, while also supporting initiatives to increase the representation of women in the Brazilian Foreign Service.',
-      'She holds a Bachelor of Laws (LL.B.), a Master\'s degree in International Relations, and is a graduate of the Rio Branco Institute, Brazil\'s diplomatic academy.',
-    ],
-  },
-  {
-    init: 'BR', name: 'José Brito', role: 'International Advisory Board Member', geo: 'Cabo Verde',
-    bio: 'Former Minister of Foreign Affairs and Minister of Economy of Cabo Verde; co-founder of IHABA.',
-    full: [
-      'Former Minister of Foreign Affairs and former Minister of Economy of Cabo Verde; former Ambassador to the United States, Canada, and Mexico; and currently co-founder and managing partner of IHABA, a business development and advisory firm.',
-      'He also contributed to the Africa Innovation Summit and played an important role in advancing Cabo Verde’s renewable energy strategy.',
     ],
   },
   {
@@ -365,7 +371,7 @@ ${visible(departments).map(card).join('\n')}
 <div class="sec-head"><div><div class="eyebrow reveal"><span class="bar"></span> Counsel</div><h2 class="sec-h reveal">International Advisory Board</h2><p class="sub reveal d1">A distinguished body of university leaders, policymakers, diplomats, and partners across the Global South and beyond.</p></div></div>
 <div class="grid-3">
 <div class="card reveal"><span class="kick">Composition</span><h3>University &amp; academic leadership</h3><p>Presidents and secretaries-general of regional university associations across Africa, Latin America &amp; the Caribbean, Asia-Pacific, and the Arab world — and leading rectors and scholars.</p></div>
-<div class="card reveal d1"><span class="kick">Composition</span><h3>Former ministers, diplomats &amp; public leaders</h3><p>Senior figures from foreign affairs, economy, and education portfolios — with deep South–South cooperation experience.</p></div>
+<div class="card reveal d1"><span class="kick">Composition</span><h3>Current and former ministers, diplomats &amp; public leaders</h3><p>Senior figures from foreign affairs, economy, and education portfolios — with deep South–South cooperation experience.</p></div>
 <div class="card reveal d2"><span class="kick">Composition</span><h3>Entrepreneurs, philanthropists &amp; cultural figures</h3><p>Prominent builders and public voices who extend the platform's reach across business, philanthropy, sport, and culture.</p></div>
 </div>
 <div class="people-grid" style="margin-top:28px">
