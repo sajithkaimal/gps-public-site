@@ -1,0 +1,341 @@
+GPS WEBSITE — SCHEMATIC ARCHITECTURE & WEBMASTER GUIDELINES
+Guiding Concept
+The GPS website should feel like a living global ecosystem connecting knowledge to action and impact. It Focusing on academia, industry and business, it should not look like the website of a traditional university, NGO, or intergovernmental organization.
+Visual inspiration:Stanford — visual elegance and storytellingHarvard — information architectureUC Berkeley — impact orientationOSC — institutional and governance clarity
+GPS — unique ecosystem identity
+Core GPS Logic:
+KNOWLEDGE ↔ INNOVATION ↔ ENTERPRISE ↔ POLICY → IMPACT
+The relationship should be presented as interconnected rather than strictly linear.
+A. MAIN WEBSITE ARCHITECTURE
+MAIN NAVIGATION
+SUBMENU / SECOND LEVEL
+KEY CONTENT
+VISUAL / FUNCTIONAL TREATMENT
+NOTES FOR WEBMASTER
+HOME
+—
+GPS identity and overview
+Highly visual, dynamic homepage
+Visitor should understand GPS within 30 seconds
+ABOUT
+Why GPS?
+Initiative, motivation, intellectual context, historical context, purpose, distinctive identity, global positioning
+Strong introductory text + visual storytelling
+Explain the intellectual rationale for GPS
+Mission & Vision
+Mission, vision, values
+Clean institutional presentation
+Short and compelling
+Our Story
+Origins and evolution of GPS
+Timeline
+Show development of GPS
+Our Approach
+Transdisciplinary and trans-sectoral model
+Ecosystem diagram
+Explain what makes GPS distinctive
+Strategic Framework
+Priorities, objectives, long-term direction
+Infographic / downloadable documents
+Link to strategic documents
+Governance
+Governance structure
+Organizational diagram
+Institutional clarity
+Regional Hubs
+Kigali, Addis Ababa, Dakar, Accra, São Paulo, Martinique
+Interactive map
+Allow future hubs to be added
+Global Positioning
+GPS within the Global South and global partnerships
+Map + short narrative
+Emphasize South-South and South-Global cooperation
+Impact
+Outcomes, KPIs, achievements
+Numbers + impact stories
+Should evolve as GPS grows
+OUR WORK
+Knowledge Generation
+Research, universities, knowledge networks, publications, training, fellowships
+Pillar landing page
+One of four interconnected pillars
+Technology & Innovation
+AI, digital transformation, innovation labs, entrepreneurship, smart agriculture, health innovation
+Pillar landing page
+Connect research to practical solutions
+Enterprise
+Private sector, industry, start-ups, investment, business partnerships, executive education
+Pillar landing page
+Connect enterprise to knowledge and impact
+Policy & Public Leadership
+Public policy, governance, governments, diplomacy, policy advisory, leadership dialogues
+Pillar landing page
+Connect knowledge and innovation to policymaking
+PEOPLE
+Board of Directors
+Profiles and biographies
+Professional profile cards
+Executive Leadership
+Executive Director and leadership
+Profile cards
+International Advisory Board
+International advisors
+Profile cards + countries
+Regional Leadership
+Hub and regional leaders
+Map-linked profiles
+Experts & Fellows
+Researchers, specialists, fellows
+Searchable/filterable directory
+Future scalable feature
+Distinguished Contributors
+Writers, thinkers, public figures, innovators
+Editorial profiles
+Young Leaders
+Emerging leaders
+Human-centered profiles
+NETWORK
+Regional Hubs
+GPS offices and regional structures
+Interactive Global Map
+Signature feature
+Universities
+University partners
+Logos + profiles + map
+Governments
+Government relationships
+Institutional presentation
+Private Sector
+Corporate and industry partners
+Partner cards
+International Organizations
+Multilateral partners
+Partner cards
+Civil Society
+CSO partners
+Partner cards
+Development Partners
+Development institutions
+Partner cards
+Diaspora Network
+Global diaspora engagement
+Map / network
+Partner Institutions
+Other institutional partners
+Searchable directory
+INITIATIVES
+Kigali Knowledge Week
+Flagship international convening
+Dedicated microsite-style page
+Purpose, partners, program, news, impact
+GCUB General Assembly
+Academic cooperation initiative
+Dedicated project/event page
+GPS International Convenings
+Major global and regional convenings
+Event/project pages
+Reparations Initiative
+Research, policy, advocacy, dialogue
+Dedicated initiative page
+AI for the Global South
+AI, research, policy, innovation
+Dedicated initiative page
+GPS Impact Observatory
+Monitoring impact and transformation
+Data-driven page
+Future expandable platform
+Global South Data & Foresight Platform
+Data, trends, foresight
+Interactive/data page
+Long-term strategic feature
+Youth & Leadership
+Youth initiatives
+Stories + programs
+Community-Based Initiatives
+Local implementation
+Impact stories + projects
+KNOWLEDGE HUB
+GPS Outlook
+GPS flagship publication
+Magazine/publication interface
+SouthPlus
+Multimedia and intellectual platform
+Distinctive editorial identity
+GPS Journal
+Academic journal
+Journal interface
+Calls for papers
+Policy Briefs
+Policy-oriented publications
+Filterable repository
+Research Reports
+Research publications
+Search/filter/download
+Working Papers
+Academic and policy papers
+Repository
+Books & Monographs
+GPS books and related publications
+Digital bookshelf
+Case Studies
+Practical cases and lessons
+Searchable content
+Resource Library
+Documents and resources
+Search function
+Podcasts
+Audio conversations
+Embedded media
+Videos
+Interviews, lectures, events
+Video library
+Multimedia Conversations
+TransMedia / digital storytelling
+Multimedia presentation
+Integrates original TransMedia concept
+NEWS & EVENTS
+Latest News
+Institutional and network news
+Visual news cards
+Impact Stories
+People and transformation
+Human-centered storytelling
+Important for Stanford-style approach
+Interviews
+Conversations with leaders and experts
+Editorial format
+Blogs
+Commentary and analysis
+Editorial format
+Media Coverage
+External coverage
+Media links
+Press Releases
+Official announcements
+Institutional archive
+Upcoming Events
+Future events
+Calendar/cards
+Conferences & Convenings
+Major events
+Dedicated event pages
+Webinars & Training
+Online and capacity-building events
+Registration links
+Past Events
+Archive
+Searchable archive
+Calendar
+All GPS activities
+Interactive calendar
+GET INVOLVED
+Become a Partner
+Institutional partnerships
+Application/contact form
+Strong CTA
+Join the GPS Network
+Individual/institutional network
+Registration form
+Membership
+Membership categories
+Membership interface
+If activated
+Scholarships
+Opportunities
+Searchable listings
+Fellowships
+Opportunities
+Searchable listings
+Internships
+Opportunities
+Application information
+Grants
+Funding opportunities
+Listings
+Calls for Papers
+Academic opportunities
+Listings + deadlines
+Volunteer
+Engagement opportunities
+Form
+Careers
+Vacancies
+Listings
+Support a Program
+Targeted support
+Program cards
+Donate
+Financial support
+Prominent global button
+Visible throughout website
+Contact Us
+General inquiries
+Contact form
+The original planning document identifies many of these components, including the Interactive Global Map, regional Knowledge Hubs, university partnerships, government and private-sector engagement, fellowships, South-South exchanges, policy and innovation training, and GPS Impact Stories. The proposed architecture retains them but reorganizes them around the visitor's journey.
+B. HOMEPAGE SCHEMATIC
+HOMEPAGE SECTION
+PURPOSE
+PROPOSED CONTENT
+VISUAL / DESIGN
+1. HERO
+Immediately explain GPS
+Connecting Knowledge. Innovation. Enterprise. Policy.
+Powerful Global South imagery or short rotating visual
+The Global Platform for the South brings together universities, governments, businesses, innovators, researchers, civil society, artists, and communities to co-create knowledge, solutions, and opportunities for the Global South.
+Minimal text, large typography
+Explore GPS / Partner With Us
+Two prominent CTA buttons
+2. THE GPS ECOSYSTEM
+Show what makes GPS unique
+Knowledge Generation ↔ Technology & Innovation ↔ Enterprise ↔ Policy & Public Leadership → Impact
+Interactive ecosystem diagram
+Universities • Governments • Private Sector • Civil Society • Innovators • Communities
+Actors visually orbit/connect to GPS
+3. FEATURED INITIATIVES
+Highlight current priorities
+Kigali Knowledge Week • GCUB General Assembly • Reparations Initiative • AI for the Global South
+3–4 large visual cards; dynamically changeable
+4. OUR GLOBAL NETWORK
+Demonstrate GPS's geographic reach
+Kigali • Addis Ababa • Dakar • Accra • São Paulo • Martinique + partners
+Interactive world map
+5. KNOWLEDGE FROM THE SOUTH
+Position GPS as a knowledge producer
+Latest Research • Policy Brief • GPS Outlook • SouthPlus • Podcast • Video
+Editorial/magazine-style presentation
+6. IMPACT STORIES
+Demonstrate knowledge translated into action
+Knowledge → Partnership → Implementation → Impact
+Human-centered photography and storytelling
+7. NEWS & EVENTS
+Keep site dynamic
+3 latest stories + 3 upcoming events
+Cards + calendar links
+8. JOIN THE ECOSYSTEM
+Convert visitors into participants
+Partner with GPS • Join the Network • Explore Opportunities • Support GPS
+Strong full-width closing CTA
+C. THE GPS VISUAL SIGNATURE
+I would ask the webmaster/designer to create one original interactive graphic that appears prominently on the homepage and can also be reused throughout the website:
+GPS ECOSYSTEM
+KNOWLEDGE GENERATION↕TECHNOLOGY & INNOVATION↕
+GPS
+↕ENTERPRISE↕POLICY & PUBLIC LEADERSHIP
+↓
+IMPACT & SOCIAL TRANSFORMATION
+Surrounding and intersecting with this ecosystem:
+UNIVERSITIES • GOVERNMENTS • PRIVATE SECTOR • CIVIL SOCIETY • INNOVATORS • COMMUNITIES
+The arrows should move in multiple directions, because GPS does not see the relationship as linear. Knowledge can influence policy; policy can stimulate innovation; enterprise can generate new knowledge; communities can identify challenges that drive research and innovation.
+D. THREE QUESTIONS THE WEBSITE MUST ANSWER IMMEDIATELY
+QUESTION
+GPS ANSWER
+WHO DO WE CONNECT?
+Universities, governments, businesses, civil society, innovators, researchers, artists, and communities
+WHAT DO WE CONNECT?
+Knowledge, innovation, enterprise, and policy
+WHY DO WE CONNECT THEM?
+To co-create solutions, opportunities, sustainable development, and societal impact across the Global South
+E. FINAL DESIGN DIRECTION
+Stanford's visual elegance and storytelling+ Harvard's information architecture+ Berkeley's focus on global challenges and impact+ OSC's institutional and governance clarity+ GPS's unique interconnected ecosystem
+The current detailed planning document should remain the GPS content bank and long-term roadmap. It includes numerous future-facing elements—such as the Global South Data & Foresight Platform, Impact Observatory, policy advisory programs, community-based initiatives, research repository, and long-term institutional sustainability strategy—that can be progressively activated as GPS develops.
+The table above, however, should become the webmaster's schematic blueprint for the user-facing website. It gives him a clear hierarchy while leaving enough flexibility to develop the visual and technical implementation.

@@ -1,0 +1,45 @@
+/* Crescendo — Color tokens
+ * Stick to the palette. Never gradients. Never glow.
+ * Blue is a technical/comparison accent — not a primary brand color.
+ */
+
+:root {
+  /* ----- Base palette ----- */
+  --crescendo-black: #141413;   /* Brand Black — dark headers, backgrounds, primary text on light */
+  --crescendo-lime: #C8F135;    /* Lime Green — signature accent: hero headlines on dark, footer bands */
+  --crescendo-white: #FFFFFF;   /* White — card & page backgrounds, text on dark */
+  --crescendo-off-white: #F7F6F3; /* Off-White — body section backgrounds, secondary surfaces */
+  --crescendo-body: #3D3D3A;    /* Body Text — body copy on light backgrounds */
+  --crescendo-blue: #4361EE;    /* Blue Accent — icon backgrounds, comparison/technical contexts */
+  --crescendo-gray: #8C8B87;    /* Medium Gray — captions, secondary labels, footer text on white */
+
+  /* ----- Extended neutrals (derived, for borders / hairlines / hovers) ----- */
+  --crescendo-black-90: #2A2A28;
+  --crescendo-black-80: #3D3D3A;
+  --crescendo-line: #E6E4DF;     /* hairline borders on light surfaces */
+  --crescendo-line-dark: #2E2E2C;/* hairline borders on dark surfaces */
+  --crescendo-lime-press: #B4DC23; /* darker lime for press/hover on lime surfaces */
+  --crescendo-blue-press: #324FD1; /* darker blue for press/hover */
+  --crescendo-blue-soft: #ECEFFE;  /* tinted blue surface (comparison row highlight) */
+
+  /* ----- Semantic surfaces ----- */
+  --surface-page: var(--crescendo-white);
+  --surface-body: var(--crescendo-off-white);
+  --surface-card: var(--crescendo-white);
+  --surface-dark: var(--crescendo-black);
+  --surface-accent: var(--crescendo-lime);
+
+  /* ----- Semantic text ----- */
+  --text-strong: var(--crescendo-black);     /* headings on light */
+  --text-body: var(--crescendo-body);        /* body copy on light */
+  --text-muted: var(--crescendo-gray);       /* captions, labels */
+  --text-on-dark: var(--crescendo-white);    /* body/headings on dark */
+  --text-on-dark-muted: #B6B5B0;             /* muted text on dark */
+  --text-accent: var(--crescendo-lime);      /* hero headline on dark */
+  --text-on-accent: var(--crescendo-black);  /* text on lime bands */
+  --text-on-blue: var(--crescendo-white);
+
+  /* ----- Borders ----- */
+  --border-light: var(--crescendo-line);
+  --border-dark: var(--crescendo-line-dark);
+}

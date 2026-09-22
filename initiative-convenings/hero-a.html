@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add("js")</script>
+<style id="gps-critical">.hero-top{position:relative}.hero-map{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}.hero-map svg{width:100%;height:100%;display:block}.hero-scrim{position:absolute;inset:0;z-index:1;pointer-events:none}.hero-top>.inner{position:relative;z-index:2}.hf-frame{position:relative;overflow:hidden}.hf-video{width:100%;height:100%;display:block;object-fit:contain;background:#07060f}</style>
+<title>GPS — The Global South, Connected</title>
+<meta name="description" content="The Global Platform for the South brings together universities, governments, businesses, innovators, researchers, civil society, artists, and communities to co-create knowledge, solutions, and opportunities for the Global South.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@1,6..72,300;1,6..72,400;1,6..72,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=20260809a"><link rel="stylesheet" href="assets/ui.css?v=20260809a"><link rel="stylesheet" href="assets/theme.css?v=20260809a">
+<script src="https://unpkg.com/d3@7.9.0/dist/d3.min.js" integrity="sha384-CjloA8y00+1SDAUkjs099PVfnY2KmDC2BZnws9kh8D/lX1s46w6EPhpXdqMfjK6i" crossorigin="anonymous"></script><script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js" integrity="sha384-Ukv1p/xTma6P4/2bY5KzWBw+ydSpXmhCMtyciIQVDJ1RmOxtCYNMF1uXT9T63H67" crossorigin="anonymous"></script>
+<style>
+.hero-cat{font-family:var(--font-ui);font-size:clamp(13px,1.15vw,15px);font-weight:600;color:var(--c2);margin-top:10px;letter-spacing:.01em}
+.proof{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:22px;font-size:12.5px;font-weight:600;color:var(--ink-inv-faint)}
+.proof b{color:var(--ink-inv);font-weight:700}
+.pillrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.pillrow a{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.02em;color:var(--ink-inv-soft);padding:8px 15px;border-radius:100px;border:1px solid var(--line-inv);background:rgba(255,255,255,.05);transition:border-color .2s,color .2s}
+.pillrow a:hover{color:#fff;border-color:var(--c1)}
+.pillrow a i{width:8px;height:8px;border-radius:50%;flex:none}
+.stake{font-size:clamp(16px,1.5vw,20px);line-height:1.55;color:var(--ink-inv);max-width:46ch;margin-top:20px;text-wrap:pretty}
+.stake b{color:var(--c2);font-weight:700}
+.hero-home.hero-cinema.has-figure .v-h1{max-width:15ch;font-size:clamp(31px,3.5vw,50px);line-height:1.06}
+.demo-note{background:var(--wash);border-bottom:1px solid var(--line);padding:12px var(--pad);font-size:13px;font-weight:600;color:var(--ink-soft)}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header id="header"><div class="hd-in"><a class="brand" href="index.html"><span class="dot"></span><span class="bwrap">GPS<small>Global Platform for the South</small></span></a><button id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span></button><nav class="main" aria-label="Primary"><ul><li><a href="about.html">About</a><button class="sub-toggle" aria-expanded="false" aria-label="Open About menu"><span class="car" aria-hidden="true"></span></button><div class="sub"><a class="head" href="about.html">About</a><hr><a href="about-why-gps.html">Why GPS?</a><a href="about-mission-vision.html">Mission &amp; Vision</a><a href="about-our-approach.html">Our Approach</a><a href="about-governance.html">Governance</a><a href="impact.html">Impact</a></div></li><li><a href="what-we-do.html">Our Work</a><button class="sub-toggle" aria-expanded="false" aria-label="Open Our Work menu"><span class="car" aria-hidden="true"></span></button><div class="sub"><a class="head" href="what-we-do.html">Our Work</a><hr><a href="work-knowledge.html">Knowledge Co-Creation, Sharing &amp; Dissemination</a><a href="work-innovation.html">Technology &amp; Innovation</a><a href="work-policy.html">Policy, Governance &amp; Public Leadership</a><a href="work-enterprise.html">Enterprise &amp; Sustainable Development</a></div></li><li><a href="people.html">People</a><button class="sub-toggle" aria-expanded="false" aria-label="Open People menu"><span class="car" aria-hidden="true"></span></button><div class="sub"><a class="head" href="people.html">People</a><hr><a href="people.html#board">Board &amp; Executive Leadership</a><a href="people.html#advisory">International Advisory Board</a><a href="people-experts.html">Experts &amp; Fellows</a><a href="people.html#young-leaders">Young Leaders</a></div></li><li><a href="network.html">Network</a><button class="sub-toggle" aria-expanded="false" aria-label="Open Network menu"><span class="car" aria-hidden="true"></span></button><div class="sub"><a class="head" href="network.html">Network</a><hr><a href="about-regional-hubs.html">Regional Coordination</a><a href="network-partners.html">Partners</a><a href="network-diaspora.html">Diaspora Network</a><a href="network-institutions.html">Partner Institutions</a></div></li><li><a href="initiatives.html">Activities</a><button class="sub-toggle" aria-expanded="false" aria-label="Open Activities menu"><span class="car" aria-hidden="true"></span></button><div class="sub"><a class="head" href="initiatives.html">Activities</a><hr><a href="initiative-kigali-knowledge-week.html">Kigali Knowledge Crossroads Week</a><a href="initiative-convenings.html">GPS Dialogues</a><a href="initiative-gcub-assembly.html">GCUB General Assembly</a><a href="initiative-ai-global-south.html">AI for the Global South</a><a href="initiative-reparations.html">Reparations Initiative</a></div></li><li><a href="knowledge-hub.html">Publications &amp; Multimedia</a><button class="sub-toggle" aria-expanded="false" aria-label="Open Publications and Multimedia menu"><span class="car" aria-hidden="true"></span></button><div class="sub"><a class="head" href="knowledge-hub.html">Publications &amp; Multimedia</a><hr><a href="kh-outlook.html">GPS Outlook</a><a href="kh-journal.html">GPS Journal</a><a href="kh-southplus.html">SouthPlus</a><a href="kh-library.html">Publications</a><a href="kh-media.html">Multimedia</a></div></li><li><a href="news-events.html">News &amp; Events</a><button class="sub-toggle" aria-expanded="false" aria-label="Open News and Events menu"><span class="car" aria-hidden="true"></span></button><div class="sub"><a class="head" href="news-events.html">News &amp; Events</a><hr><a href="news.html">Latest Updates</a><a href="news-impact-stories.html">GPS in Action</a><a href="events.html">Events</a><a href="events-calendar.html">Calendar</a></div></li><li><a href="get-involved.html">Get Involved</a><button class="sub-toggle" aria-expanded="false" aria-label="Open Get Involved menu"><span class="car" aria-hidden="true"></span></button><div class="sub"><a class="head" href="get-involved.html">Get Involved</a><hr><a href="get-involved.html#partner">Partner with GPS</a><a href="get-involved.html#join">Join the Network</a><a href="get-involved-opportunities.html">Opportunities</a><a href="donate.html">Donate</a><a href="contact.html">Contact Us</a></div></li><li><a class="donate-btn m-donate" href="donate.html">Donate</a></li></ul></nav><a class="donate-btn hd-donate" href="donate.html">Donate</a></div></header><main id="main">
+<div class="demo-note">OPTION A — Stake-led: leads with the scale of the problem.</div>
+<header class="hero-home has-figure hero-cinema"><div class="hero-top"><div class="hero-map" data-map="hero" aria-hidden="true"></div>
+<div class="hero-scrim" aria-hidden="true"></div>
+<div class="aurora" aria-hidden="true"></div>
+<div class="inner hero-grid"><div class="hero-copy">
+<div class="eyebrow reveal"><span class="bar"></span> Global Platform for the South</div>
+<h1 class="reveal d1 v-h1">85% of humanity lives in the Global South.<br><span class="grad">Its knowledge should shape the world.</span></h1>
+<p class="lede reveal d2">GPS is a transdisciplinary research and policy platform connecting Southern universities, governments, enterprise and communities — turning research into policy, and policy into impact.</p>
+<div class="cta-row reveal d3"><a class="btn btn-grad" href="get-involved.html#partner">Partner with GPS <span class="arrow">→</span></a><a class="btn btn-ghost" href="what-we-do.html">Explore Our Work</a></div>
+<p class="proof reveal d3"><span>Founded <b>2026</b></span><span>Headquartered in <b>Kigali</b></span><span><b>6</b> regional hubs</span><span><b>4</b> interconnected pillars</span></p>
+</div></div></div>
+<figure class="hero-figure reveal d2">
+<div class="hf-frame"><video class="hf-video" src="assets/hero.webm?v=20260727a" poster="assets/hero-poster.png" loop muted playsinline preload="metadata" disablepictureinpicture aria-label="Humans, knowledge, innovation, enterprise, policy and impact across the Global South"></video></div>
+<figcaption class="hf-chain" aria-label="Humans to knowledge to innovation to policy to enterprise to impact"><span>Humans</span><i>↔</i><span>Knowledge</span><i>↔</i><span>Innovation</span><i>↔</i><span>Policy</span><i>↔</i><span>Enterprise</span><i>→</i><span class="hf-end">Impact</span></figcaption>
+</figure>
+</header>
+<section class="wash"><div class="inner" style="text-align:center"><p class="lead" style="margin:0 auto">The rest of the homepage continues below unchanged.</p></div></section>
+</main>
+<script src="assets/site.js?v=20260809a" defer></script>
+<script src="assets/map.js?v=20260809a" defer></script>
+</body>
+</html>

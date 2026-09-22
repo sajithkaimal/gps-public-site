@@ -1,0 +1,8 @@
+/* Crescendo Design System — global entry point.
+ * Consuming projects link THIS file. It only @imports token & font files. */
+
+@import "tokens/fonts.css";
+@import "tokens/colors.css";
+@import "tokens/typography.css";
+@import "tokens/spacing.css";
+@import "tokens/base.css";

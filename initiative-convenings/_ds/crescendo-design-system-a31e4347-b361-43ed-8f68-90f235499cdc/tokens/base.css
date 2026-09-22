@@ -1,0 +1,74 @@
+/* Crescendo — base element defaults & helper classes.
+ * Lightweight reset + brand-default typography so bare HTML looks on-brand. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-body-md);
+  line-height: var(--leading-body);
+  color: var(--text-body);
+  background: var(--surface-page);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ----- Display / hero ----- */
+.cr-display {
+  font-family: var(--font-display);
+  font-weight: var(--weight-display);
+  text-transform: uppercase;
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+  color: var(--text-strong);
+  text-wrap: balance;
+  margin: 0;
+}
+.cr-display--hero { font-size: var(--text-display-xl); }
+.cr-display--lg { font-size: var(--text-display-lg); }
+.cr-display--accent { color: var(--text-accent); }
+.cr-display--on-dark { color: var(--text-on-dark); }
+
+/* ----- Headings ----- */
+.cr-heading {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+  color: var(--text-strong);
+  margin: 0;
+}
+.cr-heading--lg { font-size: var(--text-heading-lg); }
+.cr-heading--md { font-size: var(--text-heading-md); }
+.cr-heading--sm { font-size: var(--text-heading-sm); }
+
+/* ----- Body ----- */
+.cr-body {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-body-md);
+  line-height: var(--leading-body);
+  color: var(--text-body);
+  margin: 0;
+  text-wrap: pretty;
+}
+.cr-body--lg { font-size: var(--text-body-lg); }
+.cr-body--sm { font-size: var(--text-body-sm); }
+
+/* ----- Label / caption / vertical tag ----- */
+.cr-label {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-label);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-label);
+  color: var(--text-muted);
+  margin: 0;
+}
+
+a { color: var(--crescendo-blue); }
