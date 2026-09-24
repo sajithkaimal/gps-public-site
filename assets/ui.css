@@ -304,3 +304,62 @@ fieldset{border:none}
 .shelf{grid-template-columns:repeat(auto-fill,minmax(min(100%,140px),1fr))}
 .cal-dow{padding:8px 2px;font-size:9px;letter-spacing:.06em}
 }
+
+/* long institutional forms */
+.form-long{max-width:880px;gap:0}
+.fs{border:1px solid var(--line);border-radius:16px;padding:22px clamp(16px,3vw,28px) 24px;background:var(--surface);display:grid;gap:16px;margin-bottom:18px}
+.fs legend{float:left;width:100%;display:flex;align-items:center;gap:10px;font-family:var(--font-display,inherit);font-weight:800;font-size:17px;color:var(--ink);margin-bottom:4px;padding:0}
+.fs legend i{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--c1);color:#fff;font-style:normal;font-size:12.5px;font-weight:800}
+.fs legend+*{clear:both}
+.fs-sub{font-size:13.5px;color:var(--ink-faint);margin:-6px 0 0}
+.form .row3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:700px){.form .row3{grid-template-columns:1fr}}
+.field .lbl{display:block;font-size:12.5px;font-weight:700;margin-bottom:7px;color:var(--ink-soft)}
+.field label em,.field .lbl em,.chk em{color:#b4322c;font-style:normal;font-weight:700}
+.field .row2 input,.field .row3 input{width:100%}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.form .opt,.field .opt{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;margin:0;white-space:nowrap;flex:none;border:1px solid var(--line);border-radius:999px;font-size:13.5px;cursor:pointer;background:var(--surface);transition:border-color .2s,background .2s}
+.opt:hover{border-color:var(--ink-faint)}
+.opt input{accent-color:var(--teal-ink);margin:0}
+.opt:has(input:checked){border-color:var(--c1);background:rgba(var(--brand-green-rgb),.08)}
+.field .other{margin-top:8px;font-size:13.5px;padding:9px 14px}
+.checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 16px}
+.checks.cols3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:760px){.checks,.checks.cols3{grid-template-columns:1fr}}
+.form .chk,.field .chk{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.4;cursor:pointer;color:var(--ink-soft);margin:0;font-weight:500}
+.chk em{margin-left:4px}
+.chk input{margin-top:3px;flex:none;accent-color:var(--teal-ink);width:16px;height:16px}
+.chk.declare{padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--wash,#f6f7f4);color:var(--ink)}
+.commit{margin:0;padding-left:20px;display:grid;gap:8px;font-size:14px;color:var(--ink-soft)}
+.plan-grid{display:grid;gap:8px;overflow-x:auto}
+.plan-h,.plan-r{display:grid;grid-template-columns:repeat(5,minmax(120px,1fr));gap:8px}
+.plan-h span{font-size:12px;font-weight:700;color:var(--ink-soft)}
+.plan-r input{width:100%;font-family:var(--font-ui);font-size:13.5px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);transition:border-color .2s,box-shadow .2s}
+.plan-r input:focus{outline:none;border-color:var(--c1);box-shadow:0 0 0 3px rgba(var(--brand-green-rgb),.18)}
+.form-actions{display:flex;flex-wrap:wrap;align-items:center;gap:18px;padding-top:6px}
+.form-actions .hint{font-size:12.5px;color:var(--ink-faint);margin:0}
+.field input:user-invalid,.field select:user-invalid,.field textarea:user-invalid,.form.checked :invalid{border-color:#b4322c}
+.form .form-err{color:#b4322c;font-weight:600;font-size:14px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:760px){.steps{grid-template-columns:1fr}}
+.step{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:var(--surface);color:var(--ink);text-decoration:none}
+.step b{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--wash,#f0f2ee);color:var(--ink-soft);font-size:13px;flex:none}
+.step span{display:flex;flex-direction:column;font-weight:700;font-size:14px;line-height:1.3}
+.step small{font-weight:500;font-size:12.5px;color:var(--ink-faint);margin-top:2px}
+.step.on{border-color:var(--c1);box-shadow:0 0 0 3px rgba(var(--brand-green-rgb),.14)}
+.step.on b{background:var(--c1);color:#fff}
+.step.done b{background:var(--teal-ink);color:#fff}
+a.step:hover{border-color:var(--ink-faint)}
+
+/* university membership block (get-involved) */
+.uni-apply{margin-top:28px;padding:clamp(20px,3vw,32px);border-radius:20px;background:var(--surface);border:1px solid var(--line);display:grid;gap:20px}
+.uni-head h3{font-size:clamp(20px,2.4vw,26px);margin:8px 0 8px}
+.uni-head p{color:var(--ink-soft);font-size:14.5px;max-width:70ch}
+.uni-steps{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:760px){.uni-steps{grid-template-columns:1fr}}
+.uni-step{display:flex;gap:14px;padding:18px;border:1px solid var(--line);border-radius:14px;text-decoration:none;color:var(--ink);background:var(--wash,#f6f7f4);transition:border-color .2s,transform .2s}
+.uni-step:hover{border-color:var(--c1);transform:translateY(-2px)}
+.uni-step b{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--c1);color:#fff;flex:none;font-size:14px}
+.uni-step h4{font-size:16px;margin:4px 0 6px}
+.uni-step p{font-size:13.5px;color:var(--ink-soft);margin-bottom:10px}
+.uni-foot{font-size:13px;color:var(--ink-faint);margin:0}

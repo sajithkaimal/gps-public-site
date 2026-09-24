@@ -286,7 +286,7 @@ d.querySelectorAll('[data-rail]').forEach(function(rail){
     dots.appendChild(b);
   });
   rail.appendChild(dots);
-  var i=0,timer=null,delay=parseInt(rail.getAttribute('data-delay'))||5000,locked=false;
+  var i=0,timer=null,delay=5000,locked=false;
   function vis(){
     var v=parseFloat(getComputedStyle(rail).getPropertyValue('--wr-vis'));
     return v>0?v:3;
@@ -379,6 +379,19 @@ d.querySelectorAll('video.hf-video').forEach(function(v){
   },{threshold:.2});
   io.observe(v);
 });
+/* ---------- form-long validation (runs before submit handler) ---------- */
+d.querySelectorAll('form.form-long').forEach(function(f){
+  f.addEventListener('submit',function(e){
+    f.classList.add('checked');
+    if(f.checkValidity())return;
+    e.preventDefault();e.stopImmediatePropagation();
+    var bad=f.querySelector(':invalid');
+    var err=f.querySelector('.form-err');
+    if(!err){err=d.createElement('p');err.className='form-err';err.setAttribute('role','alert');f.querySelector('.form-actions').appendChild(err);}
+    err.textContent='Please complete the required fields marked * — the first one is highlighted above.';
+    if(bad){bad.focus({preventScroll:true});var r=bad.getBoundingClientRect();window.scrollBy({top:r.top-140,behavior:'smooth'});}
+  },true);
+});
 /* ---------- forms → send.php (one inbox) ---------- */
 d.querySelectorAll('form[data-demo]').forEach(function(f){
   if(!f.getAttribute('action')){f.setAttribute('action','send.php');f.setAttribute('method','post');}
@@ -386,6 +399,9 @@ d.querySelectorAll('form[data-demo]').forEach(function(f){
     var t=d.createElement('input');t.type='hidden';t.name='_form';
     t.value=f.getAttribute('aria-label')||f.getAttribute('data-demo')||'Website form';
     f.appendChild(t);
+  }
+  if(f.getAttribute('data-form-key')&&!f.querySelector('[name="_key"]')){
+    var k=d.createElement('input');k.type='hidden';k.name='_key';k.value=f.getAttribute('data-form-key');f.appendChild(k);
   }
   if(!f.querySelector('[name="website"]')){
     var hp=d.createElement('div');
@@ -410,7 +426,7 @@ d.querySelectorAll('form[data-demo]').forEach(function(f){
     fetch(f.getAttribute('action'),{method:'POST',body:new FormData(f)})
       .then(function(r){return r.json().catch(function(){return{ok:r.ok};});})
       .then(function(j){
-        if(j&&j.ok)done(true,'Thank you — your message has been sent to info@gpsouth.org. Our team will follow up at the address you provided.');
+        if(j&&j.ok)done(true,f.classList.contains('form-long')?'Thank you — your submission has been received by GPS. A confirmation has been sent to the address you provided and our partnerships team will respond within two weeks.':'Thank you — your message has been sent to info@gpsouth.org. Our team will follow up at the address you provided.');
         else done(false,(j&&j.error?j.error+' ':'')+'Please try again, or email us directly at info@gpsouth.org.');
       })
       .catch(function(){done(false,'We could not send that just now. Please email us directly at info@gpsouth.org.');});

@@ -353,6 +353,11 @@ const people = `<!--meta {"title":"People","desc":"The people of GPS — Board o
 <span id="executive"></span>
 <div class="inner">
 <div class="sec-head"><div><div class="eyebrow reveal"><span class="bar"></span> Governance</div><h2 class="sec-h reveal">Board of Directors</h2><p class="sub reveal d1">Institutional oversight, fiduciary responsibility, and long-term strategic direction.</p></div><div class="more reveal"><a class="btn btn-ink" href="/about-governance">How governance works <span class="arrow">→</span></a></div></div>
+<div class="grid-3">
+<div class="card reveal"><h3>Chairs &amp; officers</h3><p>The Chairperson, Vice-Chairs, and Secretary-General who steer GPS between General Assemblies.</p></div>
+<div class="card reveal d1"><h3>University &amp; network leaders</h3><p>Heads of the founding regional university associations and partner institutions.</p></div>
+<div class="card reveal d2"><h3>Independent directors</h3><p>Public, private, and civil-society figures bringing fiduciary oversight and long-term perspective.</p></div>
+</div>
 <div class="people-grid">
 ${visible(board).map(card).join('\n')}
 </div>
@@ -361,6 +366,11 @@ ${visible(board).map(card).join('\n')}
 <section id="departments" class="wash">
 <div class="inner">
 <div class="sec-head"><div><div class="eyebrow reveal"><span class="bar"></span> Operations</div><h2 class="sec-h reveal">Departments</h2><p class="sub reveal d1">Heads of GPS departments — programmes, partnerships, communications, and institutional sustainability.</p></div></div>
+<div class="grid-3">
+<div class="card reveal"><h3>Programme leads</h3><p>Heads of knowledge, technology &amp; innovation, policy, and enterprise programmes.</p></div>
+<div class="card reveal d1"><h3>Partnerships &amp; communications</h3><p>Institutional relations, media, and creative-industries outreach across the network.</p></div>
+<div class="card reveal d2"><h3>Operations &amp; sustainability</h3><p>Finance, legal, and institutional development that keep the platform running.</p></div>
+</div>
 <div class="people-grid">
 ${visible(departments).map(card).join('\n')}
 </div>
@@ -370,9 +380,9 @@ ${visible(departments).map(card).join('\n')}
 <div class="inner">
 <div class="sec-head"><div><div class="eyebrow reveal"><span class="bar"></span> Counsel</div><h2 class="sec-h reveal">International Advisory Board</h2><p class="sub reveal d1">A distinguished body of university leaders, policymakers, diplomats, and partners across the Global South and beyond.</p></div></div>
 <div class="grid-3">
-<div class="card reveal"><span class="kick">Composition</span><h3>University &amp; academic leadership</h3><p>Presidents and secretaries-general of regional university associations across Africa, Latin America &amp; the Caribbean, Asia-Pacific, and the Arab world — and leading rectors and scholars.</p></div>
-<div class="card reveal d1"><span class="kick">Composition</span><h3>Current and former ministers, diplomats &amp; public leaders</h3><p>Senior figures from foreign affairs, economy, and education portfolios — with deep South–South cooperation experience.</p></div>
-<div class="card reveal d2"><span class="kick">Composition</span><h3>Entrepreneurs, philanthropists &amp; cultural figures</h3><p>Prominent builders and public voices who extend the platform's reach across business, philanthropy, sport, and culture.</p></div>
+<div class="card reveal"><h3>University &amp; academic leadership</h3><p>Presidents and secretaries-general of regional university associations across Africa, Latin America &amp; the Caribbean, Asia-Pacific, and the Arab world — and leading rectors and scholars.</p></div>
+<div class="card reveal d1"><h3>Current and former ministers, diplomats &amp; public leaders</h3><p>Senior figures from foreign affairs, economy, and education portfolios — with deep South–South cooperation experience.</p></div>
+<div class="card reveal d2"><h3>Entrepreneurs, philanthropists &amp; cultural figures</h3><p>Prominent builders and public voices who extend the platform's reach across business, philanthropy, sport, and culture.</p></div>
 </div>
 <div class="people-grid" style="margin-top:28px">
 ${visible(advisory).map(card).join('\n')}
@@ -382,6 +392,11 @@ ${visible(advisory).map(card).join('\n')}
 <section id="regional" class="wash">
 <div class="inner">
 <div class="sec-head"><div><div class="eyebrow reveal"><span class="bar"></span> The hubs</div><h2 class="sec-h reveal">Regional Coordination</h2><p class="sub reveal d1">Each hub is led by a Regional Coordinator — strategy, partnerships, programming, and institutional development in their region.</p></div><div class="more reveal"><a class="btn btn-ink" href="/about-regional-hubs">Hubs on the map <span class="arrow">→</span></a></div></div>
+<div class="grid-3">
+<div class="card reveal"><h3>Hub coordinators</h3><p>One Regional Coordinator per hub — Kigali, Africa, Latin America &amp; the Caribbean, Asia-Pacific, and the Arab world.</p></div>
+<div class="card reveal d1"><h3>Regional strategy</h3><p>Partnerships, programming, and convenings tailored to each region’s priorities.</p></div>
+<div class="card reveal d2"><h3>Institutional development</h3><p>Growing member institutions and regional capacity on the ground.</p></div>
+</div>
 <div class="people-grid">
 ${visible(regional).map(card).join('\n')}
 </div>
@@ -390,6 +405,11 @@ ${visible(regional).map(card).join('\n')}
 <section id="researchers">
 <div class="inner">
 <div class="sec-head"><div><div class="eyebrow reveal"><span class="bar"></span> The bench</div><h2 class="sec-h reveal">Researchers &amp; specialists</h2><p class="sub reveal d1">Scholars, practitioners, and specialists contributing to GPS research, programmes, and regional work.</p></div></div>
+<div class="grid-3">
+<div class="card reveal"><h3>Scholars</h3><p>Academics across disciplines contributing research, teaching, and publications.</p></div>
+<div class="card reveal d1"><h3>Practitioners</h3><p>Policy, development, and industry specialists translating research into practice.</p></div>
+<div class="card reveal d2"><h3>Fellows &amp; specialists</h3><p>Subject-matter experts attached to GPS programmes and regional work.</p></div>
+</div>
 <div class="people-grid">
 ${visible(researchers).map(card).join('\n')}
 </div>
@@ -406,9 +426,9 @@ ${visible(researchers).map(card).join('\n')}
 <div class="inner">
 <div class="sec-head"><div><div class="eyebrow reveal"><span class="bar"></span> Voices</div><h2 class="sec-h reveal">Distinguished Contributors</h2><p class="sub reveal d1">Writers, thinkers, public figures, and innovators who contribute to GPS platforms — GPS Outlook, SouthPlus, dialogues, and convenings.</p></div></div>
 <div class="grid-3">
-<div class="card reveal"><span class="kick">Editorial</span><h3>Writers &amp; essayists</h3><p>Contributing to GPS Outlook and SouthPlus — the South narrating itself. First contributor profiles appear with the 2027 launch issues.</p></div>
-<div class="card reveal d1"><span class="kick">Public thought</span><h3>Thinkers &amp; public figures</h3><p>Keynotes, dialogues, and multimedia conversations across the convening calendar.</p></div>
-<div class="card reveal d2"><span class="kick">Practice</span><h3>Innovators &amp; artists</h3><p>Creative production, exhibitions, and cultural programming — memory and imagination as infrastructure.</p></div>
+<div class="card reveal"><h3>Writers &amp; essayists</h3><p>Contributing to GPS Outlook and SouthPlus — the South narrating itself. First contributor profiles appear with the 2027 launch issues.</p></div>
+<div class="card reveal d1"><h3>Thinkers &amp; public figures</h3><p>Keynotes, dialogues, and multimedia conversations across the convening calendar.</p></div>
+<div class="card reveal d2"><h3>Innovators &amp; artists</h3><p>Creative production, exhibitions, and cultural programming — memory and imagination as infrastructure.</p></div>
 </div>
 </div>
 </section>

@@ -54,6 +54,7 @@ const NAV = [
  {id:'involved',label:'Get Involved',href:'/get-involved',sub:[
    ['/get-involved#partner','Partner with GPS'],
    ['/get-involved#join','Join GPS'],
+   ['/university-membership','University Membership'],
    ['/get-involved#collaborate','Collaborate'],
    ['/get-involved#contribute','Contribute Knowledge'],
    ['/get-involved#support','Support an Initiative'],
@@ -81,7 +82,7 @@ const FOOTER = '<footer class="site"><div class="ft-in"><div class="ft-grid">'+
 '<div><h5>Our Work</h5><ul><li><a href="/work-knowledge">Knowledge Co-Creation</a></li><li><a href="/work-innovation">Technology &amp; Innovation</a></li><li><a href="/work-policy">Policy, Governance &amp; Public Leadership</a></li><li><a href="/work-enterprise">Enterprise &amp; Sustainable Development</a></li><li><a href="/initiatives">Activities</a></li></ul></div>'+
 '<div><h5>Knowledge &amp; News</h5><ul><li><a href="/kh-journal">GPS Journal</a></li><li><a href="/kh-outlook">GPS Outlook</a></li><li><a href="/kh-library">Publications</a></li><li><a href="/news">Updates</a></li><li><a href="/events">Events</a></li><li><a href="/events-calendar">Calendar</a></li></ul></div>'+
 '<div><h5>Network</h5><ul><li><a href="/about-regional-hubs">Regional Coordination</a></li><li><a href="/network-partners">Partners</a></li><li><a href="/network-diaspora">Diaspora Network</a></li></ul></div>'+
-'<div><h5>Get Involved</h5><ul><li><a href="/get-involved#partner">Partner with GPS</a></li><li><a href="/get-involved#join">Join GPS</a></li><li><a href="/get-involved#collaborate">Collaborate</a></li><li><a href="/get-involved#contribute">Contribute Knowledge</a></li><li><a href="/get-involved-opportunities">Opportunities</a></li><li><a href="/donate">Donate</a></li><li><a href="/contact">Contact Us</a></li><li><a href="/search">Search the site</a></li><li><a href="mailto:info@gpsouth.org">info@gpsouth.org</a></li></ul></div>'+
+'<div><h5>Get Involved</h5><ul><li><a href="/get-involved#partner">Partner with GPS</a></li><li><a href="/get-involved#join">Join GPS</a></li><li><a href="/university-membership">University Membership</a></li><li><a href="/get-involved#collaborate">Collaborate</a></li><li><a href="/get-involved#contribute">Contribute Knowledge</a></li><li><a href="/get-involved-opportunities">Opportunities</a></li><li><a href="/donate">Donate</a></li><li><a href="/contact">Contact Us</a></li><li><a href="/search">Search the site</a></li><li><a href="mailto:info@gpsouth.org">info@gpsouth.org</a></li></ul></div>'+
 '</div><div class="ft-legal"><span>© <span data-year>2026</span> Global Platform for the South · Headquartered in Kigali, Rwanda</span><span class="ft-legal-links"><a href="/privacy">Privacy &amp; cookies</a><button type="button" class="ft-cookie-btn" data-cookie-open>Cookie settings</button></span></div></div></footer>';
 const SITE = 'https://gpsouth.org';
 function canonUrl(f){

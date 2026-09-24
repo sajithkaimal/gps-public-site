@@ -27,76 +27,11 @@
 <meta name="twitter:title" content="GPS — Regional Coordination">
 <meta name="twitter:description" content="GPS regional hubs — Kigali (HQ), Addis Ababa, Dakar, Accra, São Paulo, and Martinique — with future hubs planned across the Middle East and Asia.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@1,6..72,300;1,6..72,400;1,6..72,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=20260906c"><link rel="stylesheet" href="/assets/ui.css?v=20260906c"><link rel="stylesheet" href="/assets/theme.css?v=20260906c">
-
-<style>
-.btn-unmute-float {
-    position: absolute;
-    bottom: 24px;
-    right: 24px;
-    z-index: 20;
-    background: rgba(0,0,0,0.65);
-    color: white;
-    border: 1px solid rgba(255,255,255,0.4);
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    animation: popPulse 2s infinite;
-    pointer-events: auto;
-    transition: all 0.2s ease;
-    padding: 0;
-}
-.btn-unmute-float:hover {
-    background: rgba(0,0,0,0.85);
-    border-color: rgba(255,255,255,0.9);
-    transform: translateY(-2px);
-}
-.btn-unmute-float.unmuted {
-    animation: none;
-    background: rgba(0,0,0,0.4);
-    border-color: rgba(255,255,255,0.2);
-}
-.btn-unmute-float svg {
-    width: 20px;
-    height: 20px;
-}
-.btn-unmute-float .icon-unmute {
-    display: none;
-}
-.btn-unmute-float.unmuted .icon-mute {
-    display: none;
-}
-.btn-unmute-float.unmuted .icon-unmute {
-    display: block;
-}
-@keyframes popPulse {
-    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0.5); }
-    70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255,255,255,0); }
-    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0); }
-}
-@media(max-width: 1099px) {
-    .btn-unmute-float {
-        bottom: 16px;
-        right: 16px;
-        width: 40px;
-        height: 40px;
-    }
-    .btn-unmute-float svg {
-        width: 18px;
-        height: 18px;
-    }
-}
-</style>
+<link rel="stylesheet" href="/assets/site.css?v=20260923a"><link rel="stylesheet" href="/assets/ui.css?v=20260923a"><link rel="stylesheet" href="/assets/theme.css?v=20260923a">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
-<header id="header"><div class="hd-in"><a class="brand" href="/"><img class="brand-logo" src="/assets/images/logo.png" alt="GPS — Global Platform for the South" width="180" height="180"></a><button id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span></button><nav class="main" aria-label="Primary"><ul><li><a href="/about">About</a><button class="sub-toggle" aria-expanded="false" aria-label="Open About menu"><span class="car" aria-hidden="true"></span></button><div class="sub"><a class="head" href="/about">About</a><hr><a href="/about-why-gps">Why GPS?</a><a href="/about-mission-vision">Mission &amp; Vision</a><a href="/about-our-approach">Our Approach</a><a href="/people">People &amp; Governance</a><a href="/impact">Impact</a><a href="/roadmap">Roadmap</a></div></li><li><a href="/what-we-do">Our Work</a><button class="sub-toggle" aria-expanded="false" aria-label="Open Our Work menu"><span class="car" aria-hidden="true"></span></button><div class="sub"><a class="head" href="/what-we-do">Our Work</a><hr><a href="/work-knowledge">Knowledge Co-Creation, Sharing &amp; Dissemination</a><a href="/work-innovation">Technology &amp; Innovation</a><a href="/work-policy">Policy, Governance &amp; Public Leadership</a><a href="/work-enterprise">Enterprise &amp; Sustainable Development</a><a href="/initiatives">Activities</a></div></li><li><a href="/network" class="active">Network</a><button class="sub-toggle" aria-expanded="false" aria-label="Open Network menu"><span class="car" aria-hidden="true"></span></button><div class="sub"><a class="head" href="/network">Network</a><hr><a href="/about-regional-hubs">Regional Coordination</a><a href="/network-partners">Partners</a><a href="/network-diaspora">Diaspora Network</a></div></li><li><a href="/knowledge-hub">Knowledge &amp; News</a><button class="sub-toggle" aria-expanded="false" aria-label="Open Knowledge and News menu"><span class="car" aria-hidden="true"></span></button><div class="sub cols2"><a class="head" href="/knowledge-hub">Knowledge &amp; News</a><hr><a href="/kh-journal">GPS Journal</a><a href="/kh-outlook">GPS Outlook</a><a href="/kh-library">Publications</a><a href="/news">Updates</a><a href="/events">Events</a><a href="/events-calendar">Calendar</a></div></li><li><a href="/get-involved">Get Involved</a><button class="sub-toggle" aria-expanded="false" aria-label="Open Get Involved menu"><span class="car" aria-hidden="true"></span></button><div class="sub"><a class="head" href="/get-involved">Get Involved</a><hr><a href="/get-involved#partner">Partner with GPS</a><a href="/get-involved#join">Join GPS</a><a href="/get-involved#collaborate">Collaborate</a><a href="/get-involved#contribute">Contribute Knowledge</a><a href="/get-involved#support">Support an Initiative</a><a href="/get-involved-opportunities">Opportunities</a><a href="/contact">Contact Us</a></div></li><li class="m-search"><form class="hd-search" role="search" action="/search" method="get"><label for="q-m" class="vh">Search this site</label><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><input id="q-m" type="search" name="q" data-gps-search-trigger placeholder="Search pages, publications, events…" autocomplete="off"></form></li><li><a class="donate-btn m-donate" href="/donate">Donate</a></li></ul></nav><form class="hd-search" role="search" action="/search" method="get"><label for="q-d" class="vh">Search this site</label><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><input id="q-d" type="search" name="q" data-gps-search-trigger placeholder="Search pages, publications, events…" autocomplete="off"></form><a class="donate-btn hd-donate" href="/donate">Donate</a></div></header><main id="main" data-screen-label="Regional Coordination">
+<header id="header"><div class="hd-in"><a class="brand" href="/"><img class="brand-logo" src="/assets/images/logo.png" alt="GPS — Global Platform for the South" width="180" height="180"></a><button id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span></button><nav class="main" aria-label="Primary"><ul><li><a href="/about">About</a><button class="sub-toggle" aria-expanded="false" aria-label="Open About menu"><span class="car" aria-hidden="true"></span></button><div class="sub"><a class="head" href="/about">About</a><hr><a href="/about-why-gps">Why GPS?</a><a href="/about-mission-vision">Mission &amp; Vision</a><a href="/about-our-approach">Our Approach</a><a href="/people">People &amp; Governance</a><a href="/impact">Impact</a><a href="/roadmap">Roadmap</a></div></li><li><a href="/what-we-do">Our Work</a><button class="sub-toggle" aria-expanded="false" aria-label="Open Our Work menu"><span class="car" aria-hidden="true"></span></button><div class="sub"><a class="head" href="/what-we-do">Our Work</a><hr><a href="/work-knowledge">Knowledge Co-Creation, Sharing &amp; Dissemination</a><a href="/work-innovation">Technology &amp; Innovation</a><a href="/work-policy">Policy, Governance &amp; Public Leadership</a><a href="/work-enterprise">Enterprise &amp; Sustainable Development</a><a href="/initiatives">Activities</a></div></li><li><a href="/network" class="active">Network</a><button class="sub-toggle" aria-expanded="false" aria-label="Open Network menu"><span class="car" aria-hidden="true"></span></button><div class="sub"><a class="head" href="/network">Network</a><hr><a href="/about-regional-hubs">Regional Coordination</a><a href="/network-partners">Partners</a><a href="/network-diaspora">Diaspora Network</a></div></li><li><a href="/knowledge-hub">Knowledge &amp; News</a><button class="sub-toggle" aria-expanded="false" aria-label="Open Knowledge and News menu"><span class="car" aria-hidden="true"></span></button><div class="sub cols2"><a class="head" href="/knowledge-hub">Knowledge &amp; News</a><hr><a href="/kh-journal">GPS Journal</a><a href="/kh-outlook">GPS Outlook</a><a href="/kh-library">Publications</a><a href="/news">Updates</a><a href="/events">Events</a><a href="/events-calendar">Calendar</a></div></li><li><a href="/get-involved">Get Involved</a><button class="sub-toggle" aria-expanded="false" aria-label="Open Get Involved menu"><span class="car" aria-hidden="true"></span></button><div class="sub"><a class="head" href="/get-involved">Get Involved</a><hr><a href="/get-involved#partner">Partner with GPS</a><a href="/get-involved#join">Join GPS</a><a href="/university-membership">University Membership</a><a href="/get-involved#collaborate">Collaborate</a><a href="/get-involved#contribute">Contribute Knowledge</a><a href="/get-involved#support">Support an Initiative</a><a href="/get-involved-opportunities">Opportunities</a><a href="/contact">Contact Us</a></div></li><li class="m-search"><form class="hd-search" role="search" action="/search" method="get"><label for="q-m" class="vh">Search this site</label><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><input id="q-m" type="search" name="q" data-gps-search-trigger placeholder="Search pages, publications, events…" autocomplete="off"></form></li><li><a class="donate-btn m-donate" href="/donate">Donate</a></li></ul></nav><form class="hd-search" role="search" action="/search" method="get"><label for="q-d" class="vh">Search this site</label><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><input id="q-d" type="search" name="q" data-gps-search-trigger placeholder="Search pages, publications, events…" autocomplete="off"></form><a class="donate-btn hd-donate" href="/donate">Donate</a></div></header><main id="main" data-screen-label="Regional Coordination">
 <header class="page-hero"><div class="inner"><div class="crumbs"><a href="/">Home</a><span class="sep">/</span><a href="/network">Network</a><span class="sep">/</span><span>Regional Coordination</span></div><div class="eyebrow reveal"><span class="bar"></span> Network · Regional Coordination</div><h1 class="reveal d1">Rooted in the South. <span class='grad-ink'>Six hubs and counting.</span></h1><p class="lede reveal d2">Headquartered in Kigali, with regional hubs across Africa, Latin America, and the Caribbean — and an architecture built so new hubs join the map, not a redesign.</p></div></header>
 <section style="padding-top:26px">
 <div class="inner">
@@ -107,152 +42,31 @@
 <section style="padding-top:20px">
 <div class="inner">
 <div class="hub-cards">
-<div class="hub-card reveal" id="hub-kigali" style="--hc:var(--c1)"><h3><i></i>Kigali</h3><div class="rg">HQ</div></div>
-<div class="hub-card reveal d1" id="hub-africa" style="--hc:var(--c5)"><h3><i></i>Africa</h3><div class="rg">Ethiopia, Ghana and Senegal</div></div>
-<div class="hub-card reveal d2" id="hub-mena" style="--hc:var(--c4)"><h3><i></i>Middle East</h3><div class="rg">Lebanon — Beirut</div></div>
-<div class="hub-card reveal" id="hub-saopaulo" style="--hc:var(--c5)"><h3><i></i>Latin America</h3><div class="rg">São Paulo</div></div>
-<div class="hub-card reveal d1" id="hub-caribbean" style="--hc:var(--c5)"><h3><i></i>The Caribbean</h3><div class="rg">Martinique</div></div>
-<div class="hub-card reveal d2" id="hub-asia" style="--hc:var(--c4)"><h3><i></i>South &amp; Southeast Asia</h3></div>
-<div class="hub-card reveal" style="--hc:var(--ink-faint);border-style:dashed"><h3><i style="box-shadow:none;background:var(--line)"></i>Your region next</h3><div class="rg">Extensible by design</div><p>The hub architecture — governance, coordination, and this map — is built to add new hubs without redesign. <a href="/get-involved#partner" class="link-arrow" style="font-size:12.5px">Propose a hub</a></p></div>
+<div class="hub-card reveal" id="hub-kigali" style="--hc:var(--c1)"><h3><i></i>Kigali</h3><div class="rg">Rwanda · Headquarters · East Africa</div><p>Global headquarters — institutional home, strategy and coordination, and host of the Kigali Knowledge Crossroads Week in October 2027.</p></div>
+<div class="hub-card reveal d1" id="hub-addis" style="--hc:var(--c5)"><h3><i></i>Addis Ababa</h3><div class="rg">Ethiopia · Regional hub · East &amp; Horn of Africa</div><p>Gateway to continental institutions and the African Union ecosystem; policy and diplomacy engagement.</p></div>
+<div class="hub-card reveal d2" id="hub-dakar" style="--hc:var(--c5)"><h3><i></i>Dakar</h3><div class="rg">Senegal · Regional hub · Francophone West Africa</div><p>Research, culture, and Atlantic partnerships across Francophone Africa and its diasporas.</p></div>
+<div class="hub-card reveal" id="hub-accra" style="--hc:var(--c5)"><h3><i></i>Accra</h3><div class="rg">Ghana · Regional hub · Anglophone West Africa</div><p>Enterprise, innovation ecosystems, and diaspora engagement across Anglophone West Africa.</p></div>
+<div class="hub-card reveal d1" id="hub-saopaulo" style="--hc:var(--c5)"><h3><i></i>São Paulo</h3><div class="rg">Brazil · Regional hub · Latin America</div><p>University cooperation with GCUB and Latin American networks; host of the 2028 GPS Convening.</p></div>
+<div class="hub-card reveal d2" id="hub-martinique" style="--hc:var(--c5)"><h3><i></i>Martinique</h3><div class="rg">The Caribbean · Regional hub</div><p>Caribbean node — island universities, cultural production, and climate resilience.</p></div>
+<div class="hub-card reveal" id="hub-caribbean" style="--hc:var(--c4)"><h3><i></i>Wider Caribbean</h3><div class="rg">The Caribbean · Under consultation</div><p>Extending Caribbean presence beyond the Martinique hub — in consultation with island universities and regional bodies.</p></div>
+<div class="hub-card reveal d1" id="hub-mena" style="--hc:var(--c4)"><h3><i></i>Middle East</h3><div class="rg">MENA · Under consultation</div><p>Consultations underway with regional universities and institutions.</p></div>
+<div class="hub-card reveal d1" id="hub-asia" style="--hc:var(--c4)"><h3><i></i>South &amp; Southeast Asia</h3><div class="rg">Asia-Pacific · Under consultation</div><p>Exploratory partnerships across South and Southeast Asia.</p></div>
+<div class="hub-card reveal d2" style="--hc:var(--ink-faint);border-style:dashed"><h3><i style="box-shadow:none;background:var(--line)"></i>Your region next</h3><div class="rg">Extensible by design</div><p>The hub architecture — governance, coordination, and this map — is built to add new hubs without redesign. <a href="/get-involved#partner" class="link-arrow" style="font-size:12.5px">Propose a hub</a></p></div>
 </div>
 </div>
 </section>
-<section style="padding-bottom:80px;">
-<div class="inner">
-<div class="prose reveal" style="max-width:800px; margin-bottom:12px;"><h3 style="margin-top:0">What a hub does</h3><p>Each regional hub operates under a Regional Coordinator responsible for regional strategy, partnerships, programming, stakeholder relations, and institutional development. Hubs plug regional universities, governments, enterprises, and communities into the global platform — and carry GPS programs into regional reality.</p><a class="btn btn-ink btn-sm" href="/people">Our people <span class="arrow">→</span></a></div>
-<div class="reveal d1 work-rail" style="margin-top:0;">
-  <div class="wr-nav" style="display:flex; justify-content:flex-end; gap:8px; margin-bottom:12px;">
-    <button type="button" class="wr-btn" data-rail-prev aria-label="Previous image">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:24px;height:24px;"><path d="M15 5 8 12l7 7"/></svg>
-    </button>
-    <button type="button" class="wr-btn" data-rail-next aria-label="Next image">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:24px;height:24px;"><path d="m9 5 7 7-7 7"/></svg>
-    </button>
-  </div>
-  
-  <!-- Inline style to set visibility. Showing 1.5 images makes it feel like a continuous belt -->
-  <style>
-    .hub-belt-wr { --wr-vis: 2.8; --wr-gap: 20px; margin: 0 -20px; padding: 0 20px; }
-    @media(max-width: 900px) { .hub-belt-wr { --wr-vis: 2.15; } }
-    @media(max-width: 600px) { .hub-belt-wr { --wr-vis: 1.15; } }
-    .hub-belt-card { padding: 0; background: transparent; aspect-ratio: 4/3; cursor: zoom-in; min-height: 0; }
-    .hub-belt-card img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; transition: transform 0.4s ease; }
-    .hub-belt-card:hover img { transform: scale(1.02); }
-    
-    /* Lightbox Styles */
-    .hub-lightbox {
-      position: fixed; inset: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.95);
-      z-index: 9999; border: none; padding: 0; display: flex; align-items: center; justify-content: center;
-      opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
-    .hub-lightbox[open] { opacity: 1; visibility: visible; }
-    .hub-lightbox::backdrop { background: transparent; }
-    .hub-lightbox-content { position: relative; max-width: 90vw; max-height: 90vh; display: flex; flex-direction: column; align-items: center; }
-    .hub-lightbox-img { max-width: 100%; max-height: 85vh; object-fit: contain; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
-    .hub-lightbox-close {
-      position: absolute; top: -40px; right: 0; background: transparent; color: #fff; border: none;
-      font-size: 36px; cursor: pointer; line-height: 1; padding: 0; opacity: 0.8;
-    }
-    .hub-lightbox-close:hover { opacity: 1; }
-    .hub-lightbox-nav {
-      position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: #fff;
-      border: none; width: 48px; height: 48px; border-radius: 50%; font-size: 24px; cursor: pointer;
-      display: flex; align-items: center; justify-content: center; transition: background 0.2s ease;
-    }
-    .hub-lightbox-nav:hover { background: rgba(0,0,0,0.8); }
-    .hub-lightbox-prev { left: -60px; }
-    .hub-lightbox-next { right: -60px; }
-    @media(max-width: 800px) {
-      .hub-lightbox-nav { display: none; }
-      .hub-lightbox-close { right: 10px; top: -40px; }
-    }
-  </style>
-  
-  <div class="wr hub-belt-wr" data-rail data-delay="4000" role="region" aria-roledescription="carousel" aria-label="Hub meetings slider">
-    <div class="wr-track" id="hubBeltTrack">
-      <div class="wr-card hub-belt-card"><img src="/assets/images/hub-meeting-p11.jpg" alt="Hub coordination meeting, Addis Ababa" loading="lazy"></div>
-      <div class="wr-card hub-belt-card"><img src="/assets/images/hub-meeting-p12.jpg" alt="Hub coordination meeting, Addis Ababa" loading="lazy"></div>
-      <div class="wr-card hub-belt-card"><img src="/assets/images/hub-meeting-p13.jpg" alt="Hub coordination meeting, Addis Ababa" loading="lazy"></div>
-      <div class="wr-card hub-belt-card"><img src="/assets/images/hub-meeting-p14.jpg" alt="Hub coordination meeting, Addis Ababa" loading="lazy"></div>
-      <div class="wr-card hub-belt-card"><img src="/assets/images/hub-meeting-p15.jpg" alt="Hub coordination meeting, Addis Ababa" loading="lazy"></div>
-      <div class="wr-card hub-belt-card"><img src="/assets/images/hub-meeting-p16.jpg" alt="Hub coordination meeting, Addis Ababa" loading="lazy"></div>
-    </div>
-  </div>
-  <figcaption style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);padding:10px 2px 0;text-align:center;">Hub coordination meeting, Addis Ababa</figcaption>
-</div>
-
-<dialog class="hub-lightbox" id="hubLightbox">
-  <div class="hub-lightbox-content">
-    <button class="hub-lightbox-close" id="hubLightboxClose" aria-label="Close fullscreen">&times;</button>
-    <img src="" class="hub-lightbox-img" id="hubLightboxImg" alt="Fullscreen hub image">
-    <button class="hub-lightbox-nav hub-lightbox-prev" id="hubLightboxPrev" aria-label="Previous image">&#10094;</button>
-    <button class="hub-lightbox-nav hub-lightbox-next" id="hubLightboxNext" aria-label="Next image">&#10095;</button>
-  </div>
-</dialog>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const track = document.getElementById('hubBeltTrack');
-  const lightbox = document.getElementById('hubLightbox');
-  const lightboxImg = document.getElementById('hubLightboxImg');
-  const closeBtn = document.getElementById('hubLightboxClose');
-  const prevBtn = document.getElementById('hubLightboxPrev');
-  const nextBtn = document.getElementById('hubLightboxNext');
-  
-  // Create a list of unique image sources
-  const images = Array.from(track.querySelectorAll('.wr-card img')).map(img => img.src).filter((v, i, a) => a.indexOf(v) === i);
-  let currentIndex = 0;
-
-  // Event delegation to catch clicks on original AND cloned cards
-  track.addEventListener('click', (e) => {
-    const card = e.target.closest('.hub-belt-card');
-    if (card) {
-      e.preventDefault();
-      const img = card.querySelector('img');
-      if (img) {
-        currentIndex = images.indexOf(img.src);
-        if (currentIndex === -1) currentIndex = 0;
-        lightboxImg.src = images[currentIndex];
-        lightbox.showModal();
-        document.body.style.overflow = 'hidden';
-      }
-    }
-  });
-
-  function closeLightbox() {
-    lightbox.close();
-    document.body.style.overflow = '';
-  }
-
-  closeBtn.addEventListener('click', closeLightbox);
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
-
-  function navigate(dir) {
-    currentIndex = (currentIndex + dir + images.length) % images.length;
-    lightboxImg.src = images[currentIndex];
-  }
-
-  prevBtn.addEventListener('click', () => navigate(-1));
-  nextBtn.addEventListener('click', () => navigate(1));
-  
-  document.addEventListener('keydown', (e) => {
-    if (!lightbox.open) return;
-    if (e.key === 'ArrowLeft') navigate(-1);
-    if (e.key === 'ArrowRight') navigate(1);
-    if (e.key === 'Escape') closeLightbox();
-  });
-});
-</script>
+<section class="wash">
+<div class="inner split">
+<div class="prose reveal"><h3 style="margin-top:0">What a hub does</h3><p>Each regional hub operates under a Regional Coordinator responsible for regional strategy, partnerships, programming, stakeholder relations, and institutional development. Hubs plug regional universities, governments, enterprises, and communities into the global platform — and carry GPS programs into regional reality.</p><a class="btn btn-ink btn-sm" href="/people">Our people <span class="arrow">→</span></a></div>
+<div class="reveal d1"><div class="ph r16x9"><span>Photography — hub coordination meeting, Addis Ababa</span></div></div>
 </div>
 </section>
 
 </main>
-<footer class="site"><div class="ft-in"><div class="ft-grid"><div class="ft-brand"><a class="brand" href="/"><img class="brand-logo" src="/assets/images/logo.png" alt="GPS — Global Platform for the South" width="180" height="180"></a><p>Connecting knowledge, technology and innovation, policy, and enterprise into measurable impact across the Global South. Headquartered in Kigali, Rwanda.</p><div class="ft-cta"><a class="donate-btn" href="/donate">Donate</a><a class="btn btn-ghost btn-sm" href="/get-involved#partner">Partner with GPS</a></div></div><div><h5>About</h5><ul><li><a href="/about-why-gps">Why GPS?</a></li><li><a href="/about-mission-vision">Mission &amp; Vision</a></li><li><a href="/about-our-approach">Our Approach</a></li><li><a href="/people">People &amp; Governance</a></li><li><a href="/impact">Impact</a></li><li><a href="/roadmap">Roadmap</a></li></ul></div><div><h5>Our Work</h5><ul><li><a href="/work-knowledge">Knowledge Co-Creation</a></li><li><a href="/work-innovation">Technology &amp; Innovation</a></li><li><a href="/work-policy">Policy, Governance &amp; Public Leadership</a></li><li><a href="/work-enterprise">Enterprise &amp; Sustainable Development</a></li><li><a href="/initiatives">Activities</a></li></ul></div><div><h5>Knowledge &amp; News</h5><ul><li><a href="/kh-journal">GPS Journal</a></li><li><a href="/kh-outlook">GPS Outlook</a></li><li><a href="/kh-library">Publications</a></li><li><a href="/news">Updates</a></li><li><a href="/events">Events</a></li><li><a href="/events-calendar">Calendar</a></li></ul></div><div><h5>Network</h5><ul><li><a href="/about-regional-hubs">Regional Coordination</a></li><li><a href="/network-partners">Partners</a></li><li><a href="/network-diaspora">Diaspora Network</a></li></ul></div><div><h5>Get Involved</h5><ul><li><a href="/get-involved#partner">Partner with GPS</a></li><li><a href="/get-involved#join">Join GPS</a></li><li><a href="/get-involved#collaborate">Collaborate</a></li><li><a href="/get-involved#contribute">Contribute Knowledge</a></li><li><a href="/get-involved-opportunities">Opportunities</a></li><li><a href="/donate">Donate</a></li><li><a href="/contact">Contact Us</a></li><li><a href="/search">Search the site</a></li><li><a href="mailto:info@gpsouth.org">info@gpsouth.org</a></li></ul></div></div><div class="ft-legal"><span>© <span data-year>2026</span> Global Platform for the South · Headquartered in Kigali, Rwanda</span><span class="ft-legal-links"><a href="/privacy">Privacy &amp; cookies</a><button type="button" class="ft-cookie-btn" data-cookie-open>Cookie settings</button></span></div></div></footer>
-<script src="/assets/site.js?v=20260906c" defer></script>
+<footer class="site"><div class="ft-in"><div class="ft-grid"><div class="ft-brand"><a class="brand" href="/"><img class="brand-logo" src="/assets/images/logo.png" alt="GPS — Global Platform for the South" width="180" height="180"></a><p>Connecting knowledge, technology and innovation, policy, and enterprise into measurable impact across the Global South. Headquartered in Kigali, Rwanda.</p><div class="ft-cta"><a class="donate-btn" href="/donate">Donate</a><a class="btn btn-ghost btn-sm" href="/get-involved#partner">Partner with GPS</a></div></div><div><h5>About</h5><ul><li><a href="/about-why-gps">Why GPS?</a></li><li><a href="/about-mission-vision">Mission &amp; Vision</a></li><li><a href="/about-our-approach">Our Approach</a></li><li><a href="/people">People &amp; Governance</a></li><li><a href="/impact">Impact</a></li><li><a href="/roadmap">Roadmap</a></li></ul></div><div><h5>Our Work</h5><ul><li><a href="/work-knowledge">Knowledge Co-Creation</a></li><li><a href="/work-innovation">Technology &amp; Innovation</a></li><li><a href="/work-policy">Policy, Governance &amp; Public Leadership</a></li><li><a href="/work-enterprise">Enterprise &amp; Sustainable Development</a></li><li><a href="/initiatives">Activities</a></li></ul></div><div><h5>Knowledge &amp; News</h5><ul><li><a href="/kh-journal">GPS Journal</a></li><li><a href="/kh-outlook">GPS Outlook</a></li><li><a href="/kh-library">Publications</a></li><li><a href="/news">Updates</a></li><li><a href="/events">Events</a></li><li><a href="/events-calendar">Calendar</a></li></ul></div><div><h5>Network</h5><ul><li><a href="/about-regional-hubs">Regional Coordination</a></li><li><a href="/network-partners">Partners</a></li><li><a href="/network-diaspora">Diaspora Network</a></li></ul></div><div><h5>Get Involved</h5><ul><li><a href="/get-involved#partner">Partner with GPS</a></li><li><a href="/get-involved#join">Join GPS</a></li><li><a href="/university-membership">University Membership</a></li><li><a href="/get-involved#collaborate">Collaborate</a></li><li><a href="/get-involved#contribute">Contribute Knowledge</a></li><li><a href="/get-involved-opportunities">Opportunities</a></li><li><a href="/donate">Donate</a></li><li><a href="/contact">Contact Us</a></li><li><a href="/search">Search the site</a></li><li><a href="mailto:info@gpsouth.org">info@gpsouth.org</a></li></ul></div></div><div class="ft-legal"><span>© <span data-year>2026</span> Global Platform for the South · Headquartered in Kigali, Rwanda</span><span class="ft-legal-links"><a href="/privacy">Privacy &amp; cookies</a><button type="button" class="ft-cookie-btn" data-cookie-open>Cookie settings</button></span></div></div></footer>
+<script src="/assets/site.js?v=20260923a" defer></script>
 <script src="https://unpkg.com/d3@7.9.0/dist/d3.min.js" integrity="sha384-CjloA8y00+1SDAUkjs099PVfnY2KmDC2BZnws9kh8D/lX1s46w6EPhpXdqMfjK6i" crossorigin="anonymous" defer></script><script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js" integrity="sha384-Ukv1p/xTma6P4/2bY5KzWBw+ydSpXmhCMtyciIQVDJ1RmOxtCYNMF1uXT9T63H67" crossorigin="anonymous" defer></script>
-<script src="/assets/map.js?v=20260906c" defer></script>
+<script src="/assets/map.js?v=20260923a" defer></script>
 <template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#09190B"/><circle cx="50" cy="50" r="20" fill="none" stroke="#EEB232" stroke-width="4"/><circle cx="50" cy="50" r="6" fill="#FFCA10"/></svg></template>
 </body>
 </html>

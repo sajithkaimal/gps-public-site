@@ -4,12 +4,15 @@
 (function(){
 'use strict';
 window.GPS_HUBS=[
- {id:'kigali',name:'Kigali HQ',country:'',region:'',role:'',status:'hq',lon:30.0619,lat:-1.9441,blurb:''},
- {id:'africa',name:'Africa (Ethiopia, Ghana and Senegal)',country:'',region:'',role:'',status:'hub',lon:19.0,lat:5.0,blurb:''},
- {id:'mena',name:'Middle East (Lebanon — Beirut)',country:'',region:'',role:'',status:'hub',lon:35.5018,lat:33.8938,blurb:''},
- {id:'saopaulo',name:'Latin America (São Paulo)',country:'',region:'',role:'',status:'hub',lon:-46.6333,lat:-23.5505,blurb:''},
- {id:'caribbean',name:'The Caribbean (Martinique)',country:'',region:'',role:'',status:'hub',lon:-61.0742,lat:14.6104,blurb:''},
- {id:'asia',name:'South & Southeast Asia',country:'',region:'',role:'',status:'hub',lon:101.69,lat:3.14,blurb:''}
+ {id:'kigali',name:'Kigali',country:'Rwanda',region:'East Africa',role:'Headquarters',status:'hq',lon:30.0619,lat:-1.9441,blurb:'Global headquarters — strategy, coordination, and the Kigali Knowledge Crossroads Week.'},
+ {id:'addis',name:'Addis Ababa',country:'Ethiopia',region:'East & Horn of Africa',role:'Regional Hub',status:'hub',lon:38.7578,lat:9.0107,blurb:'Gateway to continental institutions and the African Union ecosystem.'},
+ {id:'dakar',name:'Dakar',country:'Senegal',region:'West Africa (Francophone)',role:'Regional Hub',status:'hub',lon:-17.4467,lat:14.6928,blurb:'Francophone West Africa — research, culture, and Atlantic partnerships.'},
+ {id:'accra',name:'Accra',country:'Ghana',region:'West Africa (Anglophone)',role:'Regional Hub',status:'hub',lon:-0.187,lat:5.6037,blurb:'Anglophone West Africa — enterprise, innovation, and diaspora engagement.'},
+ {id:'saopaulo',name:'São Paulo',country:'Brazil',region:'Latin America',role:'Regional Hub',status:'hub',lon:-46.6333,lat:-23.5505,blurb:'Latin America — university cooperation with GCUB and the 2028 convening.'},
+ {id:'martinique',name:'Martinique',country:'France (Caribbean)',region:'The Caribbean',role:'Regional Hub',status:'hub',lon:-61.0742,lat:14.6104,blurb:'Caribbean node — linking island universities, culture, and climate resilience.'},
+ {id:'caribbean',name:'Caribbean',country:'Location in consultation',region:'The Wider Caribbean',role:'Under Consultation',status:'plan',lon:-77.5,lat:20.6,blurb:'Planned — extending Caribbean presence beyond the Martinique hub, in consultation with island universities and regional bodies.'},
+ {id:'mena',name:'Middle East',country:'Location in consultation',region:'MENA',role:'Under Consultation',status:'plan',lon:35.93,lat:31.95,blurb:'Planned — consultations underway with regional partners.'},
+ {id:'asia',name:'South & SE Asia',country:'Location in consultation',region:'Asia-Pacific',role:'Under Consultation',status:'plan',lon:101.69,lat:3.14,blurb:'Planned — exploratory partnerships across South and Southeast Asia.'}
 ];
 function ready(fn){if(document.readyState!=='loading')fn();else document.addEventListener('DOMContentLoaded',fn);}
 ready(function(){
@@ -28,7 +31,7 @@ function drawHero(stage,world){
   var lay=document.createElement('div');lay.className='h-labels';stage.appendChild(lay);
   var hubs=(window.GPS_HUBS||[]).slice();
   var byId={};hubs.forEach(function(h){byId[h.id]=h;});
-  var ROUTES=[]; for(var i=0;i<hubs.length;i++){for(var j=i+1;j<hubs.length;j++){ROUTES.push([hubs[i].id,hubs[j].id]);}}
+  var ROUTES=[['kigali','saopaulo'],['kigali','dakar'],['kigali','asia'],['accra','saopaulo'],['dakar','martinique'],['addis','asia'],['martinique','accra'],['kigali','mena'],['saopaulo','asia'],['addis','dakar'],['caribbean','saopaulo'],['kigali','caribbean']];
   var isSouth=function(f){var n=(f.properties&&f.properties.name)||'';return !NSET[n];};
   var southF=world.features.filter(isSouth),northF=world.features.filter(function(f){return !isSouth(f);});
   var labs=hubs.map(function(h){
@@ -142,12 +145,9 @@ function drawGlobe(stage,world){
       .join('path').attr('class','g-south').attr('d',path).attr('fill','#11341A');
     svg.append('path').attr('class','g-rim').attr('d',path({type:'Sphere'}));
     var arcs=svg.append('g');
-    // Connect nodes to form a network
-    var routes=[]; for(var i=0;i<hubs.length;i++){for(var j=i+1;j<hubs.length;j++){routes.push([hubs[i].id,hubs[j].id]);}}
-    var byId = {}; hubs.forEach(function(h){byId[h.id]=h;});
-    routes.forEach(function(r){
-      var a=byId[r[0]], b=byId[r[1]]; if(!a||!b)return;
-      var d=path({type:'LineString',coordinates:[[a.lon,a.lat],[b.lon,b.lat]]});
+    hubs.forEach(function(h){
+      if(h.id===hq.id)return;
+      var d=path({type:'LineString',coordinates:[[hq.lon,hq.lat],[h.lon,h.lat]]});
       if(d)arcs.append('path').attr('class','g-arc').attr('d',d);
     });
     var hg=svg.append('g');
@@ -189,12 +189,10 @@ function draw(stage,world){
   var extraEl=stage.parentNode.querySelector('[data-map-extra]');
   if(extraEl){try{hubs=hubs.concat(JSON.parse(extraEl.textContent));}catch(e){}}
   var hq=hubs.filter(function(h){return h.status==='hq';})[0]||hubs[0];
-  /* network connections */
-  var routes=[]; for(var i=0;i<hubs.length;i++){for(var j=i+1;j<hubs.length;j++){routes.push([hubs[i].id,hubs[j].id]);}}
-  var byId = {}; hubs.forEach(function(h){byId[h.id]=h;});
-  routes.forEach(function(r){
-    var a=byId[r[0]], b=byId[r[1]]; if(!a||!b)return;
-    var line={type:'LineString',coordinates:[[a.lon,a.lat],[b.lon,b.lat]]};
+  /* arcs HQ -> hubs */
+  hubs.forEach(function(h){
+    if(h.id===hq.id)return;
+    var line={type:'LineString',coordinates:[[hq.lon,hq.lat],[h.lon,h.lat]]};
     svg.append('path').attr('class','hub-arc').attr('d',path(line));
   });
   /* tooltip — or a docked panel inside the stage when the page provides one */
@@ -221,7 +219,7 @@ function draw(stage,world){
     pin.append('circle').attr('class','pulse').attr('r',5);
     pin.append('circle').attr('class','c').attr('r',h.status==='hq'?6:4.5).attr('stroke-dasharray',h.status==='plan'?'2 2':null);
     var anchor=(xy[0]>W-120)?'end':'start';
-    pin.append('text').attr('x',anchor==='end'?-10:10).attr('y',4).attr('text-anchor',anchor).text(h.name);
+    pin.append('text').attr('x',anchor==='end'?-10:10).attr('y',4).attr('text-anchor',anchor).text(h.name+(h.status==='hq'?' · HQ':h.status==='plan'?' · under consultation':''));
     pin.on('mouseenter',function(){if(panel){fillPanel(h);panel.classList.add('live');}else showTip(h,xy[0],xy[1]);})
        .on('mouseleave',function(){if(panel)panel.classList.remove('live');else tip.classList.remove('show');})
        .on('click',function(){var card=document.getElementById('hub-'+h.id);if(card){window.scrollTo({top:card.getBoundingClientRect().top+window.scrollY-110,behavior:'smooth'});card.style.boxShadow='0 0 0 3px rgba(238,178,50,.45)';setTimeout(function(){card.style.boxShadow='';},1600);}});
