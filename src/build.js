@@ -138,7 +138,7 @@ async function run(V, io){
   const urls = files.filter(f=>{
     if(!f.endsWith('.html') || f==='404.html') return false;
     /* skip redirect / noindex stubs from sitemap when possible */
-    return f!=='network-institutions.html';
+    return f!=='network-institutions.html' && f!=='submission-received.html';
   }).map(f=>{
     const loc = canonUrl(f);
     const pri = f==='index.html'?'1.0':(/^(about|what-we-do|network|knowledge-hub|get-involved)\.html$/.test(f)?'0.9':'0.7');
@@ -146,7 +146,7 @@ async function run(V, io){
   }).join('\n');
   const sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+urls+'\n</urlset>\n';
   await saveFile('sitemap.xml', sm);
-  await saveFile('robots.txt', 'User-agent: Googlebot-Image\nAllow: /\n\nUser-agent: *\nAllow: /\nAllow: /favicon.ico\nAllow: /favicon.png\nAllow: /assets/\n\nDisallow: /uploads/\nDisallow: /hero-a\nDisallow: /hero-b\nDisallow: /hero-c\nDisallow: /404\n\nSitemap: '+SITE+'/sitemap.xml\n');
+  await saveFile('robots.txt', 'User-agent: Googlebot-Image\nAllow: /\n\nUser-agent: *\nAllow: /\nAllow: /favicon.ico\nAllow: /favicon.png\nAllow: /assets/\n\nDisallow: /uploads/\nDisallow: /submission-received\nDisallow: /hero-a\nDisallow: /hero-b\nDisallow: /hero-c\nDisallow: /404\n\nSitemap: '+SITE+'/sitemap.xml\n');
   log('built '+n+' pages at '+V);
   return n;
 }

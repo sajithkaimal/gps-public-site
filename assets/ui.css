@@ -363,3 +363,15 @@ a.step:hover{border-color:var(--ink-faint)}
 .uni-step h4{font-size:16px;margin:4px 0 6px}
 .uni-step p{font-size:13.5px;color:var(--ink-soft);margin-bottom:10px}
 .uni-foot{font-size:13px;color:var(--ink-faint);margin:0}
+
+/* submission confirmation */
+.confirm{display:grid;gap:22px;max-width:760px}
+.confirm-card{padding:clamp(24px,4vw,40px);border-radius:20px;background:var(--surface);border:1px solid var(--line);display:grid;gap:14px}
+.confirm-mark{width:52px;height:52px;border-radius:50%;background:var(--c1);color:#fff;display:grid;place-items:center;font-size:24px;font-weight:800}
+.confirm-card h2{font-size:clamp(20px,2.6vw,28px);line-height:1.2;margin:0}
+.confirm-card p{color:var(--ink-soft);font-size:15px;margin:0}
+.confirm-meta{display:flex;flex-wrap:wrap;gap:12px 32px;margin:6px 0 0;padding-top:14px;border-top:1px solid var(--line)}
+.confirm-meta div{display:grid;gap:2px}.confirm-meta dt{font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-faint)}.confirm-meta dd{margin:0;font-size:14.5px;font-weight:600}
+.confirm-next{display:grid;gap:10px;padding:0 4px}
+.confirm-next h3{font-size:17px;margin:0}.confirm-next p{color:var(--ink-soft);font-size:14.5px;margin:0;max-width:66ch}
+.confirm-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}

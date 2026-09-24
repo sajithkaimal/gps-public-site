@@ -4,8 +4,31 @@
 <div class="feat-stage">
 <div class="feat-progress" aria-hidden="true"><i></i></div>
 <article class="feat-slide is-on" data-feat-slide>
+<div class="feat-visual feat-v-webvideo">
+<video class="hf-video" src="/assets/video/gps-web.webm?v=20260924a" poster="/assets/images/gps-web-thumb.png" loop playsinline preload="auto" fetchpriority="high" disablepictureinpicture aria-label="GPS Introduction Video" muted></video>
+<button class="btn-unmute-float" type="button" aria-label="Toggle Audio" onclick="const v = this.previousElementSibling; v.muted = !v.muted; if(v.paused) v.play(); this.classList.toggle('unmuted', !v.muted); event.stopPropagation();">
+<svg class="icon-mute" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+<svg class="icon-unmute" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+</button>
+</div>
+<div class="feat-copy">
+<p class="feat-tag">Introduction</p>
+<h1>Welcome to the Global Platform for the South</h1>
+<p class="feat-lede">Connecting people, knowledge, technology, policy, and enterprise across the Global South.</p>
+<div class="feat-actions">
+<a class="btn btn-grad" href="/knowledge-hub">Knowledge &amp; News <span class="arrow">→</span></a>
+<a class="btn btn-ghost" href="/events">Events</a>
+</div>
+</div>
+</article>
+
+<article class="feat-slide" data-feat-slide aria-hidden="true">
 <div class="feat-visual feat-v-platform">
-<video class="hf-video" src="/assets/hero.webm?v=20260817h" poster="/assets/hero-poster.png?v=20260818d" loop muted playsinline preload="auto" fetchpriority="high" disablepictureinpicture aria-label="Humans, knowledge, innovation, enterprise, policy and impact across the Global South"></video>
+<video class="hf-video" src="/assets/hero.webm?v=20260924a" poster="/assets/hero-poster.png?v=20260924a" loop muted playsinline preload="auto" fetchpriority="high" disablepictureinpicture aria-label="Humans, knowledge, innovation, enterprise, policy and impact across the Global South"></video>
+<button class="btn-unmute-float" type="button" aria-label="Toggle Audio" onclick="const v = this.previousElementSibling; v.muted = !v.muted; if(v.paused) v.play(); this.classList.toggle('unmuted', !v.muted); event.stopPropagation();">
+<svg class="icon-mute" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+<svg class="icon-unmute" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+</button>
 </div>
 <div class="feat-copy">
 <p class="feat-tag">Global Platform for the South</p>
@@ -38,7 +61,7 @@
 </article>
 <article class="feat-slide" data-feat-slide aria-hidden="true">
 <div class="feat-visual feat-v-kigali">
-<img class="feat-photo" src="/assets/images/Kigali.jpg?v=20260820d" alt="" width="800" height="600" loading="lazy" decoding="async" aria-hidden="true">
+<img class="feat-photo" src="/assets/images/Kigali.jpg?v=20260924a" alt="" width="800" height="600" loading="lazy" decoding="async" aria-hidden="true">
 </div>
 <div class="feat-copy">
 <p class="feat-tag">Flagship convening</p>
@@ -50,20 +73,7 @@
 </div>
 </div>
 </article>
-<article class="feat-slide" data-feat-slide aria-hidden="true">
-<div class="feat-visual feat-v-journal">
-<div class="feat-art" aria-hidden="true"><span>Vol. 1</span><b>Call for papers</b></div>
-</div>
-<div class="feat-copy">
-<p class="feat-tag">GPS Journal</p>
-<h2>Transforming knowledge into impact — in print and in practice.</h2>
-<p class="feat-lede">Peer-reviewed, transdisciplinary scholarship from across the South. Abstracts for the inaugural issue are due 15 December 2026.</p>
-<div class="feat-actions">
-<a class="btn btn-grad" href="/kh-journal">Submit a paper <span class="arrow">→</span></a>
-<a class="btn btn-ghost" href="/kh-library">Browse publications</a>
-</div>
-</div>
-</article>
+
 <div class="feat-arrows">
 <button type="button" class="feat-arrow" data-feat-prev aria-label="Previous featured item">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 5 8 12l7 7"/></svg>
@@ -75,8 +85,15 @@
 </div>
 <div class="feat-rail" role="tablist" aria-label="Featured items">
 <button type="button" class="feat-tab is-on" role="tab" aria-selected="true" data-feat-tab>
+<span class="feat-mini feat-mini-webvideo">
+<img class="feat-thumb-img" src="/assets/images/gps-web-thumb.png" alt="" width="320" height="180" loading="eager" fetchpriority="high" decoding="sync" aria-hidden="true">
+</span>
+<span class="feat-cap">Overview</span>
+</button>
+
+<button type="button" class="feat-tab" role="tab" aria-selected="false" tabindex="-1" data-feat-tab>
 <span class="feat-mini feat-mini-platform">
-<img class="feat-thumb-img" src="/assets/hero-poster.png?v=20260818d" alt="" width="320" height="180" loading="eager" fetchpriority="high" decoding="sync" aria-hidden="true">
+<img class="feat-thumb-img" src="/assets/hero-poster.png?v=20260924a" alt="" width="320" height="180" loading="eager" fetchpriority="high" decoding="sync" aria-hidden="true">
 </span>
 <span class="feat-cap">The platform</span>
 </button>
@@ -86,14 +103,11 @@
 </button>
 <button type="button" class="feat-tab" role="tab" aria-selected="false" tabindex="-1" data-feat-tab>
 <span class="feat-mini feat-thumb-kigali">
-<img class="feat-thumb-img" src="/assets/images/Kigali.jpg?v=20260820d" alt="" width="320" height="180" loading="lazy" decoding="async" aria-hidden="true">
+<img class="feat-thumb-img" src="/assets/images/Kigali.jpg?v=20260924a" alt="" width="320" height="180" loading="lazy" decoding="async" aria-hidden="true">
 </span>
 <span class="feat-cap">Kigali Week</span>
 </button>
-<button type="button" class="feat-tab" role="tab" aria-selected="false" tabindex="-1" data-feat-tab>
-<span class="feat-mini feat-thumb-journal"><span class="feat-thumb-cover" aria-hidden="true"><span class="tc-vol">Vol. 1</span><span class="tc-t">GPS Journal</span></span></span>
-<span class="feat-cap">GPS Journal</span>
-</button>
+
 </div>
 </div>
 </header>
@@ -130,16 +144,31 @@
 <section class="wash" id="ecosystem" data-screen-label="Home — the GPS ecosystem" style="padding-top:clamp(56px,8vh,100px)">
 <div class="inner">
 <div class="sec-head"><div><div class="eyebrow reveal"><span class="bar"></span> The GPS ecosystem</div><h2 class="sec-h reveal">What makes the <span class="grad-ink">GPS model distinctive.</span></h2><p class="reveal d1 eco-lede" style="max-width:74ch;color:var(--ink-soft)">At GPS, people work together across disciplines, sectors and regions, connecting knowledge, innovation, policy and enterprise so that they reinforce one another and transform ideas into action, impact and social transformation.</p></div><div class="more reveal"><a class="btn btn-grad" href="/about-our-approach">Our approach <span class="arrow">→</span></a></div></div>
-<div class="reveal d1"><!--@eco--></div>
+<div class="reveal d1"><div class="eco2" data-eco2>
+<svg class="eco2-net" aria-hidden="true" focusable="false"></svg>
+<div class="eco2-grid">
+<div class="eco2-actors"><span class="eco2-chip">Universities</span><span class="eco2-chip">Civil society</span></div>
+<a class="eco2-card ek" href="/work-knowledge" data-eco-node="k"><span class="eco2-num">01</span><h3>Knowledge Co-Creation, Sharing &amp; Dissemination</h3><p>Research, universities, publications, training and fellowships.</p></a>
+<div class="eco2-actors"><span class="eco2-chip">Governments</span><span class="eco2-chip">Private sector</span></div>
+<a class="eco2-card et" href="/work-innovation" data-eco-node="t"><span class="eco2-num">02</span><h3>Technology &amp; Innovation</h3><p>AI, digital transformation and innovation labs.</p></a>
+<div class="eco2-core" data-eco-node="core"><i class="eco2-ring"></i><i class="eco2-ring r2"></i><b>GPS</b><em>Institutions · Sectors · People</em></div>
+<a class="eco2-card ep" href="/work-policy" data-eco-node="p"><span class="eco2-num">03</span><h3>Policy, Governance &amp; Public Leadership</h3><p>Governance, diplomacy and policy advisory.</p></a>
+<div class="eco2-actors"><span class="eco2-chip">Communities</span></div>
+<a class="eco2-card ee" href="/work-enterprise" data-eco-node="e"><span class="eco2-num">04</span><h3>Enterprise &amp; Sustainable Development</h3><p>Industry, start-ups, investment and executive education.</p></a>
+<div class="eco2-actors"><span class="eco2-chip">Innovators</span></div>
+<div class="eco2-impact" data-eco-node="impact"><span class="eco2-kick">Where it all leads</span><h3>Impact &amp; Social Transformation</h3></div>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="initiatives" data-screen-label="Home — featured initiatives">
 <div class="inner">
 <div class="sec-head"><div><div class="eyebrow reveal"><span class="bar"></span> Featured initiatives</div><h2 class="sec-h reveal">Current priorities.</h2></div><div class="more reveal"><a class="btn btn-ink" href="/initiatives">All initiatives <span class="arrow">→</span></a></div></div>
 <div class="ed-grid">
-<a class="ed-card half reveal" href="/events" style="--cv1:#11341A;--cv2:#09190B;--cv3:rgba(238,178,50,.45)"><span class="kick">Running now · Sep–Dec 2026</span><span class="ed-status"><i class="act"></i>Active</span><h3>GPS Dialogues</h3><p>Six virtual dialogues, three languages, no fee.</p><span class="foot">See dates →</span></a>
+<a class="ed-card half reveal" href="/events" style="--cv1:#11341A;--cv2:#09190B;--cv3:rgba(238,178,50,.45)"><span class="kick">Running now Oct 2026 – Mar 2027</span><span class="ed-status"><i class="act"></i>Active</span><h3>GPS Dialogues</h3><p>Six virtual dialogues, three languages, no fee.</p><span class="foot">See dates →</span></a>
 <a class="ed-card feature reveal" href="/initiative-kigali-knowledge-week" style="--cv1:#09190B;--cv2:#09190B;--cv3:rgba(255,202,16,.35);min-height:300px"><span class="ed-figure" aria-hidden="true"><span class="ed-badge"><span class="bd-clip"></span><span class="bd-top"><span class="bd-mark"></span><span class="bd-org">GPS · CROSSROADS</span></span><span class="bd-mid"><span class="bd-role">DELEGATE</span><span class="bd-ev">Kigali Knowledge Crossroads Week</span></span><span class="bd-foot"><span class="bd-bars"><i style="height:100%"></i><i style="height:60%"></i><i style="height:90%"></i><i style="height:45%"></i><i style="height:100%"></i><i style="height:70%"></i><i style="height:35%"></i><i style="height:85%"></i><i style="height:55%"></i><i style="height:95%"></i></span><span>OCTOBER 2027</span><span>KIGALI · RWANDA</span></span></span></span><span class="kick">Flagship · Kigali · October 2027</span><span class="ed-status"><i class="dev"></i>In Development</span><h3>Kigali Knowledge Crossroads Week</h3><p>700+ participants from five continents. Education in motion, research in action — the Global South's flagship knowledge convening.</p><span class="foot">Enter the microsite →</span></a>
-<a class="ed-card half reveal d1" href="/initiative-gcub-assembly" style="--cv1:#11341A;--cv2:#09190B;--cv3:rgba(213,142,20,.45)"><span class="kick">Academic cooperation · 2027</span><span class="ed-status"><i class="dev"></i>In Development</span><h3>GCUB General Assembly</h3><p>University leaders from across the South, convening in Kigali.</p><span class="foot">Explore →</span></a>
+<a class="ed-card half reveal d1" href="/initiative-gcub-assembly" style="--cv1:#11341A;--cv2:#09190B;--cv3:rgba(213,142,20,.45)"><span class="kick">Academic cooperation · 2027</span><span class="ed-status"><i class="dev"></i>In Development</span><h3>GCUB General Assembly</h3><p>104 universities from Brasil, convening in Kigali, October 2027.</p><span class="foot">Explore →</span></a>
 <a class="ed-card half reveal d2" href="/initiative-reparations" style="--cv1:#5B3505;--cv2:#09190B;--cv3:rgba(255,202,16,.4)"><span class="kick">Research · policy · dialogue</span><span class="ed-status"><i class="dev"></i>In Development</span><h3>Reparations Initiative</h3><p>Repair and historical justice, treated with rigor.</p><span class="foot">Explore →</span></a>
 <a class="ed-card half reveal d1" href="/initiative-ai-global-south" style="--cv1:#11341A;--cv2:#09190B;--cv3:rgba(238,178,50,.45)"><span class="kick">Technology &amp; policy</span><span class="ed-status"><i class="dev"></i>In Development</span><h3>AI for the Global South</h3><p>The South setting its own defaults for AI.</p><span class="foot">Explore →</span></a>
 

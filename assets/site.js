@@ -382,8 +382,8 @@ d.querySelectorAll('video.hf-video').forEach(function(v){
 /* ---------- form-long validation (runs before submit handler) ---------- */
 d.querySelectorAll('form.form-long').forEach(function(f){
   f.addEventListener('submit',function(e){
+    if(f.checkValidity()){f.classList.remove('checked');return;}
     f.classList.add('checked');
-    if(f.checkValidity())return;
     e.preventDefault();e.stopImmediatePropagation();
     var bad=f.querySelector(':invalid');
     var err=f.querySelector('.form-err');
@@ -392,6 +392,18 @@ d.querySelectorAll('form.form-long').forEach(function(f){
     if(bad){bad.focus({preventScroll:true});var r=bad.getBoundingClientRect();window.scrollBy({top:r.top-140,behavior:'smooth'});}
   },true);
 });
+/* ---------- confirmation page ---------- */
+(function(){
+  var c=d.querySelector('[data-confirm]');if(!c)return;
+  var p=new URLSearchParams(location.search),key=p.get('form'),inst=p.get('inst'),to=p.get('to');
+  var names={membership:'University Membership Application',questionnaire:'Partnership Information Questionnaire'};
+  var t=c.querySelector('[data-confirm-title]'),b=c.querySelector('[data-confirm-body]');
+  if(names[key]&&t)t.textContent='Your '+names[key]+(inst?' for '+inst:'')+' has been received.';
+  if(to&&b)b.textContent='A copy has been sent to '+to+'. The GPS partnerships team will review your submission and respond within two weeks.';
+  var dt=c.querySelector('[data-confirm-date]');if(dt)dt.textContent=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+  var next=c.querySelector('[data-next-'+key+']');
+  if(next){next.hidden=false;var def=c.querySelector('[data-next-default]');if(def)def.hidden=true;}
+})();
 /* ---------- forms → send.php (one inbox) ---------- */
 d.querySelectorAll('form[data-demo]').forEach(function(f){
   if(!f.getAttribute('action')){f.setAttribute('action','send.php');f.setAttribute('method','post');}
@@ -421,7 +433,16 @@ d.querySelectorAll('form[data-demo]').forEach(function(f){
       msg.style.color=ok?'var(--teal-ink)':'#b4322c';
       msg.textContent=text;
       if(btn){btn.disabled=false;btn.innerHTML=label;}
-      if(ok)f.reset();
+      if(ok){
+        if(f.classList.contains('form-long')){
+          var fd=new FormData(f),q=new URLSearchParams();
+          q.set('form',f.getAttribute('data-form-key')||'');
+          if(fd.get('institution_name'))q.set('inst',fd.get('institution_name'));
+          if(fd.get('email'))q.set('to',fd.get('email'));
+          location.assign('/submission-received?'+q.toString());return;
+        }
+        f.reset();
+      }
     }
     fetch(f.getAttribute('action'),{method:'POST',body:new FormData(f)})
       .then(function(r){return r.json().catch(function(){return{ok:r.ok};});})

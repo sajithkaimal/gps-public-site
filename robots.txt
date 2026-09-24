@@ -2,6 +2,7 @@ User-agent: Googlebot-Image
 Allow: /
 
 User-agent: *
+Disallow: /submission-received
 Allow: /
 Allow: /favicon.ico
 Allow: /favicon.png
