@@ -94,6 +94,7 @@ const board = withPalette([
   },
   {
     init: 'BD', name: 'Boubacar Boris Diop', role: 'Associate Director for Creative Production', geo: 'Senegal',
+    img: IMG + 'boubacar-boris-diop.jpg',
     bio: 'Writer, scholar, and public intellectual. Associate Director for Creative Production at GPS.',
   },
   {
@@ -190,6 +191,7 @@ const advisory = withPalette([
   },
   {
     init: 'NC', name: 'Amb. Natalie Campbell-Rodrigues', role: 'International Advisory Board Member', geo: 'Jamaica · Trinidad and Tobago',
+    img: IMG + 'natalie-campbell.jpg',
     bio: 'Jamaican diplomat, policymaker, and entrepreneur, currently serving as Jamaica’s High Commissioner to Trinidad and Tobago.',
     full: [
       'A Jamaican diplomat, policymaker, entrepreneur, and organizational management professional, currently serving as Jamaica’s High Commissioner to Trinidad and Tobago and Permanent Representative to the Association of Caribbean States (ACS).',
@@ -198,6 +200,7 @@ const advisory = withPalette([
   },
   {
     init: 'BR', name: 'Amb. José Brito', role: 'International Advisory Board Member', geo: 'Cabo Verde',
+    img: IMG + 'jose-brito.jpg',
     bio: 'Former Minister of Foreign Affairs and Minister of Economy of Cabo Verde; co-founder of IHABA.',
     full: [
       'Former Minister of Foreign Affairs and former Minister of Economy of Cabo Verde; former Ambassador to the United States, Canada, and Mexico; and currently co-founder and managing partner of IHABA, a business development and advisory firm.',
@@ -230,6 +233,7 @@ const advisory = withPalette([
   },
   {
     init: 'DK', name: 'Prof. Didas Kayihura Muganga', role: 'International Advisory Board Member', geo: 'Rwanda',
+    img: IMG + 'didas-kayihura-muganga.jpg',
     bio: 'Vice Chancellor of the University of Rwanda.',
   },
   {
@@ -262,6 +266,7 @@ const advisory = withPalette([
   },
   {
     init: 'LM', name: 'Liban Mugabo', role: 'International Advisory Board Member', geo: 'Rwanda',
+    img: IMG + 'liban-mugabo.jpg',
     bio: 'Managing Director of Safe Gas Rwanda, with senior experience in public policy, finance, and the private sector.',
     full: [
       'A specialist in national-level strategic planning, research, and finance, Mr. Liban Mugabo holds dual master’s degrees in Economics and Public Policy and possesses strong professional experience in the public, private, and NGO sectors.',
