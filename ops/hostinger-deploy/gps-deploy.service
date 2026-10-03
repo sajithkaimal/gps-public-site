@@ -1,0 +1,12 @@
+[Unit]
+Description=Deploy GitHub main to GPS Hostinger website
+After=network-online.target
+
+[Service]
+Type=oneshot
+UMask=0077
+Environment=PATH=/home/kendra/.local/bin:/usr/local/bin:/usr/bin:/bin
+Environment=GIT_TERMINAL_PROMPT=0
+ExecStart=%h/.local/bin/gps-deploy deploy --scheduled
+TimeoutStartSec=25min
+Nice=10

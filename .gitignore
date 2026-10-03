@@ -1,2 +1,4 @@
 assets/video/gps-web.mp4
 assets/video/gps-web.mp4
+__pycache__/
+*.pyc

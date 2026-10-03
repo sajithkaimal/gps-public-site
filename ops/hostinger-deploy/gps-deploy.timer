@@ -1,0 +1,11 @@
+[Unit]
+Description=Check GitHub main for GPS updates every hour
+
+[Timer]
+OnCalendar=*-*-* *:17:00
+Persistent=true
+AccuracySec=1min
+Unit=gps-deploy.service
+
+[Install]
+WantedBy=timers.target
