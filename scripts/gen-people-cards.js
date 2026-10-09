@@ -121,6 +121,18 @@ const board = withPalette([
       'He is a senior business consultant for Africa at the Global Food Security Fund and leads the “Sports & Education for Everybody, Anywhere” initiative in partnership with UNESCO.',
     ],
   },
+  {
+    init: 'SG', name: 'Dr. Shumete Gizaw Woldeamanuel', role: 'Member, Board of Directors', geo: 'Ethiopia',
+    img: IMG + 'shumete-gizaw.jpg',
+    bio: 'Associate Professor at Addis Ababa University; former Chief of Staff to the Prime Minister of Ethiopia, State Minister of Innovation and Technology, and Under-Secretary-General at the Organisation of Southern Cooperation.',
+    full: [
+      'Dr. Shumete Gizaw is a senior executive, policy practitioner, researcher, and academic with more than two decades of leadership experience across government, international organizations, academia, research, and development. His work sits at the intersection of strategic leadership, public policy, digital transformation, innovation, institutional development, and sustainable development, with extensive experience in Ethiopia, Africa, and the Global South.',
+      'He has held senior leadership positions at national and international levels, including Chief of Staff to the Prime Minister of Ethiopia, State Minister of Innovation and Technology, Director General of the Information Network Security Agency (INSA), and Under-Secretary-General for TIDE at the Organisation of Southern Cooperation (OSC). Across these roles, he has advised senior decision-makers, led complex institutional and policy initiatives, and contributed to national and international development agendas.',
+      'His expertise encompasses digital transformation, emerging technologies, cybersecurity, innovation ecosystems, technology policy, and governance. He has worked to advance technology-enabled public services, strengthen institutional capabilities, and promote policies that connect technology and innovation with inclusive and sustainable development.',
+      'Dr. Shumete is an Associate Professor at Addis Ababa University. He holds a PhD from Addis Ababa University, an MPhil from the Norwegian University of Science and Technology (NTNU), and a bachelor\'s degree from Dilla/Debub University, and has authored numerous scientific and policy-oriented publications.',
+      'Throughout his career he has built partnerships with governments, intergovernmental organizations, development partners, universities, and the private sector. His particular interests include Africa\'s digital transformation, human capital development, and South–South and Global South partnerships — connecting vision with impact to create lasting institutional, social, and economic value.',
+    ],
+  },
 ], GREEN);
 
 const departments = withPalette([
@@ -252,10 +264,6 @@ const advisory = withPalette([
     bio: 'President and CEO of Western University College, Ethiopia.',
   },
   {
-    init: 'AY', name: 'Dr. Arega Yirdaw', role: 'International Advisory Board Member', geo: 'Ethiopia',
-    bio: 'Business leader; President and CEO of Unity University, Ethiopia.',
-  },
-  {
     init: 'JB', name: 'Dr. Jean Bosco Baribeshya', role: 'International Advisory Board Member', geo: 'Rwanda',
     hidden: true,
     bio: 'Vice Chancellor of INES Ruhengeri, Rwanda.',
@@ -289,6 +297,16 @@ const advisory = withPalette([
     init: 'PG', name: 'Hon. Professor Pierre Gomez', role: 'International Advisory Board Member', geo: 'The Gambia',
     hidden: true,
     bio: 'Minister of Higher Education, Research, Science and Technology of The Gambia.',
+  },
+  {
+    init: 'AY', name: 'Dr. Arega Yirdaw', role: 'International Advisory Board Member', geo: 'Ethiopia',
+    bio: 'Engineer, author, and educator; President and CEO of Unity University, Ethiopia, and former CEO of MIDROC Technology Group.',
+    full: [
+      'Dr. Arega Yirdaw is President and CEO of Unity University in Ethiopia. Throughout his career he has dedicated himself to education, public diplomacy, and business leadership, serving as Board Chairperson, President, or member of institutions including HERQA (now the Ethiopian Training Authority), the Ethiopian Quality Award, Ethiopian Civil Service University, the Ethiopian Private Higher Education Association, the Addis Ababa Chamber of Commerce, the Grand Renaissance Dam National Committee, the Ethiopian Mining Association, the Ethiopian Eye Bank, and Abrehot Library.',
+      'He holds bachelor\'s, master\'s, and doctoral degrees in Mechanical and Aeronautical Engineering, Organizational Leadership, and Higher Education from Addis Ababa University (AAiT), Cranfield Institute of Technology (UK), PWU-California, and Fielding Graduate University (USA). He also completed specialized leadership programmes at the Center for Creative Leadership (CCL) in North Carolina, which awarded him its Distinguished Alumni Award in 2010 — the first in Africa.',
+      'Dr. Arega spent ten years at Ethiopian Airlines as an engineer, supervisor, and manager, and two decades in the United States with Boeing, Weston Hydraulics (Borg Warner), and HR Textron. He then organized, rehabilitated, and led MIDROC Technology Group — twenty-seven multi-sector companies and institutions, including Unity University — as CEO for two decades, laying the foundation for the sustainable growth of MIDROC Investment in Ethiopia.',
+      'He is a member of the UK Royal Aeronautical Society and the Ethiopian Mechanical Engineers Association, and the author of books including The Role of Governance in Quality of Education in Private Higher Institutions, Managing Organizational Structure, Managing Gold Mine Production and Operation, and Assessment Methods for Structural Modification on High-Time (Aging) Aircraft. He believes in lifelong learning, integrity, and "people-first" service.',
+    ],
   },
 ], MIX);
 
