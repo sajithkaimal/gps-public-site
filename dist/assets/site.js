@@ -379,6 +379,31 @@ d.querySelectorAll('video.hf-video').forEach(function(v){
   },{threshold:.2});
   io.observe(v);
 });
+/* ---------- form-long validation (runs before submit handler) ---------- */
+d.querySelectorAll('form.form-long').forEach(function(f){
+  f.addEventListener('submit',function(e){
+    if(f.checkValidity()){f.classList.remove('checked');return;}
+    f.classList.add('checked');
+    e.preventDefault();e.stopImmediatePropagation();
+    var bad=f.querySelector(':invalid');
+    var err=f.querySelector('.form-err');
+    if(!err){err=d.createElement('p');err.className='form-err';err.setAttribute('role','alert');f.querySelector('.form-actions').appendChild(err);}
+    err.textContent='Please complete the required fields marked * — the first one is highlighted above.';
+    if(bad){bad.focus({preventScroll:true});var r=bad.getBoundingClientRect();window.scrollBy({top:r.top-140,behavior:'smooth'});}
+  },true);
+});
+/* ---------- confirmation page ---------- */
+(function(){
+  var c=d.querySelector('[data-confirm]');if(!c)return;
+  var p=new URLSearchParams(location.search),key=p.get('form'),inst=p.get('inst'),to=p.get('to');
+  var names={membership:'University Membership Application',questionnaire:'Partnership Information Questionnaire'};
+  var t=c.querySelector('[data-confirm-title]'),b=c.querySelector('[data-confirm-body]');
+  if(names[key]&&t)t.textContent='Your '+names[key]+(inst?' for '+inst:'')+' has been received.';
+  if(to&&b)b.textContent='A copy has been sent to '+to+'. The GPS partnerships team will review your submission and respond within two weeks.';
+  var dt=c.querySelector('[data-confirm-date]');if(dt)dt.textContent=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+  var next=c.querySelector('[data-next-'+key+']');
+  if(next){next.hidden=false;var def=c.querySelector('[data-next-default]');if(def)def.hidden=true;}
+})();
 /* ---------- forms → send.php (one inbox) ---------- */
 d.querySelectorAll('form[data-demo]').forEach(function(f){
   if(!f.getAttribute('action')){f.setAttribute('action','send.php');f.setAttribute('method','post');}
@@ -386,6 +411,9 @@ d.querySelectorAll('form[data-demo]').forEach(function(f){
     var t=d.createElement('input');t.type='hidden';t.name='_form';
     t.value=f.getAttribute('aria-label')||f.getAttribute('data-demo')||'Website form';
     f.appendChild(t);
+  }
+  if(f.getAttribute('data-form-key')&&!f.querySelector('[name="_key"]')){
+    var k=d.createElement('input');k.type='hidden';k.name='_key';k.value=f.getAttribute('data-form-key');f.appendChild(k);
   }
   if(!f.querySelector('[name="website"]')){
     var hp=d.createElement('div');
@@ -405,12 +433,21 @@ d.querySelectorAll('form[data-demo]').forEach(function(f){
       msg.style.color=ok?'var(--teal-ink)':'#b4322c';
       msg.textContent=text;
       if(btn){btn.disabled=false;btn.innerHTML=label;}
-      if(ok)f.reset();
+      if(ok){
+        if(f.classList.contains('form-long')){
+          var fd=new FormData(f),q=new URLSearchParams();
+          q.set('form',f.getAttribute('data-form-key')||'');
+          if(fd.get('institution_name'))q.set('inst',fd.get('institution_name'));
+          if(fd.get('email'))q.set('to',fd.get('email'));
+          location.assign('/submission-received?'+q.toString());return;
+        }
+        f.reset();
+      }
     }
     fetch(f.getAttribute('action'),{method:'POST',body:new FormData(f)})
       .then(function(r){return r.json().catch(function(){return{ok:r.ok};});})
       .then(function(j){
-        if(j&&j.ok)done(true,'Thank you — your message has been sent to info@gpsouth.org. Our team will follow up at the address you provided.');
+        if(j&&j.ok)done(true,f.classList.contains('form-long')?'Thank you — your submission has been received by GPS. A confirmation has been sent to the address you provided and our partnerships team will respond within two weeks.':'Thank you — your message has been sent to info@gpsouth.org. Our team will follow up at the address you provided.');
         else done(false,(j&&j.error?j.error+' ':'')+'Please try again, or email us directly at info@gpsouth.org.');
       })
       .catch(function(){done(false,'We could not send that just now. Please email us directly at info@gpsouth.org.');});

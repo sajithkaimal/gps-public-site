@@ -48,6 +48,10 @@ a.card-link{position:absolute;inset:0;z-index:1}
 .person-caption h3,.person-back h3{font-family:var(--font-display);font-weight:700;font-size:clamp(15px,1.55vw,20px);letter-spacing:-.015em;line-height:1.2;color:var(--brand-white);margin:0;text-wrap:balance}
 .person-caption .role,.person-back .role{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.88);text-wrap:pretty}
 .person-back{display:flex;flex-direction:column;justify-content:flex-end;gap:10px;padding:28px 22px 24px;transform:rotateY(180deg);background:linear-gradient(160deg,var(--cv1,var(--brand-green)) 0%,var(--cv2,var(--brand-deep-green)) 100%);color:var(--brand-white);z-index:1}
+.person-back--photo{padding-top:38%}
+.person-back-portrait{position:absolute!important;z-index:0!important;top:0;left:0;right:0;height:38%;overflow:hidden}
+.person-back-portrait img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 18%}
+.person-back-portrait::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,var(--cv2,var(--brand-deep-green)) 100%)}
 .person-back::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,25,11,.15) 0%,rgba(9,25,11,.55) 100%);pointer-events:none}
 .person-back>*{position:relative;z-index:1}
 .person-back .geo{font-size:12px;font-weight:600;color:rgba(255,255,255,.78);letter-spacing:.02em}

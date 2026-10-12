@@ -8,6 +8,7 @@ Allow: /favicon.png
 Allow: /assets/
 
 Disallow: /uploads/
+Disallow: /submission-received
 Disallow: /hero-a
 Disallow: /hero-b
 Disallow: /hero-c

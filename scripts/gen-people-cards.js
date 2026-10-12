@@ -9,10 +9,13 @@ function esc(s) {
     .replace(/"/g, '&quot;');
 }
 
-function card({ init, cv1, cv2, name, role, geo, bio, full, attrs = '', delay = '', img = '' }) {
+function card({ init, cv1, cv2, name, role, geo, bio, full, attrs = '', delay = '', img = '', backPhoto = false }) {
   const safeName = esc(name);
   const photo = img
     ? '<img src="' + img + '" alt="' + safeName + '" width="640" height="853" loading="lazy">'
+    : '';
+  const backPortrait = backPhoto && img
+    ? '<div class="person-back-portrait" aria-hidden="true"><img src="' + img + '" alt="" width="640" height="853" loading="lazy"></div>'
     : '';
   const empty = img ? '' : ' person-photo--empty';
   const fullParas = Array.isArray(full) ? full : (full ? [full] : []);
@@ -27,7 +30,8 @@ function card({ init, cv1, cv2, name, role, geo, bio, full, attrs = '', delay = 
     '<div class="person-photo' + empty + '" style="--cv1:' + cv1 + ';--cv2:' + cv2 + '">' + photo + '<span class="init">' + init + '</span></div>' +
     '<div class="person-caption"><h3>' + name + '</h3><span class="role">' + role + '</span></div>' +
     '</div>' +
-    '<div class="person-face person-back">' +
+    '<div class="person-face person-back' + (backPortrait ? ' person-back--photo' : '') + '">' +
+    backPortrait +
     '<h3>' + name + '</h3><span class="role">' + role + '</span>' +
     (geo ? '<span class="geo">' + geo + '</span>' : '') +
     '<p class="bio">' + bio + '</p>' +
@@ -72,7 +76,7 @@ const IMG = '/assets/images/people/';
 
 const board = withPalette([
   {
-    init: 'JK', name: 'Dr. Jean-Pierre Karegeye', role: 'Executive Director', geo: 'Kigali HQ',
+    init: 'JK', name: 'Dr. Jean-Pierre Karegeye', role: 'Executive Director', geo: 'Kigali HQ', backPhoto: true,
     img: IMG + 'jean-pierre-karegeye.jpg',
     bio: 'Scholar and academic administrator leading GPS — connecting knowledge, innovation, enterprise, and policy across the Global South.',
     full: [
@@ -184,6 +188,14 @@ const departments = withPalette([
     full: [
       'Dr. Suchismita Pattanaik has over 12 years of experience spanning environmental research, policy, sustainability, climate action, and international cooperation. With a Ph.D. in Environmental Biotechnology, her work bridges scientific research and evidence-based policy, with a focus on climate mitigation and adaptation, carbon sequestration, climate-resilient agriculture, and sustainable development.',
       'She has worked with think tanks, international institutions, and intergovernmental organisations, contributing to South–South cooperation, policy research, climate governance, and initiatives that strengthen collaboration among Member States across the Global South. She is also actively engaged with global networks, reflecting her longstanding commitment to regional and international cooperation. She has authored more than 30 scientific and policy publications and has participated in international climate and policy forums across Asia, Africa, and Europe.',
+    ],
+  },
+  {
+    init: 'SH', name: 'Sewasew Hailu', role: 'Senior Software Engineer &amp; Webmaster',
+    bio: 'Senior software engineer with more than a decade of experience across government and international organizations, specializing in cybersecurity, AI, and educational software platforms.',
+    full: [
+      'Sewasew Hailu is a senior software engineer and webmaster with more than a decade of experience in the information technology sector. Experience spans high-level government institutions and international organizations, with a focus on cybersecurity, artificial intelligence, and digital platforms for education.',
+      'This multidisciplinary experience covers the full lifecycle of educational software platforms, from early concept and requirements through design, development, implementation, and delivery. The work connects software engineering and secure technology with the needs of educators, institutions, and the communities these platforms serve.',
     ],
   },
 ], GREEN);

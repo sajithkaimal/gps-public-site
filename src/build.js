@@ -24,14 +24,13 @@ function prettyHtml(html){
     .replace(/\b(href|action)="([^"]+)"/g, function(_,a,v){ return a+'="'+pretty(v)+'"'; })
     .replace(/\b(href|action)='([^']+)'/g, function(_,a,v){ return a+"='"+pretty(v)+"'"; });
 }
-/* Five top-level items. Secondary pages live in submenus or on landing pages.
+/* Six top-level items. Secondary pages live in submenus or on landing pages.
    Pages with no real material yet are reached from /roadmap, not the menu. */
 const NAV = [
  {id:'about',label:'About',href:'/about',sub:[
    ['/about-why-gps','Why GPS?'],
    ['/about-mission-vision','Mission &amp; Vision'],
    ['/about-our-approach','Our Approach'],
-   ['/people','People &amp; Governance'],
    ['/impact','Impact'],
    ['/roadmap','Roadmap']]},
  {id:'work',label:'Our Work',href:'/what-we-do',sub:[
@@ -40,17 +39,23 @@ const NAV = [
    ['/work-policy','Policy, Governance &amp; Public Leadership'],
    ['/work-enterprise','Enterprise &amp; Sustainable Development'],
    ['/initiatives','Activities']]},
+ {id:'people',label:'People &amp; Governance',href:'/people'},
+
  {id:'network',label:'Network',href:'/network',sub:[
-   ['/about-regional-hubs','Regional Coordination'],
+   ['/about-regional-hubs','Regional Coordination'], 
    ['/network-partners','Partners'],
    ['/network-diaspora','Diaspora Network']]},
- {id:'knowledge',label:'Knowledge &amp; News',href:'/knowledge-hub',cols2:true,sub:[
+  
+{id:'News',label:'GPS News',href:'/knowledge-hub',sub:[
+   ['/under-construction','South Nexus'],
+   ['/events','Events'],
+  //  ['/events-calendar','Calendar']
+  ]},
+ {id:'knowledge',label:'GPS Knowledge',href:'/knowledge-hub',cols2:true,sub:[
    ['/kh-journal','GPS Journal'],
    ['/kh-outlook','GPS Outlook'],
    ['/kh-library','Publications'],
-   ['/news','Updates'],
-   ['/events','Events'],
-   ['/events-calendar','Calendar']]},
+ ]},
  {id:'involved',label:'Get Involved',href:'/get-involved',sub:[
    ['/get-involved#partner','Partner with GPS'],
    ['/get-involved#join','Join GPS'],
@@ -64,6 +69,7 @@ const NAV = [
 function navHtml(active){
   let items = NAV.map(n=>{
     const a = '<a href="'+n.href+'"'+(n.id===active?' class="active"':'')+'>'+n.label+'</a>';
+    if(!n.sub) return '<li>'+a+'</li>';
     const btn = '<button class="sub-toggle" aria-expanded="false" aria-label="Open '+n.label.replace(/&amp;/g,'and')+' menu"><span class="car" aria-hidden="true"></span></button>';
     const sub = '<div class="sub'+(n.cols2?' cols2':'')+'"><a class="head" href="'+n.href+'">'+n.label+'</a><hr>'+n.sub.map(s=>'<a href="'+s[0]+'">'+s[1]+'</a>').join('')+'</div>';
     return '<li>'+a+btn+sub+'</li>';
