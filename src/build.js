@@ -47,15 +47,15 @@ const NAV = [
    ['/network-diaspora','Diaspora Network']]},
   
 {id:'News',label:'GPS News',href:'/knowledge-hub',sub:[
-   ['/under-construction','South Nexus'],
+   ['/under-construction','South Connect'],
    ['/events','Events'],
   //  ['/events-calendar','Calendar']
   ]},
- {id:'knowledge',label:'GPS Knowledge',href:'/knowledge-hub',cols2:true,sub:[
-   ['/kh-journal','GPS Journal'],
-   ['/kh-outlook','GPS Outlook'],
-   ['/kh-library','Publications'],
- ]},
+//  {id:'knowledge',label:'GPS Knowledge',href:'/knowledge-hub',cols2:true,sub:[
+//    ['/kh-journal','GPS Journal'],
+//    ['/kh-outlook','GPS Outlook'],
+//    ['/kh-library','Publications'],
+//  ]},
  {id:'involved',label:'Get Involved',href:'/get-involved',sub:[
    ['/get-involved#partner','Partner with GPS'],
    ['/get-involved#join','Join GPS'],
