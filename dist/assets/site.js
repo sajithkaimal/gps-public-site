@@ -1071,3 +1071,39 @@ d.querySelectorAll('[data-year]').forEach(function(el){el.textContent=new Date()
   }
 })();
 })();
+/* ---------- latest event photo gallery ---------- */
+(function(){
+  var galleries=document.querySelectorAll('[data-latest-gallery]');
+  galleries.forEach(function(gallery){
+    var image=gallery.querySelector('[data-latest-gallery-image]');
+    var caption=gallery.querySelector('[data-latest-gallery-caption]');
+    var count=gallery.querySelector('[data-latest-gallery-count]');
+    var thumbs=[].slice.call(gallery.querySelectorAll('[data-latest-gallery-thumb]'));
+    var prev=gallery.querySelector('[data-latest-gallery-prev]');
+    var next=gallery.querySelector('[data-latest-gallery-next]');
+    if(!image||!thumbs.length)return;
+    var current=thumbs.findIndex(function(thumb){return thumb.getAttribute('aria-pressed')==='true';});
+    if(current<0)current=0;
+    function show(index){
+      current=(index+thumbs.length)%thumbs.length;
+      var active=thumbs[current];
+      image.src=active.getAttribute('data-src');
+      image.alt=active.getAttribute('data-alt')||'';
+      if(caption)caption.textContent=active.getAttribute('data-caption')||'';
+      if(count)count.textContent=String(current+1).padStart(2,'0')+' / '+String(thumbs.length).padStart(2,'0');
+      thumbs.forEach(function(thumb,i){
+        var selected=i===current;
+        thumb.classList.toggle('is-active',selected);
+        thumb.setAttribute('aria-pressed',selected?'true':'false');
+      });
+    }
+    thumbs.forEach(function(thumb,index){thumb.addEventListener('click',function(){show(index);});});
+    if(prev)prev.addEventListener('click',function(){show(current-1);});
+    if(next)next.addEventListener('click',function(){show(current+1);});
+    gallery.addEventListener('keydown',function(event){
+      if(event.key==='ArrowLeft'){event.preventDefault();show(current-1);}
+      if(event.key==='ArrowRight'){event.preventDefault();show(current+1);}
+    });
+    show(current);
+  });
+})();

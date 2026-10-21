@@ -8,11 +8,12 @@ window.GPS_HUBS=[
  {id:'addis',name:'Addis Ababa',country:'Ethiopia',region:'East & Horn of Africa',role:'Regional Hub',status:'hub',lon:38.7578,lat:9.0107,blurb:'Gateway to continental institutions and the African Union ecosystem.'},
  {id:'dakar',name:'Dakar',country:'Senegal',region:'West Africa (Francophone)',role:'Regional Hub',status:'hub',lon:-17.4467,lat:14.6928,blurb:'Francophone West Africa — research, culture, and Atlantic partnerships.'},
  {id:'accra',name:'Accra',country:'Ghana',region:'West Africa (Anglophone)',role:'Regional Hub',status:'hub',lon:-0.187,lat:5.6037,blurb:'Anglophone West Africa — enterprise, innovation, and diaspora engagement.'},
+ {id:'beirut',name:'Lebanon',country:'Lebanon',region:'Middle East',role:'Regional Hub',status:'hub',lon:35.4955,lat:33.8938,blurb:'Levant and Arab-world collaboration — policy, research, and regional convenings.'},
+ {id:'islamabad',name:'Pakistan',country:'Pakistan',region:'South Asia',role:'Regional Hub',status:'hub',lon:73.0479,lat:33.6844,blurb:'South Asia — university partnerships, technology, and public-interest innovation.'},
+ {id:'newdelhi',name:'India',country:'India',region:'South Asia',role:'Regional Hub',status:'hub',lon:77.2090,lat:28.6139,blurb:'South Asia — policy convenings, institutional partnerships, and knowledge exchange.'},
  {id:'saopaulo',name:'São Paulo',country:'Brazil',region:'Latin America',role:'Regional Hub',status:'hub',lon:-46.6333,lat:-23.5505,blurb:'Latin America — university cooperation with GCUB and the 2028 convening.'},
- {id:'martinique',name:'Martinique',country:'France (Caribbean)',region:'The Caribbean',role:'Regional Hub',status:'hub',lon:-61.0742,lat:14.6104,blurb:'Caribbean node — linking island universities, culture, and climate resilience.'},
- {id:'caribbean',name:'Caribbean',country:'Location in consultation',region:'The Wider Caribbean',role:'Under Consultation',status:'plan',lon:-77.5,lat:20.6,blurb:'Planned — extending Caribbean presence beyond the Martinique hub, in consultation with island universities and regional bodies.'},
- {id:'mena',name:'Middle East',country:'Location in consultation',region:'MENA',role:'Under Consultation',status:'plan',lon:35.93,lat:31.95,blurb:'Planned — consultations underway with regional partners.'},
- {id:'asia',name:'South & SE Asia',country:'Location in consultation',region:'Asia-Pacific',role:'Under Consultation',status:'plan',lon:101.69,lat:3.14,blurb:'Planned — exploratory partnerships across South and Southeast Asia.'}
+ {id:'martinique',name:'Martinique',country:'France (Caribbean)',region:'The Caribbean',role:'Regional Hub',status:'hub',lon:-61.0742,lat:14.6104,blurb:'Caribbean node — linking island universities, culture, and climate resilience.'}
+ 
 ];
 function ready(fn){if(document.readyState!=='loading')fn();else document.addEventListener('DOMContentLoaded',fn);}
 ready(function(){

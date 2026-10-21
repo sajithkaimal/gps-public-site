@@ -13,6 +13,11 @@
 .feat-visual::after{content:"";position:absolute;inset:0;background:rgba(9,25,11,.18);box-shadow:inset 0 -300px 130px -28px rgba(9,25,11,.96);pointer-events:none}
 .feat-v-platform{background:var(--paper)}
 .feat-v-map{background:var(--brand-black)}
+.feat-v-event{background:var(--brand-black)}
+.feat-v-event::after{background:linear-gradient(90deg,rgba(9,25,11,.78),rgba(9,25,11,.24) 72%),linear-gradient(0deg,rgba(9,25,11,.88),transparent 82%);box-shadow:none}
+.feat-event-slide .feat-copy{max-width:min(58em,82%)}
+.feat-event-slide .feat-copy h1{max-width:28ch}
+.feat-mini-event{background:url('/assets/images/hub-meeting-p15.jpg') center 52%/cover no-repeat}
 .feat-stage-map{position:absolute;inset:0;overflow:hidden;z-index:0}
 .feat-v-kigali{background:var(--brand-black)}
 .feat-v-journal{background:#0C2414}
@@ -87,6 +92,13 @@
 .feat-stage{height:min(46vh,380px);min-height:220px;border-radius:0}
 .feat-rail{flex-direction:row;height:78px;padding:0 8px 2px;gap:6px}
 .feat-lede,.feat-legend{display:none}
+.feat-event-slide .feat-lede{display:block;font-size:13px;line-height:1.4;margin-top:8px}
+.feat-event-slide .feat-copy{max-width:none}
+.feat-event-slide .feat-copy h1{font-size:clamp(19px,4.8vw,25px);max-width:34ch}
+.feat-event-slide .feat-actions{margin-top:10px}
+.feat-event-slide .feat-actions .btn{display:inline-flex}
+.feat-event-slide .feat-visual::after{background:linear-gradient(90deg,rgba(9,25,11,.72),rgba(9,25,11,.28)),linear-gradient(0deg,rgba(9,25,11,.9),transparent 92%);box-shadow:none}
+.feat-stage-event{height:min(62vh,520px);min-height:360px}
 .feat-actions .btn-ghost{display:none}
 .feat-copy{max-width:none;padding:14px 16px 16px}
 .feat-tag{margin-bottom:6px;font-size:11px}
@@ -105,6 +117,10 @@
 .feat-tab{flex:1;min-width:0}
 .feat-cap{font-size:12px;left:6px;right:6px;bottom:6px}
 .feat-copy{padding:12px 14px 14px}
+.feat-stage-event{height:min(66vh,520px);min-height:370px}
+.feat-event-slide .feat-copy{padding:16px 14px 16px}
+.feat-event-slide .feat-copy h1{font-size:clamp(18px,5.2vw,23px)}
+.feat-event-slide .feat-lede{font-size:12.5px}
 .hero-home.hero-feat .feat-copy h1,.hero-home.hero-feat .feat-copy h2{font-size:clamp(17px,5.2vw,22px);max-width:none}
 .feat-thumb-cover{transform:none;width:50%;max-width:64px;top:8%}
 }
@@ -441,6 +457,41 @@
 .ed-status i.dev{background:var(--brand-gold-dark)}
 .ed-status i.plan{background:var(--brand-gold-bright)}
 .hl-hq{background:var(--pin-hq);box-shadow:0 0 8px var(--pin-hq)}
+
+/* Latest event feature */
+.latest-event-section{padding-top:clamp(24px,4vw,48px)}
+.latest-event-card{position:relative;isolation:isolate;display:flex;align-items:flex-end;min-height:clamp(440px,58vw,620px);overflow:hidden;border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:clamp(26px,5vw,62px);color:#fff;background:linear-gradient(90deg,rgba(9,25,11,.94) 0%,rgba(9,25,11,.76) 54%,rgba(9,25,11,.12) 100%),linear-gradient(0deg,rgba(9,25,11,.65),transparent 62%),url('/assets/images/hub-meeting-p15.jpg') center 48%/cover no-repeat;box-shadow:var(--shadow-lg)}
+.latest-event-copy{max-width:760px}
+.latest-event-kicker{font-family:var(--font-ui);font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#F5CB52}
+.latest-event-card h2{font-family:var(--font-display);font-size:clamp(27px,4vw,48px);font-weight:700;line-height:1.08;letter-spacing:-.03em;color:#fff;text-wrap:balance;margin-top:12px}
+.latest-event-lede{max-width:66ch;margin-top:18px;font-size:clamp(14px,1.25vw,17px);line-height:1.6;color:rgba(255,255,255,.9)}
+.latest-event-placeholder{margin-top:14px;font-size:13px;line-height:1.5;color:rgba(255,255,255,.68)}
+.latest-event-caption{position:absolute;z-index:1;right:clamp(20px,3vw,38px);top:clamp(20px,3vw,38px);display:flex;flex-direction:column;align-items:flex-end;gap:5px;text-align:right;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.76)}
+.latest-event-caption span:first-child{color:#F5CB52}
+.latest-details{margin-top:18px}
+.latest-details>summary{list-style:none}
+.latest-details>summary::-webkit-details-marker{display:none}
+.latest-details>summary:focus-visible{outline:3px solid var(--brand-green);outline-offset:4px}
+.latest-details-less,.latest-details[open] .latest-details-more{display:none}
+.latest-details[open] .latest-details-less{display:inline}
+.latest-details[open] .arrow{transform:rotate(180deg)}
+.latest-details .arrow{transition:transform .2s ease}
+.latest-details-body{margin-top:18px;padding:clamp(24px,4vw,48px);border:1px solid var(--line);border-radius:var(--r);background:var(--surface);color:var(--ink);box-shadow:var(--shadow)}
+.latest-details-body p,.latest-details-body li{font-size:clamp(14px,1.1vw,16px);line-height:1.75;color:var(--ink-soft)}
+.latest-details-body p+p{margin-top:16px}
+.latest-details-body h3{margin:34px 0 12px;font-family:var(--font-display);font-size:clamp(21px,2.2vw,28px);line-height:1.15;letter-spacing:-.02em;color:var(--brand-green)}
+.latest-details-body blockquote{margin:18px 0;padding:18px 22px;border-left:3px solid var(--brand-gold-dark);border-radius:0 var(--r-sm) var(--r-sm) 0;background:var(--wash);font-family:var(--font-serif);font-size:clamp(16px,1.4vw,19px);line-height:1.6;color:var(--ink)}
+.latest-details-body ul{display:grid;gap:12px;margin:16px 0 20px;padding-left:24px}
+.latest-details-body li{padding-left:4px}
+.latest-details-body li::marker{color:var(--brand-gold-dark)}
+@media(max-width:700px){
+ .latest-event-card{min-height:520px;padding:24px 20px;background-position:58% center}
+ .latest-event-card h2{font-size:clamp(25px,7vw,34px)}
+ .latest-event-caption{top:18px;right:18px;font-size:8px}
+ .latest-details-body{padding:22px 18px}
+ .latest-details-body h3{margin-top:26px}
+ .latest-details-body blockquote{padding:15px 16px}
+}
 
 /* Get Involved — prioritised pathway chooser */
 .path-lead{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,1.8vw,22px)}
