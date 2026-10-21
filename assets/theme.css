@@ -485,7 +485,7 @@
 .latest-gallery-next{right:14px}
 .latest-gallery-caption{position:absolute;z-index:1;right:18px;bottom:16px;left:18px;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;color:#fff;font-size:12px;font-weight:700;text-shadow:0 1px 8px rgba(0,0,0,.45)}
 .latest-gallery-caption span:last-child{flex:none;padding:5px 9px;border:1px solid rgba(255,255,255,.35);border-radius:100px;background:rgba(9,25,11,.4);font-size:10px;letter-spacing:.1em}
-.latest-event-thumbnails{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}
+.latest-event-thumbnails{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:12px}
 .latest-gallery-thumb{position:relative;aspect-ratio:16/9;overflow:hidden;padding:0;border:2px solid transparent;border-radius:var(--r-sm);background:var(--brand-deep-green);cursor:pointer;transition:border-color .2s ease,transform .2s ease,opacity .2s ease;opacity:.72}
 .latest-gallery-thumb:hover{opacity:1;transform:translateY(-2px)}
 .latest-gallery-thumb.is-active{border-color:var(--brand-gold-dark);opacity:1;box-shadow:0 0 0 2px rgba(238,178,50,.16)}
