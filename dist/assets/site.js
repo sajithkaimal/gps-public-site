@@ -2,6 +2,21 @@
 (function(){
 'use strict';
 var d=document;
+/* ---------- colloquium invitation CTA ---------- */
+var colloquiumCta=d.querySelector('.colloquium-invite-cta');
+if(colloquiumCta){
+  colloquiumCta.addEventListener('click',function(event){
+    var invitation=d.getElementById('colloquium-invitation');
+    var details=invitation&&invitation.closest('details');
+    if(!invitation||!details)return;
+    event.preventDefault();
+    details.open=true;
+    if(window.history&&window.history.pushState)window.history.pushState(null,'','#'+invitation.id);
+    requestAnimationFrame(function(){
+      invitation.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+    });
+  });
+}
 /* ---------- header nav ---------- */
 var body=d.body,toggle=d.getElementById('navToggle'),nav=d.querySelector('nav.main');
 if(toggle&&nav){toggle.addEventListener('click',function(){var open=body.classList.toggle('nav-open');toggle.setAttribute('aria-expanded',open?'true':'false');toggle.setAttribute('aria-label',open?'Close menu':'Open menu');});}
