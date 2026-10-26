@@ -49,7 +49,7 @@ require('./gen-search-index').main();
 
 eval(fs.readFileSync(path.join(root, 'src/build.js'), 'utf8'));
 
-const version = '20261021c';
+const version = '20261026a';
 GPSBUILD.run(version, io).then(async (n) => {
   const assets = ['assets/site.js', 'assets/map.js', 'assets/site.css', 'assets/ui.css', 'assets/theme.css', 'assets/search-index.json', '.htaccess'];
   for (const a of assets) {
