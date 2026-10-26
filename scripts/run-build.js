@@ -68,6 +68,20 @@ GPSBUILD.run(version, io).then(async (n) => {
       await fs.promises.copyFile(path.join(peopleSrc, name), path.join(peopleDest, name));
     }
   }
+  const eventsSrc = path.join(root, 'assets', 'images', 'events');
+  if (fs.existsSync(eventsSrc)) {
+    for (const entry of await fs.promises.readdir(eventsSrc, { withFileTypes: true })) {
+      if (!entry.isDirectory()) continue;
+      const eventSrc = path.join(eventsSrc, entry.name);
+      const eventDest = path.join(dist, 'assets', 'images', 'events', entry.name);
+      await fs.promises.mkdir(eventDest, { recursive: true });
+      for (const name of await fs.promises.readdir(eventSrc)) {
+        const source = path.join(eventSrc, name);
+        if (!(await fs.promises.stat(source)).isFile()) continue;
+        await fs.promises.copyFile(source, path.join(eventDest, name));
+      }
+    }
+  }
   const r1 = await cleanStaleFlatHtml(root);
   const r2 = await cleanStaleFlatHtml(dist);
   console.log('Build complete:', n, 'pages; removed', r1 + r2, 'stale flat .html files');

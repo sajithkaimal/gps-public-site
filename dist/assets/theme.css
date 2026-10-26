@@ -498,6 +498,7 @@
 .latest-event-lede{max-width:62ch;margin-top:18px;font-size:clamp(14px,1.12vw,16px);line-height:1.7;color:var(--ink-soft)}
 .latest-event-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
 .latest-event-tags span{padding:7px 10px;border:1px solid rgba(17,52,26,.1);border-radius:100px;background:#fff;font-size:11px;font-weight:700;color:var(--brand-green)}
+.colloquium-invite-cta{margin-top:22px}
 .latest-event-link{display:inline-flex;align-items:center;gap:10px;margin-top:26px;font-size:13px;font-weight:800;color:var(--brand-green);transition:gap .2s ease}
 .latest-event-link:hover{gap:15px;color:var(--brand-gold-dark)}
 .latest-event-link span{display:grid;place-items:center;width:25px;height:25px;border-radius:50%;background:rgba(238,178,50,.18);color:var(--brand-black)}
@@ -518,6 +519,22 @@
 .latest-details-body ul{display:grid;gap:12px;margin:16px 0 20px;padding-left:24px}
 .latest-details-body li{padding-left:4px}
 .latest-details-body li::marker{color:var(--brand-gold-dark)}
+.colloquium-invitation{margin-top:32px;padding:clamp(22px,3vw,34px);border:1px solid rgba(213,142,20,.32);border-radius:var(--r);background:linear-gradient(140deg,#fff9e9 0%,#fff 72%);box-shadow:0 18px 42px -34px rgba(9,25,11,.34)}
+.colloquium-invitation-kicker,.latest-details-body .colloquium-invitation-kicker{margin:0;color:var(--brand-gold-dark);font-family:var(--font-ui);font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.colloquium-invitation h3,.latest-details-body .colloquium-invitation h3{margin:8px 0 0;color:var(--brand-black);font-size:clamp(25px,2.8vw,34px)}
+.latest-details-body .colloquium-invitation-lede{margin:10px 0 0;color:var(--ink-soft)}
+.colloquium-sessions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px}
+.colloquium-session{padding:20px;border:1px solid rgba(17,52,26,.12);border-radius:var(--r-sm);background:rgba(255,255,255,.88)}
+.colloquium-session-label{display:block;color:var(--brand-green);font-family:var(--font-ui);font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+.colloquium-session h4{margin-top:8px;color:var(--brand-black);font-family:var(--font-display);font-size:19px;line-height:1.2}
+.latest-details-body .colloquium-session-time{margin:12px 0 0;color:var(--ink-soft);font-size:13px;line-height:1.6}
+.colloquium-pending{display:inline-flex;margin-top:18px;padding:8px 11px;border:1px dashed rgba(17,52,26,.24);border-radius:100px;color:var(--ink-soft);background:#f6f4ed;font-size:11px;font-weight:700}
+.colloquium-join{margin-top:16px}
+.colloquium-access{display:grid;gap:8px;margin-top:16px}
+.colloquium-access>div{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding-top:8px;border-top:1px solid var(--line-soft)}
+.colloquium-access dt{color:var(--ink-faint);font-size:11px;font-weight:700}
+.colloquium-access dd{margin:0;color:var(--brand-black);font-family:var(--font-ui);font-size:12px;font-weight:800;letter-spacing:.04em}
+.latest-details-body .colloquium-help{margin:16px 0 0;color:var(--ink-faint);font-size:12px;line-height:1.55}
 @media(max-width:700px){
  .latest-event-card{grid-template-columns:1fr;gap:24px;padding:16px}
  .latest-event-frame{aspect-ratio:4/3}
@@ -526,10 +543,14 @@
  .latest-event-card h2{font-size:clamp(27px,7vw,38px)}
  .latest-event-lede{margin-top:14px}
  .latest-event-tags{margin-top:18px}
+ .colloquium-invite-cta{margin-top:18px}
  .latest-event-link{margin-top:20px}
  .latest-details-body{padding:22px 18px}
  .latest-details-body h3{margin-top:26px}
  .latest-details-body blockquote{padding:15px 16px}
+ .colloquium-sessions{grid-template-columns:1fr}
+ .colloquium-invitation{margin-top:24px;padding:20px 16px}
+ .colloquium-access>div{align-items:flex-start;flex-direction:column;gap:4px}
 }
 @media(prefers-reduced-motion:reduce){.latest-event-frame>img,.latest-gallery-arrow,.latest-gallery-thumb,.latest-event-link{transition:none}}
 /* Get Involved — prioritised pathway chooser */
