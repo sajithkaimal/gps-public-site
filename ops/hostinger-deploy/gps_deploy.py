@@ -239,13 +239,34 @@ class Page(HTMLParser):
         super().__init__()
         self.assets = set()
         self.forms = []
+
+    def add_asset(self, value):
+        if not value:
+            return
+        value = value.strip()
+        if not value or value.startswith("#"):
+            return
+        self.assets.add(value)
+
+    def add_srcset(self, value):
+        if not value:
+            return
+        for item in value.split(","):
+            candidate = item.strip().split()[0] if item.strip() else ""
+            if candidate:
+                self.add_asset(candidate)
+
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
         if tag == "form": self.forms.append(attrs.get("action", ""))
         for key in ("src", "poster"):
-            if attrs.get(key): self.assets.add(attrs[key])
+            self.add_asset(attrs.get(key))
+        for key in ("srcset", "data-src", "data-srcset", "data-poster"):
+            self.add_srcset(attrs.get(key))
+        if tag == "script":
+            self.add_asset(attrs.get("src"))
         if tag == "link" and attrs.get("href") and any(t in attrs.get("rel", "") for t in ("stylesheet", "icon", "manifest", "preload")):
-            self.assets.add(attrs["href"])
+            self.add_asset(attrs["href"])
 
 
 def package(checkout, destination):

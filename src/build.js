@@ -47,7 +47,7 @@ const NAV = [
    ['/network-diaspora','Diaspora Network']]},
   
 {id:'News',label:'GPS News',href:'/knowledge-hub',sub:[
-   ['/under-construction','South Connect'],
+   ['/news','South Connect'],
    ['/events','Events'],
   //  ['/events-calendar','Calendar']
   ]},

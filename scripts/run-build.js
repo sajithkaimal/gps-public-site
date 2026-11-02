@@ -49,7 +49,7 @@ require('./gen-search-index').main();
 
 eval(fs.readFileSync(path.join(root, 'src/build.js'), 'utf8'));
 
-const version = '20261026a';
+const version = '20261102a';
 GPSBUILD.run(version, io).then(async (n) => {
   const assets = ['assets/site.js', 'assets/map.js', 'assets/site.css', 'assets/ui.css', 'assets/theme.css', 'assets/search-index.json', '.htaccess'];
   for (const a of assets) {
@@ -79,6 +79,22 @@ GPSBUILD.run(version, io).then(async (n) => {
         const source = path.join(eventSrc, name);
         if (!(await fs.promises.stat(source)).isFile()) continue;
         await fs.promises.copyFile(source, path.join(eventDest, name));
+      }
+    }
+  }
+  const newsSrc = path.join(root, 'assets', 'images', 'news');
+  if (fs.existsSync(newsSrc)) {
+    const newsDest = path.join(dist, 'assets', 'images', 'news');
+    await fs.promises.mkdir(newsDest, { recursive: true });
+    for (const entry of await fs.promises.readdir(newsSrc, { withFileTypes: true })) {
+      if (!entry.isDirectory()) continue;
+      const storySrc = path.join(newsSrc, entry.name);
+      const storyDest = path.join(newsDest, entry.name);
+      await fs.promises.mkdir(storyDest, { recursive: true });
+      for (const name of await fs.promises.readdir(storySrc)) {
+        const source = path.join(storySrc, name);
+        if (!(await fs.promises.stat(source)).isFile()) continue;
+        await fs.promises.copyFile(source, path.join(storyDest, name));
       }
     }
   }

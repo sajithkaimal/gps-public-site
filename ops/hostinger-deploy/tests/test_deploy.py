@@ -251,6 +251,12 @@ class PackagingTests(unittest.TestCase):
         for p,text in files.items():
             f=self.root/p;f.parent.mkdir(parents=True,exist_ok=True);f.write_text(text)
 
+    def test_page_parser_collects_srcset_and_lazy_asset_urls(self):
+        page = d.Page()
+        page.feed('<html><img src="/assets/hero.jpg" srcset="/assets/hero-1x.jpg 1x, /assets/hero-2x.jpg 2x"><source srcset="/assets/video.mp4 720w, /assets/video-4k.mp4 2160w"><img data-src="/assets/lazy.png" data-srcset="/assets/lazy-2.png 1x"></html>')
+        for asset in ("/assets/hero.jpg", "/assets/hero-1x.jpg", "/assets/hero-2x.jpg", "/assets/video.mp4", "/assets/video-4k.mp4", "/assets/lazy.png", "/assets/lazy-2.png"):
+            self.assertIn(asset, page.assets)
+
     def test_includes_required_assets_and_contact_but_excludes_private_sources(self):
         manifest,missing = d.package(self.root,self.output)
         self.assertEqual(missing, [])

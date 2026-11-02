@@ -548,7 +548,7 @@
  .latest-details-body{padding:22px 18px}
  .latest-details-body h3{margin-top:26px}
  .latest-details-body blockquote{padding:15px 16px}
- .colloquium-sessions{grid-template-columns:1fr}
+ .colloquium-sessions{grid-template-columns:1fr;max-width:520px;margin-left:auto;margin-right:auto}
  .colloquium-invitation{margin-top:24px;padding:20px 16px}
  .colloquium-access>div{align-items:flex-start;flex-direction:column;gap:4px}
 }
