@@ -232,6 +232,19 @@ const advisory = withPalette([
     ],
   },
   {
+    init: 'MG', name: 'Ms. Mbaranga Clotilde Gasarabwe', role: 'Former United Nations Assistant Secretary-General | Former Deputy Special Representative of the UN Secretary-General for Mali',
+    img: IMG + 'gasarabwe.jpeg',
+    bio: 'Ms. Mbaranga Clotilde Gasarabwe is a distinguished international leader and former senior United Nations official with an extensive career in multilateral diplomacy, international development, humanitarian affairs, peacebuilding, governance, and global security.',
+    full: [
+      'Ms. Mbaranga Clotilde Gasarabwe is a distinguished international leader and former senior United Nations official with an extensive career in multilateral diplomacy, international development, humanitarian affairs, peacebuilding, governance, and global security. Over more than two decades of service with the United Nations, she has held senior leadership positions at both headquarters and country levels, contributing to international cooperation, institutional development, and humanitarian responses across Africa and beyond.',
+      'In 2015, Ms. Gasarabwe was appointed by the United Nations Secretary-General as Deputy Special Representative of the Secretary-General for the United Nations Multidimensional Integrated Stabilization Mission in Mali (MINUSMA). She simultaneously served as United Nations Resident Coordinator, Humanitarian Coordinator, and UNDP Resident Representative. In these capacities, she provided strategic leadership in coordinating humanitarian assistance, recovery initiatives, and development programmes, working closely with national authorities, international partners, and humanitarian organizations to support vulnerable and conflict-affected populations.',
+      'Previously, she served as United Nations Assistant Secretary-General in the Department of Safety and Security, based at UN Headquarters in New York, where she oversaw critical aspects of safety and security management for United Nations personnel and operations worldwide.',
+      'Before joining the UN Secretariat, Ms. Gasarabwe built an extensive career with the United Nations Development Programme (UNDP), holding senior leadership positions in Mali, Guinea, Djibouti, and Benin. Her work encompassed democratic governance, economic reforms, humanitarian coordination, institutional capacity-building, and sustainable development. She also played an important role in strengthening cooperation between African institutions and international development partners. During her assignment in Djibouti, she worked closely with the African Union and the League of Arab States, while fostering partnerships with institutions such as the Islamic Development Bank and the Kuwait Fund.',
+      'Prior to her United Nations career, Ms. Gasarabwe worked as a consultant for major international development organizations, including the Canadian International Development Agency (CIDA), the United States Agency for International Development (USAID), and the World Bank.',
+      'As a member of the International Advisory Board of the Global Platform for the South (GPS), Ms. Gasarabwe brings a wealth of experience in international diplomacy, multilateral cooperation, institutional leadership, peacebuilding, and sustainable development. Her expertise will help strengthen GPS’s engagement with governments, international organizations, development institutions, and strategic partners, while advancing South–South cooperation and promoting inclusive, knowledge-driven development across the Global South.',
+    ],
+  },
+  {
     init: 'RS', name: 'Prof. Rossana Valéria de Souza e Silva', role: 'International Advisory Board Member', geo: 'Brazil · GCUB',
     img: IMG + 'rossana-valeria-de-souza-e-silva.jpg',
     bio: 'Executive Director of GCUB and a leading voice in international university cooperation across Latin America and beyond.',
