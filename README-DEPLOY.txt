@@ -1,8 +1,8 @@
 GPS — gpsouth.org · deploy build
-Build 20260809a · generated 2026-07-27
+Build 20261116a · generated 2026-11-16
 
 UPLOAD
-  Upload the CONTENTS of this folder into public_html/ on Hostinger
+  Upload the CONTENTS of dist/ into public_html/ on Hostinger
   (index.html must sit directly in public_html/, not in a subfolder).
   Overwrite the existing files, INCLUDING .htaccess.
 
@@ -17,27 +17,35 @@ WHY THE HOMEPAGE BROKE BEFORE
   escaped its container and the video/legend lost their layout.
 
   Fixed two ways:
-   1. Every CSS/JS/image URL now carries ?v=20260809a. Any future change to a
-      file changes its URL, so a stale cache can never be used.
-   2. HTML is now served no-cache; only version-stamped assets cache long.
+   1. Generated CSS and JS URLs carry ?v=20261116a. The build version in
+      scripts/run-build.js changes these URLs, so stale cached assets are bypassed.
+   2. HTML is served no-cache; only version-stamped assets cache long.
    3. A small inline <style> in each page pins the hero's containment, so
       even a failed or stale stylesheet cannot blow up the layout again.
 
-  When you next change a CSS or JS file, bump the ?v= value in the pages
-  (or ask for a rebuild) so visitors pick it up immediately.
+  When you next change a CSS or JS file, update the version in
+  scripts/run-build.js and rebuild so visitors pick it up immediately.
 
 CONTENTS
-  48 .html pages (static, no build step, no server code)
+  Generated static HTML pages (no Node.js runtime required on Hostinger)
   assets/  site.css, ui.css, theme.css, site.js, map.js,
-           hero.webm, hero-poster.png
+           story/event images, hero.webm, hero-poster.png
   .htaccess  compression, cache policy, webm MIME type
+  send.php  contact form mail handler
 
 NOTES
   - The world maps load d3 + Natural Earth data from a CDN at runtime.
     They need outbound internet; pages degrade gracefully without it.
   - hero.webm is 11.1 MB. Compressing it to 2-3 MB is recommended before
     heavy traffic. Replace assets/hero.webm in place, then bump ?v=.
-  - Contact forms show a confirmation but do not send email yet.
+  - Contact form delivery requires send.php to be uploaded alongside index.html.
+
+CHANGES IN THIS BUILD (20261116a)
+  - Added the Green Hills Academy story to the homepage and news page.
+  - Added a responsive article page with a touch-friendly photo gallery and
+    linked author profile.
+  - Included the homepage overview video and thumbnail in the deploy bundle.
+  - Updated the asset version so cached CSS and JavaScript are refreshed.
 
 CHANGES IN THIS BUILD (20260809a)
   - Removed repeated placeholder cards within single sections.

@@ -147,7 +147,7 @@ body.person-modal-open{overflow:hidden}
 .fcount{font-size:12.5px;color:var(--ink-faint);margin-left:auto}
 .empty-msg{display:none;border:1px dashed var(--line);border-radius:14px;padding:34px;text-align:center;color:var(--ink-faint);font-size:14px}
 [data-filter-list].is-empty .empty-msg{display:block}
-.home-news-feature{position:relative;isolation:isolate;display:flex;flex-direction:column;align-items:flex-start;gap:12px;min-height:320px;margin:0 0 16px;padding:clamp(22px,3vw,34px);overflow:hidden;border:1px solid rgba(255,255,255,.14);border-radius:var(--r);background:linear-gradient(90deg,rgba(7,22,12,.96),rgba(7,22,12,.82) 62%,rgba(7,22,12,.35)),url('/assets/images/news/FaisalSaleemNov2/2.jpeg') center/cover;color:#fff;text-decoration:none;box-shadow:var(--shadow);transition:transform .3s var(--ease),box-shadow .3s}
+.home-news-feature{position:relative;isolation:isolate;display:flex;flex-direction:column;align-items:flex-start;gap:12px;min-height:320px;margin:0 0 16px;padding:clamp(22px,3vw,34px);overflow:hidden;border:1px solid rgba(255,255,255,.14);border-radius:var(--r);background:linear-gradient(90deg,rgba(7,22,12,.96),rgba(7,22,12,.82) 62%,rgba(7,22,12,.35)),url('/assets/images/news/wajia/1.jpeg') center/cover;color:#fff;text-decoration:none;box-shadow:var(--shadow);transition:transform .3s var(--ease),box-shadow .3s}
 .home-news-feature:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
 .home-news-feature-kick{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#f0c365}
 .home-news-feature-title{max-width:30ch;font-family:var(--font-display);font-size:clamp(20px,2.2vw,27px);font-weight:700;letter-spacing:-.025em;line-height:1.16}
@@ -206,6 +206,34 @@ body.person-modal-open{overflow:hidden}
 .responsible-ai-more-link:hover span{transform:translateX(3px)}
 @media(max-width:640px){.responsible-ai-page{padding:16px 0 40px!important}.responsible-ai-story{padding:20px 16px;border-radius:18px}.responsible-ai-story .news-story-head{margin-bottom:18px}.responsible-ai-story .news-story-head h2{font-size:clamp(25px,7vw,34px)}.responsible-ai-story .news-story-image,.responsible-ai-story .news-story-video{width:100%;margin:18px auto;border-radius:14px}.responsible-ai-story .news-story-image img{max-height:260px}.responsible-ai-story .news-story-content>p:first-child{padding:16px 18px;margin-bottom:22px}.responsible-ai-story .news-story-content ul{padding:16px 14px}.responsible-ai-story .news-story-content li{padding-left:30px}}
 @media(max-width:640px){.responsible-ai-more{align-items:flex-start;flex-direction:column;margin-top:20px;padding:22px 20px;border-radius:16px}.responsible-ai-more-link{width:100%}}
+.wajia-story{margin:0 auto;padding:clamp(22px,4vw,48px);border-radius:24px}
+.wajia-story .news-story-head{max-width:900px;margin-bottom:24px}
+.wajia-story .news-story-head h2{max-width:28ch;margin-top:12px;font-size:clamp(27px,4.2vw,46px);line-height:1.12;letter-spacing:-.03em}
+.wajia-subtitle{max-width:760px;margin:16px 0 0;font-size:clamp(16px,1.3vw,18px);line-height:1.65;color:var(--ink-soft)}
+.wajia-byline{display:flex;align-items:center;gap:12px;margin-top:18px}
+.wajia-byline img{width:56px;height:56px;border:2px solid var(--line);border-radius:50%;object-fit:cover}
+.wajia-byline .news-story-byline{margin:0}
+.wajia-byline .news-story-byline a{color:inherit;text-decoration:underline;text-decoration-color:var(--brand-gold-dark);text-underline-offset:3px}
+.wajia-gallery{width:min(100%,920px);margin:0 auto 36px}
+.wajia-gallery .latest-event-frame{aspect-ratio:4/3}
+.wajia-gallery .latest-event-frame>img{display:block;width:100%;height:100%;object-fit:cover}
+.wajia-gallery .latest-gallery-caption{font-size:13px}
+.wajia-gallery-thumbnails{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.wajia-gallery .latest-gallery-thumb{aspect-ratio:16/10;border-radius:12px}
+.wajia-gallery .latest-gallery-thumb img{display:block;width:100%;height:100%;object-fit:cover}
+.wajia-content{max-width:760px}
+.wajia-content>p:first-child{margin:0 0 28px;padding:22px 26px;border-left:3px solid var(--brand-gold);border-radius:0 16px 16px 0;background:var(--wash);font-size:clamp(16px,1.35vw,18px);line-height:1.75;color:var(--ink)}
+.wajia-content h3{margin-top:42px}
+.article-author-bio{margin:42px 0 26px;padding:clamp(22px,3vw,34px);border:1px solid rgba(17,52,26,.14);border-radius:20px;background:linear-gradient(135deg,#fff 0%,#f7f5eb 100%);box-shadow:0 18px 42px -34px rgba(9,25,11,.4)}
+.article-author-kicker{display:block;color:var(--brand-gold-dark);font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.article-author-bio h3{margin:8px 0 10px!important;color:var(--brand-black);font-size:clamp(21px,2.4vw,27px);line-height:1.2}
+.article-author-bio h3 a{color:inherit;text-decoration:none}
+.article-author-bio h3 a:hover{text-decoration:underline;text-decoration-color:var(--brand-gold-dark);text-underline-offset:4px}
+.article-author-bio p{margin:0;color:var(--ink-soft);font-size:15px;line-height:1.7}
+.wajia-gallery .latest-event-frame{touch-action:pan-y}
+@media(max-width:640px){.article-author-bio{margin:32px 0 22px;padding:22px 18px;border-radius:16px}.article-author-bio p{font-size:14px}}
+@media(max-width:800px){.wajia-gallery-thumbnails{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}}
+@media(max-width:640px){.wajia-article-page{padding:16px 0 40px!important}.wajia-story{padding:20px 16px;border-radius:18px}.wajia-story .news-story-head{margin-bottom:18px}.wajia-story .news-story-head h2{font-size:clamp(25px,7vw,34px)}.wajia-gallery{margin-bottom:26px}.wajia-gallery .latest-event-frame{aspect-ratio:4/3;border-radius:14px}.wajia-gallery-thumbnails{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:8px}.wajia-gallery .latest-gallery-thumb{border-radius:8px}.wajia-gallery .latest-gallery-arrow{width:40px;height:40px}.wajia-gallery .latest-gallery-prev{left:10px}.wajia-gallery .latest-gallery-next{right:10px}.wajia-content>p:first-child{margin:0 0 24px;padding:18px 18px;border-left:3px solid var(--brand-gold);border-radius:0 14px 14px 0;background:var(--surface);font-size:16px;line-height:1.7;color:var(--ink)}}
 /* timeline ---------- */
 .timeline{position:relative;margin-top:14px}
 .timeline::before{content:"";position:absolute;left:11px;top:6px;bottom:6px;width:2px;background:var(--brand-green);border-radius:2px;opacity:.5}

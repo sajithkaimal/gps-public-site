@@ -4,6 +4,7 @@ globalThis.GPSBUILD = (() => {
 /* Clean public URLs: /about not /about.html.
    Pages publish to /about/index.html so Live Server (no .htaccess) and Apache both work. */
 function publishPath(f){
+  if(f==='wajiaBoubacar.html') return f;
   if(f==='index.html' || f==='404.html') return f;
   return f.replace(/\.html$/,'')+'/index.html';
 }
@@ -14,6 +15,7 @@ function pretty(href){
   const hi=path.indexOf('#'); if(hi>=0){ hash=path.slice(hi); path=path.slice(0,hi); }
   const qi=path.indexOf('?'); if(qi>=0){ q=path.slice(qi); path=path.slice(0,qi); }
   path=path.trim();
+  if(path==='/wajiaBoubacar.html') return path+q+hash;
   if(!path || path==='/' || path==='index.html') return '/'+q+hash;
   if(path.slice(-5)==='.html') path=path.slice(0,-5);
   if(path.charAt(0)!=='/') path='/'+path;
@@ -93,6 +95,7 @@ const FOOTER = '<footer class="site"><div class="ft-in"><div class="ft-grid">'+
 const SITE = 'https://gpsouth.org';
 function canonUrl(f){
   if(f==='index.html') return SITE+'/';
+  if(f==='wajiaBoubacar.html') return SITE+'/'+f;
   return SITE+'/'+f.replace(/\.html$/,'');
 }
 function seoTags(f, title, desc, robots){
@@ -116,7 +119,7 @@ async function run(V, io){
   const eco = prettyHtml(await readFile('src/ecosystem.frag.html'));
   let SEARCH_IDX='[]';
   try{ SEARCH_IDX = await readFile('src/search-index.json'); }catch(e){ log('no search index'); }
-  const files = await ls('src/pages');
+  const files = (await ls('src/pages')).filter(f=>f.endsWith('.html'));
   let n = 0;
   for(const f of files){
     const raw = await readFile('src/pages/'+f);

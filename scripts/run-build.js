@@ -11,6 +11,7 @@ const KEEP_FLAT = new Set([
   'hero-a.html',
   'hero-b.html',
   'hero-c.html',
+  'wajiaBoubacar.html',
 ]);
 
 async function writeBoth(rel, data) {
@@ -49,9 +50,9 @@ require('./gen-search-index').main();
 
 eval(fs.readFileSync(path.join(root, 'src/build.js'), 'utf8'));
 
-const version = '20261102a';
+const version = '20261116a';
 GPSBUILD.run(version, io).then(async (n) => {
-  const assets = ['assets/site.js', 'assets/map.js', 'assets/site.css', 'assets/ui.css', 'assets/theme.css', 'assets/search-index.json', '.htaccess'];
+  const assets = ['assets/site.js', 'assets/map.js', 'assets/site.css', 'assets/ui.css', 'assets/theme.css', 'assets/search-index.json', 'assets/images/gps-web-thumb.png', 'assets/video/gps-web.webm', '.htaccess'];
   for (const a of assets) {
     const src = path.join(root, a);
     if (!fs.existsSync(src)) continue;

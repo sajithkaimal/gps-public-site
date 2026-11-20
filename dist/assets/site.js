@@ -1119,6 +1119,18 @@ d.querySelectorAll('[data-year]').forEach(function(el){el.textContent=new Date()
       if(event.key==='ArrowLeft'){event.preventDefault();show(current-1);}
       if(event.key==='ArrowRight'){event.preventDefault();show(current+1);}
     });
+    var touchStart=null;
+    gallery.addEventListener('pointerdown',function(event){
+      touchStart=event.pointerType==='touch'?{x:event.clientX,y:event.clientY}:null;
+    });
+    gallery.addEventListener('pointerup',function(event){
+      if(!touchStart)return;
+      var deltaX=event.clientX-touchStart.x;
+      var deltaY=event.clientY-touchStart.y;
+      touchStart=null;
+      if(Math.abs(deltaX)>48&&Math.abs(deltaX)>Math.abs(deltaY))show(current+(deltaX<0?1:-1));
+    });
+    gallery.addEventListener('pointercancel',function(){touchStart=null;});
     show(current);
   });
 })();
